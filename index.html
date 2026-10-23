@@ -58,6 +58,11 @@
   .kpi { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; min-width: 0; }
   .kpi span { display: block; color: var(--muted); font-size: 13px; }
   .kpi strong { display: block; font-size: 20px; font-variant-numeric: tabular-nums; }
+  .tel { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); color: var(--text); text-decoration: none; }
+  .tel:last-child { border-bottom: 0; }
+  .tel strong { flex: 0 0 auto; font-size: 18px; color: var(--bad); font-variant-numeric: tabular-nums; }
+  .tel span { flex: 1; min-width: 0; font-size: 15px; }
+  .tel small { display: block; color: var(--muted); font-size: 13px; }
   .alert { border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; }
   .alert b { display: block; }
   .alert small { display: block; color: var(--text); opacity: .85; font-size: 14px; }
@@ -212,6 +217,10 @@ function pintarInicio() {
       <div class="kpi"><span>Próxima ITV</span><strong>${fmtF(D.estado.proximaITV)}</strong></div>
       <div class="kpi"><span>Seguro hasta</span><strong>${fmtF(D.estado.seguroHasta)}</strong></div>
       <div class="kpi"><span>Tareas pendientes</span><strong>${pend} de ${D.pendientes.length}</strong></div>
+    </div>
+    <h2>Emergencias</h2>
+    <div class="card">${D.emergencias.map(([q, n, d]) => `
+      <a class="tel" href="tel:${n.replace(/\s/g, "")}"><span>${esc(q)}${d ? `<small>${esc(d)}</small>` : ""}</span><strong>${esc(n)}</strong></a>`).join("")}
     </div>
     <h2>Avisos</h2>
     ${avisos().map(([c, t, d]) => `<div class="alert ${c}"><b>${esc(t)}</b><small>${esc(d)}</small></div>`).join("")}
