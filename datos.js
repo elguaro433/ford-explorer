@@ -38,6 +38,17 @@ window.DATOS = {
     ]
   },
 
+  // Teléfonos de urgencia (se pueden pulsar para llamar). [quién, número, para qué]
+  emergencias: [
+    ["Asistencia en carretera Multisegur (en Andorra)", "+376 860 366", "Grúa, avería, pinchazo, batería. Si no contesta: +376 321 432"],
+    ["Asistencia en carretera Multisegur (fuera de Andorra)", "+34 933 001 050", "En España, Francia y el resto de Europa"],
+    ["Emergencias (Andorra y toda Europa)", "112", "Accidente con heridos, fuego, peligro. Funciona en cualquier país de la UE"],
+    ["Policía de Andorra", "110", "Accidente sin heridos, robo, tráfico"],
+    ["Urgencias médicas (SUM)", "116", "Ambulancia en Andorra"],
+    ["Bomberos de Andorra", "118", ""],
+    ["Multisegur (oficina y partes)", "+376 808 808", "Póliza 10043515. WhatsApp +376 626 808"]
+  ],
+
   // [dato, valor, grupo]
   ficha: [
     ["Modelo", "Ford Explorer XLT 4x4, 4 puertas", "Origen"],
