@@ -98,6 +98,8 @@
   .dibujos { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 10px; }
   .dibujos img { max-width: 100%; max-height: 200px; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 4px; }
 
+  .sub-h { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--brand); margin: 14px 0 2px; }
+  .sub-h:first-child { margin-top: 0; }
   .dato { padding: 9px 0; border-bottom: 1px solid var(--line); }
   .dato:last-child { border-bottom: 0; }
   .dato span { display: block; font-size: 13px; color: var(--muted); }
@@ -214,7 +216,7 @@ function indice() {
   B.forEach(b => I.push({ tag: "Botón o luz · pág. " + b.p, t: b.n, d: b.s + " " + b.u }));
   D.fallos.forEach(f => I.push({ tag: "Problema · pág. " + f.p, t: f.s, d: f.c.join(" ") }));
   M.forEach(m => I.push({ tag: "Manual · pág. " + m.p, t: m.t, d: m.x }));
-  D.ficha.forEach(([k, v]) => I.push({ tag: "Mi coche", t: k + ": " + v, d: "" }));
+  D.ficha.forEach(([k, v, g]) => I.push({ tag: "Ficha · " + g, t: k + ": " + v, d: "" }));
   D.pendientes.forEach(p => I.push({ tag: "Tarea", t: p.t, d: "" }));
   return I;
 }
@@ -302,7 +304,8 @@ function pintarCoche() {
   $("#coche").innerHTML = `
     <p class="intro">Toca un apartado para abrirlo.</p>
     <details class="grupo"><summary>Ficha del coche</summary><div>
-      ${D.ficha.map(([k, v]) => `<div class="dato"><span>${esc(k)}</span>${esc(v)}</div>`).join("")}</div></details>
+      ${[...new Set(D.ficha.map(f => f[2]))].map(g => `<h3 class="sub-h">${esc(g)}</h3>
+        ${D.ficha.filter(f => f[2] === g).map(([k, v]) => `<div class="dato"><span>${esc(k)}</span>${esc(v)}</div>`).join("")}`).join("")}</div></details>
 
     <details class="grupo"><summary>Mantenimiento</summary><div>
       <div class="alert warn"><b>Lo que le toca ahora</b><small>${esc(P.tuEstado)}</small></div>
