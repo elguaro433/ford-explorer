@@ -100,6 +100,7 @@
   .cerrar { position: absolute; top: 6px; right: 6px; width: 44px; height: 44px; background: var(--bg); border: 1px solid var(--line); border-radius: 50%; color: var(--text); font-size: 18px; cursor: pointer; }
 
   .dibujos { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 10px; }
+  .dibujos img.grande { width: 100%; max-height: none; }
   .dibujos figure { position: relative; margin: 0; max-width: 100%; }
   .dibujos figcaption { position: absolute; top: 6px; left: 6px; width: 24px; height: 24px; border-radius: 50%; background: var(--brand); color: var(--bg); font-size: 13px; font-weight: 700; display: grid; place-items: center; }
   .dibujos img { display: block; max-width: 100%; max-height: 200px; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 4px; }
@@ -154,12 +155,12 @@
 <div id="detalleBoton"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=9"></script>
-<script src="manual.js?v=9"></script>
-<script src="imagenes.js?v=9"></script>
-<script src="botones.js?v=9"></script>
-<script src="fusibles.js?v=9"></script>
-<script src="archivos.js?v=9" onerror="this.remove()"></script>
+<script src="datos.js?v=10"></script>
+<script src="manual.js?v=10"></script>
+<script src="imagenes.js?v=10"></script>
+<script src="botones.js?v=10"></script>
+<script src="fusibles.js?v=10"></script>
+<script src="archivos.js?v=10" onerror="this.remove()"></script>
 <script>
 const D = window.DATOS, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -295,7 +296,7 @@ function fusiblesHTML() {
   const A = n => n ? String(n).replace(".", ",") + " A" : "—";
   const caja = (c, abierta) => `<details class="grupo"${abierta ? " open" : ""}><summary>${esc(c.nombre)}</summary><div>
     <p>${esc(c.donde)}</p>
-    <div class="dibujos"><img src="img/${c.img}.jpg" alt="Dibujo de la ${esc(c.nombre.toLowerCase())}" loading="lazy"></div>
+    <div class="dibujos"><img class="grande" src="img/${c.img}.jpg" alt="Dibujo de la ${esc(c.nombre.toLowerCase())}" loading="lazy"></div>
     ${c.lista.map(([n, a, col, q]) => `<div class="fus ${a ? "" : "libre"}"><b class="num">${esc(n)}</b><span class="amp">${A(a)}${col ? `<i>${esc(col)}</i>` : ""}</span><span>${esc(q)}</span></div>`).join("")}
     ${c.reles ? `<h3 class="sub-h">Relés</h3>${c.reles.map(([n, q]) => `<div class="fus"><b class="num">${esc(n)}</b><span class="amp"></span><span>${esc(q)}</span></div>`).join("")}` : ""}
   </div></details>`;
