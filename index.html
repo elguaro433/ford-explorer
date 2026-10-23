@@ -160,12 +160,12 @@
 <div id="detalleBoton"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=13"></script>
-<script src="manual.js?v=13"></script>
-<script src="imagenes.js?v=13"></script>
-<script src="botones.js?v=13"></script>
-<script src="fusibles.js?v=13"></script>
-<script src="archivos.js?v=13" onerror="this.remove()"></script>
+<script src="datos.js?v=14"></script>
+<script src="manual.js?v=14"></script>
+<script src="imagenes.js?v=14"></script>
+<script src="botones.js?v=14"></script>
+<script src="fusibles.js?v=14"></script>
+<script src="archivos.js?v=14" onerror="this.remove()"></script>
 <script>
 const D = window.DATOS, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -207,6 +207,9 @@ function avisos() {
   if (!hechos.segundaLlave) a.push(["bad", "Solo tienes una llave y un mando", "Sin el mando el coche no arranca. Haz una copia."]);
   if (!hechos.aceite) a.push(["bad", "Toca cambiar el aceite", `El último cambio fue en ${D.estado.ultimoAceite.fecha.slice(0, 4)} a ${km(D.estado.ultimoAceite.km)}. Ya pasa de ${km(D.estado.ultimoAceite.proximoKm)}.`]);
   if (!hechos.liqfrenos) a.push(["warn", "Revisar frenos", "Líquido sin cambiar desde hace años y el freno delantero derecho frena un 10 % menos."]);
+  const mz = new Date(HOY.getMonth() < 2 ? HOY.getFullYear() : HOY.getFullYear() + 1, 2, 1);
+  const dm = Math.ceil((mz - HOY) / 864e5);
+  if (dm <= 45) a.push(["warn", `Impuesto de circulación en ${dm} días`, "169,50 € en marzo. Se cobra solo de la cuenta de MoraBanc: que haya saldo."]);
   return a;
 }
 function pintarInicio() {
