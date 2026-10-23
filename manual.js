@@ -134,8 +134,6 @@ window.MANUAL = [
     x: "Solo con el contacto puesto. Abajo, abre; arriba, cierra. Desde la puerta del conductor se manejan todas. La del conductor baja entera con un toque (AUTO); otro toque la para. WINDOW LOCK bloquea las demás (con niños). Funcionan hasta 10 minutos después de quitar el contacto, hasta que abras una puerta delantera. ⚠️ No dejes niños solos con la llave puesta." },
   { c: "Interior y equipamiento", p: "41", t: "Retrovisores",
     x: "Los exteriores son eléctricos: se regulan desde la puerta del conductor (eliges izquierdo o derecho con el selector y lo mueves con las flechas; en el centro se apaga). El derecho es de gran angular: los coches se ven más lejos de lo que están. El interior se pone antideslumbrante de noche tirando de su palanca." },
-  { c: "Interior y equipamiento", p: "42", t: "Techo solar eléctrico",
-    x: "Con el contacto puesto. ▲ abre, ▼ cierra. Para levantar la parte de atrás, ciérralo y vuelve a pulsar delante. Funciona 10 minutos después de quitar el contacto, hasta que abras una puerta." },
   { c: "Interior y equipamiento", p: "42", t: "Poner en hora el reloj",
     x: "Con el contacto puesto: botón H para las horas y M para los minutos (dejándolo pulsado avanza solo)." },
   { c: "Interior y equipamiento", p: "43", t: "Luces interiores y ahorro de batería",
