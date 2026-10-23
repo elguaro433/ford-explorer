@@ -1,7 +1,7 @@
 // Ford Explorer: funciona sin cobertura.
 // Primero intenta la red (para tener siempre lo último); si no hay o tarda más de 4 s, usa lo guardado.
 // Al publicar una versión nueva, sube VERSION (y el ?v= de los guiones en index.html).
-const VERSION = "fe-17";
+const VERSION = "fe-18";
 const PRECACHE = [
 "./",
 "index.html",
@@ -94,7 +94,8 @@ self.addEventListener("fetch", e => {
   if (req.method !== "GET" || new URL(req.url).origin !== location.origin) return;
   e.respondWith((async () => {
     const cache = await caches.open(VERSION);
-    const red = fetch(req).then(r => { if (r.ok) cache.put(req, r.clone()); return r; });
+    // no-cache: pregunta siempre al servidor si hay versión nueva (si no la hay, contesta rápido sin bajar nada)
+    const red = fetch(req.mode === "navigate" ? new Request(req.url, { cache: "no-cache" }) : new Request(req, { cache: "no-cache" })).then(r => { if (r.ok) cache.put(req, r.clone()); return r; });
     const guardado = () => cache.match(req, { ignoreSearch: true }).then(r => r || (req.mode === "navigate" ? cache.match("./") : undefined));
     try {
       const r = await Promise.race([red, new Promise((_, no) => setTimeout(() => no("lento"), 4000))]);
