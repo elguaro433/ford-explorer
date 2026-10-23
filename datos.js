@@ -3,7 +3,7 @@
 // Para añadir algo nuevo de forma permanente, edita este archivo (o pídeselo a Claude).
 
 window.DATOS = {
-  actualizado: "2026-10-22",
+  actualizado: "2026-10-23",
 
   // Mi compra. Sin teléfonos: la web es pública.
   compra: {
@@ -27,7 +27,8 @@ window.DATOS = {
       ["2026-10-15", "Seguro a mi nombre", "Multisegur, hasta el 15/10/2027."],
       ["2026-10-21", "Pagos a cuenta", "500 € por Bizum y 2.000 € en efectivo. Recibo firmado por los dos."],
       ["2026-10-22", "Pago final", "500 €. Coche pagado entero."],
-      ["2026-10-23", "Traspaso", "Registre de Vehicles: el coche pasa a mi nombre."]
+      ["2026-10-23", "Traspaso hecho", "Registre de Vehicles: el coche ya está a mi nombre."],
+      ["2026-10-23", "Seguro pagado", "Multisegur, póliza 10043515: 340,26 € (en 3 cuotas). Cubre hasta el 30/09/2027."]
     ],
     pagos: [
       ["2026-10-13", "Paga y señal (efectivo)", 1500],
@@ -77,8 +78,8 @@ window.DATOS = {
     kmActual: 117514, kmFecha: "2026-10-15",
     proximaITV: "2027-01-31",
     ultimoAceite: { fecha: "2021-03-31", km: 80082, proximoKm: 90082 },
-    seguroHasta: "2027-10-15",
-    titularPermiso: "Hotchandani Tanwani Suresh-Madan (permiso 18/09/2023)",
+    seguroHasta: "2027-09-30",
+    titularPermiso: "Emmanuel Arcadio Díaz Sánchez (traspaso 23/10/2026)",
     pagadorITV2026: "Victor Roque"
   },
 
@@ -88,7 +89,7 @@ window.DATOS = {
     ["2022-12-25", "Marc Callejas Soler — Encamp", "Tomador del seguro 2022–2023"],
     ["2023-09-18", "Hotchandani Tanwani Suresh-Madan — Ordino", "Titular en el permiso"],
     ["2026-10-12", "Vitor/Victor Roque — Andorra la Vella (NIA/NRT 246172S, doc. 11339424)", "Pagó la ITV 2026 y es quien te vende el coche. Falta confirmar si la carta groga está a su nombre"],
-    ["2026-10-23", "Emmanuel Arcadio Díaz Sánchez (NIA 363457A) — Av. Meritxell 109, 4, 1, Andorra la Vella", "Comprador. Cambio de titular en el Registre de Vehicles previsto para el 23/10/2026"]
+    ["2026-10-23", "Emmanuel Arcadio Díaz Sánchez (NIA 363457A) — Av. Meritxell 109, 4, 1, Andorra la Vella", "Titular desde el 23/10/2026 (traspaso hecho en el Registre de Vehicles)"]
   ],
 
   // tipo: itv | mant | seguro | doc
@@ -132,6 +133,8 @@ window.DATOS = {
     { f: "2026-10-15", km: 117514, tipo: "doc",  t: "Foto del cuentakilómetros: 117.514 km", d: "Vídeo del 15/10/2026 a las 18:50. Parcial 207 km. Cuadro en km/h (versión europea). Motor al ralentí (unas 1.000 rpm), en P, frío y con el depósito casi en reserva." },
     { f: "2026-10-15", km: null,   tipo: "seguro", t: "Seguro nuevo Multisegur Assegurances", d: "A nombre de Emmanuel Arcadio Díaz Sánchez. Responsabilidad civil hasta 50.000.000 €. Del 15/10/2026 al 15/10/2027. Certificado FAGA nº 177641." },
     { f: "2026-10-22", km: null,   tipo: "doc",  t: "Solicitud de compraventa R2T003 preparada (borrador)", d: "Comprador: Emmanuel Arcadio Díaz Sánchez. Faltan los datos y la firma del vendedor." },
+    { f: "2026-10-23", km: null,   tipo: "doc",  t: "Traspaso hecho: el coche ya está a mi nombre", d: "Registre de Vehicles del Govern d'Andorra." },
+    { f: "2026-10-23", km: null,   tipo: "seguro", t: "Seguro pagado: Multisegur, póliza 10043515", d: "340,26 € (en 3 cuotas: 30/10, 30/11 y 30/12). Cubre del 23/10/2026 al 30/09/2027." },
     { f: "2026-10-12", km: 117496, tipo: "itv",  t: "ITV Favorable con defecto LEVE", d: "8.1.7.1 Fuga en cárteres de la transmisión. Tarifa fuera de plazo 49,10 €. Con placas de prueba 435. Freno delantero 10 % descompensado." }
   ],
 
