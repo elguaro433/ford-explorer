@@ -416,8 +416,14 @@ function pintarInicio() {
 const ROCKAUTO = "https://www.rockauto.com/en/catalog/ford,1996,explorer,4.0l+v6,1119653";
 const enlaces = r => {
   const q = encodeURIComponent(r.q), g = t => "https://www.google.com/search?q=" + encodeURIComponent(t);
-  const L = [["Autodoc", g(r.q + " site:autodoc.es")], ["Oscaro", g(r.q + " site:oscaro.es")], ["Amazon", "https://www.amazon.es/s?k=" + q], ["eBay", "https://www.ebay.es/sch/i.html?_nkw=" + q]];
-  if (r.g !== "Bombillas" && r.g !== "Llave y mando") L.push(["Desguaces", g(r.q + " desguace segunda mano")], ["Wallapop", "https://es.wallapop.com/app/search?keywords=" + q], ["RockAuto (EE. UU.)", ROCKAUTO]);
+  // Amazon, eBay y Wallapop abren su buscador directo. Autodoc, Oscaro y los desguaces pasan por Google
+  // (su dirección de búsqueda no se pudo comprobar; Google siempre funciona y enseña sus fichas).
+  const L = [["Amazon", "https://www.amazon.es/s?k=" + q], ["eBay", "https://www.ebay.es/sch/i.html?_nkw=" + q], ["Autodoc (Google)", g(r.q + " site:autodoc.es")], ["Oscaro (Google)", g(r.q + " site:oscaro.es")]];
+  if (r.g !== "Bombillas" && r.g !== "Llave y mando") {
+    // En segunda mano se busca corto (pieza + modelo): con códigos y medidas no sale casi nada.
+    const corto = r.n.replace(/\s*\(.*\)/, "").toLowerCase() + " Ford Explorer";
+    L.push(["Wallapop", "https://es.wallapop.com/search?keywords=" + encodeURIComponent(corto)], ["Desguaces (Google)", g(corto + " desguace segunda mano")], ["RockAuto (EE. UU.)", ROCKAUTO]);
+  }
   return L.map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`).join("");
 };
 let rpGrupo = "Todo";
