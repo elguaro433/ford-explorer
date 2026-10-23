@@ -42,15 +42,17 @@ window.DATOS = {
   // Seguro en vigor (lo usa el botón de accidente)
   seguro: { compania: "Multisegur Assegurances", poliza: "10043515", desde: "2026-10-23", hasta: "2027-09-30", agente: "Assega (Francesc Sega)" },
 
-  // Teléfonos de urgencia (se pueden pulsar para llamar). [quién, número, para qué]
-  emergencias: [
-    ["Asistencia en carretera Multisegur (en Andorra)", "+376 860 366", "Grúa, avería, pinchazo, batería. Si no contesta: +376 321 432"],
-    ["Asistencia en carretera Multisegur (fuera de Andorra)", "+34 933 001 050", "En España, Francia y el resto de Europa"],
-    ["Emergencias (Andorra y toda Europa)", "112", "Accidente con heridos, fuego, peligro. Funciona en cualquier país de la UE"],
-    ["Policía de Andorra", "110", "Accidente sin heridos, robo, tráfico"],
-    ["Urgencias médicas (SUM)", "116", "Ambulancia en Andorra"],
-    ["Bomberos de Andorra", "118", ""],
-    ["Multisegur (oficina y partes)", "+376 808 808", "Póliza 10043515. WhatsApp +376 626 808"]
+  // Teléfonos de interés. [grupo, quién, número, nota]
+  telefonos: [
+    ["Urgencias", "Emergencias (Andorra y toda Europa)", "112", "Accidente con heridos, fuego, peligro"],
+    ["Urgencias", "Policía de Andorra", "110", "Accidente sin heridos, robo, tráfico"],
+    ["Urgencias", "Urgencias médicas (SUM)", "116", "Ambulancia en Andorra"],
+    ["Urgencias", "Bomberos de Andorra", "118", ""],
+    ["Si el coche se para", "Asistencia Multisegur en Andorra", "+376 860 366", "Grúa, avería, pinchazo, batería. Si no contesta: +376 321 432"],
+    ["Si el coche se para", "Asistencia Multisegur fuera de Andorra", "+34 933 001 050", "España, Francia y resto de Europa"],
+    ["Seguro", "Multisegur (oficina y partes)", "+376 808 808", "Póliza 10043515 · WhatsApp +376 626 808"],
+    ["Talleres Ford", "Ford Andorra · Auto Selecció", "+376 803 811", "C/ Dr. Vilanova 5, Andorra la Vella"],
+    ["Talleres Ford", "Ford La Seu d'Urgell · Tallers Valira", "+34 973 351 258", "Ctra. de Lleida a Puigcerdà s/n · L-V 9-13 y 15-19, sáb 9-12"]
   ],
 
   // [dato, valor, grupo]

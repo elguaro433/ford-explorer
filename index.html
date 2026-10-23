@@ -66,6 +66,8 @@
   .kpi { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; min-width: 0; }
   .kpi span { display: block; color: var(--muted); font-size: 13px; }
   .kpi strong { display: block; font-size: 20px; font-variant-numeric: tabular-nums; }
+  .tel-g { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--brand); margin: 18px 0 6px; }
+  .tel-g:first-child { margin-top: 0; }
   .tel { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); color: var(--text); text-decoration: none; }
   .tel:last-child { border-bottom: 0; }
   .tel strong { flex: 0 0 auto; font-size: 18px; color: var(--bad); font-variant-numeric: tabular-nums; }
@@ -73,7 +75,6 @@
   .tel small { display: block; color: var(--muted); font-size: 13px; }
   .btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 48px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--text); font: inherit; font-weight: 600; cursor: pointer; text-decoration: none; margin-bottom: 10px; }
   .btn.prim { background: var(--brand); border-color: var(--brand); color: var(--bg); }
-  .btn.sos { background: var(--bad); border-color: var(--bad); color: #fff; font-size: 18px; min-height: 56px; }
   .fila2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
   .fila2 .btn { margin-bottom: 0; }
   .campo { display: block; margin-bottom: 10px; font-size: 14px; color: var(--muted); }
@@ -86,13 +87,6 @@
   .lleno .r { text-align: right; font-variant-numeric: tabular-nums; }
   .lleno .x { grid-column: 1 / -1; font-size: 14px; color: var(--muted); }
   .lleno button { border: 0; background: none; color: var(--muted); font: inherit; font-size: 13px; cursor: pointer; padding: 6px 0 0; text-decoration: underline; justify-self: start; }
-  .paso { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--line); }
-  .paso:last-child { border-bottom: 0; }
-  .paso input { width: 24px; height: 24px; margin: 2px 0 0; flex: none; accent-color: var(--ok); }
-  .paso.done > div { opacity: .55; }
-  .paso small { display: block; color: var(--muted); font-size: 14px; }
-  .paso a { font-weight: 700; }
-  .misdatos { background: var(--bg); border-radius: 10px; padding: 10px 12px; font-size: 15px; margin: 6px 0 10px; white-space: pre-line; }
   .alert { border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; }
   .alert b { display: block; }
   .alert small { display: block; color: var(--text); opacity: .85; font-size: 14px; }
@@ -178,6 +172,7 @@
 <main class="pad">
   <section id="inicio"></section>
   <section id="gasolina"></section>
+  <section id="telefonos"></section>
   <section id="buscar">
     <input type="search" id="q" placeholder="Ej.: fusible radio, 4x4, aceite…" autocomplete="off" aria-label="Buscar">
     <div id="res"></div>
@@ -186,17 +181,16 @@
   <section id="fallos"></section>
   <section id="manual"></section>
   <section id="coche"></section>
-  <section id="compra"></section>
 </main>
 <div id="detalleBoton"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=16"></script>
-<script src="manual.js?v=16"></script>
-<script src="imagenes.js?v=16"></script>
-<script src="botones.js?v=16"></script>
-<script src="fusibles.js?v=16"></script>
-<script src="archivos.js?v=16" onerror="this.remove()"></script>
+<script src="datos.js?v=17"></script>
+<script src="manual.js?v=17"></script>
+<script src="imagenes.js?v=17"></script>
+<script src="botones.js?v=17"></script>
+<script src="fusibles.js?v=17"></script>
+<script src="archivos.js?v=17" onerror="this.remove()"></script>
 <script>
 const D = window.DATOS, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -219,7 +213,7 @@ const dibujos = titulo => (IMG[titulo] || []).length
   ? `<div class="dibujos">${IMG[titulo].map((n, i, a) => `<figure>${a.length > 2 ? `<figcaption>${i + 1}</figcaption>` : ""}<img src="img/${n}.jpg" alt="" loading="lazy"></figure>`).join("")}</div>` : "";
 
 // ---------- Pestañas ----------
-const TABS = [["inicio", "Inicio"], ["gasolina", "Gasolina"], ["buscar", "Buscar"], ["sirve", "Botones"], ["fallos", "Problemas"], ["manual", "Manual"], ["coche", "Mi coche"], ["compra", "Mi compra"]];
+const TABS = [["inicio", "Inicio"], ["gasolina", "Gasolina"], ["telefonos", "Teléfonos"], ["buscar", "Buscar"], ["sirve", "Botones"], ["fallos", "Problemas"], ["manual", "Manual"], ["coche", "Mi coche"]];
 $("#tabs").innerHTML = TABS.map(([id, t]) => `<button data-t="${id}">${t}</button>`).join("");
 function abrir(id) {
   document.querySelectorAll("nav button").forEach(b => b.classList.toggle("on", b.dataset.t === id));
@@ -228,51 +222,6 @@ function abrir(id) {
   scrollTo(0, 0);
 }
 $("#tabs").onclick = e => { const b = e.target.closest("button"); if (b) abrir(b.dataset.t); };
-
-// ---------- Ventana (accidente) ----------
-function ventana(titulo, html, alAbrir) {
-  $("#detalleBoton").innerHTML = `<div class="modal" role="dialog" aria-modal="true" aria-label="${esc(titulo)}"><div class="card">
-    <button class="cerrar" aria-label="Cerrar">✕</button><h3>${esc(titulo)}</h3>${html}</div></div>`;
-  const cerrar = () => $("#detalleBoton").innerHTML = "";
-  $("#detalleBoton .cerrar").onclick = cerrar;
-  $("#detalleBoton .modal").onclick = e => { if (e.target.classList.contains("modal")) cerrar(); };
-  if (alAbrir) alAbrir($("#detalleBoton .card"));
-}
-
-// ---------- Accidente, paso a paso ----------
-const tel = n => `<a href="tel:${n.replace(/\s/g, "")}">${esc(n)}</a>`;
-const MIS_DATOS = () => `Conductor y tomador: Emmanuel Arcadio Díaz Sánchez
-Coche: Ford Explorer XLT 4x4, verde · Matrícula C9389 (Andorra)
-Seguro: Multisegur Assegurances · Póliza ${D.seguro.poliza}
-Válido del ${fmtF(D.seguro.desde)} al ${fmtF(D.seguro.hasta)} · Agente: ${D.seguro.agente}`;
-const PASOS = [
-  ["Para en sitio seguro y pon los warning", "Ponte el chaleco reflectante ANTES de bajar del coche."],
-  ["¿Alguien herido? Llama al 112", "No muevas a los heridos (salvo peligro de fuego). " + "112 = emergencias en Andorra y en toda Europa."],
-  ["Pon los triángulos", "Unos 50 m por detrás, donde se vean bien. Si no es seguro bajarte, no lo hagas."],
-  ["Haz fotos", "Los dos coches enteros, las matrículas, los golpes de cerca, la carretera, las señales y el carnet y el seguro del otro."],
-  ["Rellena el parte amistoso con el otro conductor", "Un solo parte, firmado por los dos. Si no estás de acuerdo con lo que pone, no firmes y llama a la policía (110 en Andorra)."],
-  ["Si el coche no anda: grúa", "Asistencia Multisegur: en Andorra " + "+376 860 366" + ", fuera de Andorra " + "+34 933 001 050" + "."],
-  ["Avisa al seguro", "Multisegur +376 808 808 (o WhatsApp +376 626 808), en los próximos días. Guarda el parte y las fotos."]
-];
-let pasosHechos = {};
-function verAccidente() {
-  const pinta = () => PASOS.map(([t, d], i) => `<label class="paso ${pasosHechos[i] ? "done" : ""}"><input type="checkbox" data-i="${i}" ${pasosHechos[i] ? "checked" : ""}><div><b>${i + 1}. ${esc(t)}</b><small>${esc(d).replace(/(\+\d[\d ]{6,}\d|\b11[0268]\b)/g, m => tel(m))}</small></div></label>`).join("");
-  ventana("Accidente: paso a paso", `
-    <a class="btn sos" href="tel:112">📞 Llamar al 112</a>
-    <div id="pasos">${pinta()}</div>
-    <h3 style="margin-top:14px">Mis datos para el parte</h3>
-    <div class="misdatos">${esc(MIS_DATOS())}</div>
-    <div class="fila2"><button class="btn" id="copiarDatos">📋 Copiar</button><button class="btn" id="limpiarPasos">↺ Empezar de nuevo</button></div>`, card => {
-    const enganchar = () => card.querySelectorAll("#pasos input").forEach(c => c.onchange = () => {
-      pasosHechos[c.dataset.i] = c.checked; card.querySelector("#pasos").innerHTML = pinta(); enganchar();
-    });
-    enganchar();
-    card.querySelector("#copiarDatos").onclick = async e => {
-      try { await navigator.clipboard.writeText(MIS_DATOS()); e.target.textContent = "✓ Copiado"; } catch { e.target.textContent = "No se pudo copiar"; }
-    };
-    card.querySelector("#limpiarPasos").onclick = () => { pasosHechos = {}; card.querySelector("#pasos").innerHTML = pinta(); enganchar(); };
-  });
-}
 
 // ---------- Mecánico ----------
 function textoMecanico() {
@@ -433,12 +382,7 @@ function pintarInicio() {
       <div class="kpi"><span>Seguro hasta</span><strong>${fmtF(D.estado.seguroHasta)}</strong></div>
       <div class="kpi"><span>Tareas pendientes</span><strong>${pend} de ${D.pendientes.length}</strong></div>
     </div>
-    <h2>Emergencias</h2>
-    <button class="btn sos" id="btnAccidente">🚨 He tenido un accidente</button>
-    <div class="card">${D.emergencias.map(([q, n, d]) => `
-      <a class="tel" href="tel:${n.replace(/\s/g, "")}"><span>${esc(q)}${d ? `<small>${esc(d)}</small>` : ""}</span><strong>${esc(n)}</strong></a>`).join("")}
-    </div>
-    <div class="fila2" style="margin-bottom:10px">
+    <div class="fila2" style="margin:10px 0 0">
       <button class="btn prim" id="btnRepostar">⛽ Apuntar gasolina</button>
       <button class="btn" id="btnMecanico">🔧 Datos al mecánico</button>
     </div>
@@ -449,7 +393,6 @@ function pintarInicio() {
     <div class="card">${D.pendientes.map(p => `
       <label class="todo ${hechos[p.id] ? "done" : ""}"><input type="checkbox" data-id="${p.id}" ${hechos[p.id] ? "checked" : ""}><span>${esc(p.t)}</span></label>`).join("")}
     </div>`;
-  $("#btnAccidente").onclick = verAccidente;
   $("#btnRepostar").onclick = () => { abrir("gasolina"); setTimeout(() => $("#gKm")?.focus(), 50); };
   $("#btnMecanico").onclick = mandarMecanico;
   $("#inicio").querySelectorAll("input[type=checkbox]").forEach(c => c.onchange = () => {
@@ -458,10 +401,21 @@ function pintarInicio() {
   });
 }
 
+// ---------- Teléfonos ----------
+function pintarTelefonos() {
+  const grupos = [...new Set(D.telefonos.map(t => t[0]))];
+  $("#telefonos").innerHTML = `<p class="intro">Toca un número para llamar.</p>` + grupos.map(g => `
+    <h3 class="tel-g">${esc(g)}</h3>
+    <div class="card">${D.telefonos.filter(t => t[0] === g).map(([, q, n, d]) => `
+      <a class="tel" href="tel:${n.replace(/\s/g, "")}"><span>${esc(q)}${d ? `<small>${esc(d)}</small>` : ""}</span><strong>${esc(n)}</strong></a>`).join("")}
+    </div>`).join("");
+}
+
 // ---------- Buscar ----------
 function indice() {
   const I = [];
   D.faq.forEach(([p, r]) => I.push({ tag: "Pregunta", t: p, d: r }));
+  D.telefonos.forEach(([g, q, n, d]) => I.push({ tag: "Teléfono · " + g, t: q + ": " + n, d }));
   B.forEach(b => I.push({ tag: "Botón o luz · pág. " + b.p, t: b.n, d: b.s + " " + b.u }));
   D.fallos.forEach(f => I.push({ tag: "Problema · pág. " + f.p, t: f.s, d: f.c.join(" ") }));
   M.forEach(m => I.push({ tag: "Manual · pág. " + m.p, t: m.t, d: m.x }));
@@ -618,6 +572,8 @@ function pintarCoche() {
       ${hist.map(e => `<div class="ev ${/DESFAV|CONDIC/.test(e.t) ? "malo" : ""}"><div class="f">${fmtF(e.f)}${e.km ? " · " + km(e.km) : ""}</div><b>${esc(e.t)}</b>${e.d ? `<div class="d">${esc(e.d)}</div>` : ""}</div>`).join("")}
     </div></details>
 
+    <details class="grupo"><summary>Mi compra</summary><div id="compraBox"></div></details>
+
     <h2>Papeles y fotos</h2>
     ${docs}`;
 }
@@ -627,7 +583,7 @@ function pintarCompra() {
   const C = D.compra, A = C.anuncio;
   const total = C.pagos.reduce((s, p) => s + p[2], 0);
   const eur = n => n.toLocaleString("es-ES") + " €";
-  $("#compra").innerHTML = `
+  $("#compraBox").innerHTML = `
     <div class="card">${C.resumen.map(([k, v]) => `<div class="dato"><span>${esc(k)}</span>${esc(v)}</div>`).join("")}</div>
 
     <h2>Cómo fue</h2>
@@ -646,7 +602,7 @@ function pintarCompra() {
     </div>`;
 }
 
-function pintarTodo() { pintarInicio(); pintarGasolina(); pintarSirve(); pintarFallos(); pintarManual(); pintarCoche(); pintarCompra(); buscar(); }
+function pintarTodo() { pintarInicio(); pintarGasolina(); pintarTelefonos(); pintarSirve(); pintarFallos(); pintarManual(); pintarCoche(); pintarCompra(); buscar(); }
 pintarTodo();
 let t0 = "inicio"; try { t0 = localStorage.getItem("fe_tab") || "inicio"; } catch {}
 abrir(TABS.some(t => t[0] === t0) ? t0 : "inicio");
