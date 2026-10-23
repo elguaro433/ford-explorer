@@ -5,6 +5,38 @@
 window.DATOS = {
   actualizado: "2026-10-22",
 
+  // Mi compra. Sin teléfonos: la web es pública.
+  compra: {
+    resumen: [
+      ["Comprado a", "Vitor R. (Wallapop, 4,9 ★ con 127 valoraciones)"],
+      ["Precio", "4.500 €, pagado entero"],
+      ["Kilómetros al comprarlo", "117.514 km"],
+      ["A mi nombre desde", "23/10/2026"]
+    ],
+    anuncio: {
+      url: "https://es.wallapop.com/item/ford-explorer-4-0-v6-automatico-976924516",
+      foto: "07 Compra/Wallapop anuncio 976924516.webp",
+      titulo: "Ford Explorer, 4.0 V6, automático",
+      texto: "«Ford Explorer, 4.0 V6, año 95, automático, 118 mil kms, todo al día.» · Buen estado · Andorra la Vella · 4.500 €"
+    },
+    pasos: [
+      ["2024-07-21", "Primer mensaje en Wallapop", "Pregunto si es 4x4 y de qué año es. Nos pasamos los teléfonos."],
+      ["2026-09-02", "Vuelvo a escribir a Vitor", "Seguimos hablando por teléfono."],
+      ["2026-10-12", "Vitor pasa la ITV", "Favorable, con un defecto leve (fuga en la transmisión)."],
+      ["2026-10-13", "Paga y señal", "1.500 € en efectivo."],
+      ["2026-10-15", "Seguro a mi nombre", "Multisegur, hasta el 15/10/2027."],
+      ["2026-10-21", "Pagos a cuenta", "500 € por Bizum y 2.000 € en efectivo. Recibo firmado por los dos."],
+      ["2026-10-22", "Pago final", "500 €. Coche pagado entero."],
+      ["2026-10-23", "Traspaso", "Registre de Vehicles: el coche pasa a mi nombre."]
+    ],
+    pagos: [
+      ["2026-10-13", "Paga y señal (efectivo)", 1500],
+      ["2026-10-21", "Bizum", 500],
+      ["2026-10-21", "Efectivo", 2000],
+      ["2026-10-22", "Pago final", 500]
+    ]
+  },
+
   // [dato, valor, grupo]
   ficha: [
     ["Modelo", "Ford Explorer XLT 4x4, 4 puertas", "Origen"],

@@ -36,10 +36,12 @@
   header .pad { max-width: 760px; margin: 0 auto; padding-block: 14px 12px; }
   header h1 { margin: 0; font-size: 21px; line-height: 1.2; }
   header .sub { margin: 4px 0 0; font-size: 13px; opacity: .85; }
-  nav { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-top: 12px; }
-  nav button { background: rgba(255,255,255,.12); border: 0; color: var(--on-head); padding: 10px 4px; border-radius: 10px; font: inherit; font-size: 14px; font-weight: 600; cursor: pointer; min-height: 44px; }
+  nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 12px; }
+  nav button { background: rgba(255,255,255,.12); border: 0; color: var(--on-head); padding: 10px 2px; border-radius: 10px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; min-height: 44px; }
   nav button.on { background: var(--tab-on); color: var(--tab-on-text); }
-  @media (min-width: 700px) { nav { grid-template-columns: repeat(6, 1fr); } }
+  @media (min-width: 700px) { nav { grid-template-columns: repeat(7, 1fr); } nav button { font-size: 14px; } }
+  .total { display: flex; justify-content: space-between; font-weight: 700; padding-top: 10px; }
+  .foto-anuncio { display: block; width: 100%; border-radius: 10px; margin-bottom: 10px; }
 
   main { max-width: 760px; margin: 0 auto; padding-block: 16px 40px; }
   section { display: none; } section.on { display: block; }
@@ -136,6 +138,7 @@
   <section id="fallos"></section>
   <section id="manual"></section>
   <section id="coche"></section>
+  <section id="compra"></section>
 </main>
 <div id="detalleBoton"></div>
 
@@ -166,7 +169,7 @@ const dibujos = titulo => (IMG[titulo] || []).length
   ? `<div class="dibujos">${IMG[titulo].map(n => `<img src="img/${n}.jpg" alt="" loading="lazy">`).join("")}</div>` : "";
 
 // ---------- Pestañas ----------
-const TABS = [["inicio", "Inicio"], ["buscar", "Buscar"], ["sirve", "Botones"], ["fallos", "Problemas"], ["manual", "Manual"], ["coche", "Mi coche"]];
+const TABS = [["inicio", "Inicio"], ["buscar", "Buscar"], ["sirve", "Botones"], ["fallos", "Problemas"], ["manual", "Manual"], ["coche", "Mi coche"], ["compra", "Mi compra"]];
 $("#tabs").innerHTML = TABS.map(([id, t]) => `<button data-t="${id}">${t}</button>`).join("");
 function abrir(id) {
   document.querySelectorAll("nav button").forEach(b => b.classList.toggle("on", b.dataset.t === id));
@@ -323,7 +326,31 @@ function pintarCoche() {
     ${docs}`;
 }
 
-function pintarTodo() { pintarInicio(); pintarSirve(); pintarFallos(); pintarManual(); pintarCoche(); buscar(); }
+// ---------- Mi compra ----------
+function pintarCompra() {
+  const C = D.compra, A = C.anuncio;
+  const total = C.pagos.reduce((s, p) => s + p[2], 0);
+  const eur = n => n.toLocaleString("es-ES") + " €";
+  $("#compra").innerHTML = `
+    <div class="card">${C.resumen.map(([k, v]) => `<div class="dato"><span>${esc(k)}</span>${esc(v)}</div>`).join("")}</div>
+
+    <h2>Cómo fue</h2>
+    <div class="card">${C.pasos.map(([f, t, d]) => `<div class="ev"><div class="f">${fmtF(f)}</div><b>${esc(t)}</b><div class="d">${esc(d)}</div></div>`).join("")}</div>
+
+    <h2>Pagos</h2>
+    <div class="card">${C.pagos.map(([f, t, n]) => `<div class="ev"><div class="f">${fmtF(f)}</div>${esc(t)}: <b>${eur(n)}</b></div>`).join("")}
+      <div class="total"><span>Total</span><span>${eur(total)}</span></div></div>
+
+    <h2>El anuncio</h2>
+    <div class="card">
+      <img class="foto-anuncio" src="${DOCS}${encodeURI(A.foto)}" alt="Anuncio del Ford Explorer en Wallapop" loading="lazy">
+      <b>${esc(A.titulo)}</b>
+      <p class="muted" style="margin:4px 0 8px">${esc(A.texto)}</p>
+      <a href="${A.url}" target="_blank" rel="noopener">Ver el anuncio en Wallapop</a>
+    </div>`;
+}
+
+function pintarTodo() { pintarInicio(); pintarSirve(); pintarFallos(); pintarManual(); pintarCoche(); pintarCompra(); buscar(); }
 pintarTodo();
 let t0 = "inicio"; try { t0 = localStorage.getItem("fe_tab") || "inicio"; } catch {}
 abrir(TABS.some(t => t[0] === t0) ? t0 : "inicio");
