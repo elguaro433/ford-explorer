@@ -1,0 +1,392 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ford Explorer C9389</title>
+<style>
+  :root {
+    --bg: #f5f4ef; --card: #ffffff; --text: #1d2321; --muted: #66706c; --line: #e2e0d8;
+    --brand: #1f5f4a; --brand-soft: #e3efe9; --warn: #a15c00; --warn-soft: #fff1dc;
+    --bad: #b3261e; --bad-soft: #fde7e5; --ok: #1f7a46; --ok-soft: #e2f4e8;
+    --head: #1f5f4a; --on-head: #ffffff;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141816; --card: #1d2320; --text: #e8ece9; --muted: #9aa5a0; --line: #2e3632;
+      --brand: #6fc3a3; --brand-soft: #1f3a30; --warn: #f0b35a; --warn-soft: #3a2c14;
+      --bad: #ff8a80; --bad-soft: #3d1d1b; --ok: #79d39f; --ok-soft: #1a3526;
+      --head: #183a2f; color-scheme: dark;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141816; --card: #1d2320; --text: #e8ece9; --muted: #9aa5a0; --line: #2e3632;
+    --brand: #6fc3a3; --brand-soft: #1f3a30; --warn: #f0b35a; --warn-soft: #3a2c14;
+    --bad: #ff8a80; --bad-soft: #3d1d1b; --ok: #79d39f; --ok-soft: #1a3526;
+    --head: #183a2f; color-scheme: dark;
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, "Segoe UI", sans-serif; }
+  header { background: var(--head); color: var(--on-head); padding: 18px 16px 0; }
+  header h1 { margin: 0; font-size: 22px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; }
+  .dueno { font-size: 13px; font-weight: 400; opacity: .9; }
+  header p { margin: 2px 0 12px; opacity: .85; font-size: 14px; }
+  nav { display: flex; gap: 4px; overflow-x: auto; }
+  nav button { background: none; border: 0; color: var(--on-head); opacity: .75; padding: 10px 12px; font: inherit; font-size: 15px; cursor: pointer; border-bottom: 3px solid transparent; white-space: nowrap; }
+  nav button.on { opacity: 1; border-color: var(--on-head); font-weight: 600; }
+  main { max-width: 900px; margin: 0 auto; padding: 16px; }
+  section { display: none; } section.on { display: block; }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; margin-bottom: 12px; }
+  h2 { font-size: 18px; margin: 18px 0 10px; }
+  .alert { border-radius: 10px; padding: 10px 14px; margin-bottom: 8px; display: flex; gap: 10px; }
+  .alert b { display: block; }
+  .alert.bad { background: var(--bad-soft); color: var(--bad); }
+  .alert.warn { background: var(--warn-soft); color: var(--warn); }
+  .alert.ok { background: var(--ok-soft); color: var(--ok); }
+  .alert small { color: var(--text); opacity: .8; }
+  .kpis { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; margin-bottom: 12px; }
+  .kpi { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; }
+  .kpi span { color: var(--muted); font-size: 13px; } .kpi strong { display: block; font-size: 22px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15px; }
+  td, th { text-align: left; padding: 7px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 500; font-size: 13px; }
+  td.src { color: var(--muted); font-size: 13px; }
+  input[type=search], input, select, textarea { width: 100%; font: inherit; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--text); }
+  .big-search { font-size: 18px; padding: 14px 16px; }
+  .tl { border-left: 3px solid var(--line); margin-left: 6px; padding-left: 14px; }
+  .ev { position: relative; padding: 6px 0 10px; }
+  .ev::before { content: ""; position: absolute; left: -21px; top: 12px; width: 11px; height: 11px; border-radius: 50%; background: var(--muted); }
+  .ev.itv::before { background: var(--brand); } .ev.mant::before { background: var(--warn); } .ev.user::before { background: #5a6ee0; }
+  .ev.malo::before { background: var(--bad); }
+  .ev .f { color: var(--muted); font-size: 13px; } .ev .d { color: var(--muted); font-size: 14px; }
+  .chips { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 12px; }
+  .chip { border: 1px solid var(--line); background: var(--card); color: var(--text); border-radius: 99px; padding: 5px 12px; font: inherit; font-size: 14px; cursor: pointer; }
+  .chip.on { background: var(--brand); border-color: var(--brand); color: #fff; }
+  details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 8px; }
+  summary { padding: 12px 16px; cursor: pointer; font-weight: 600; }
+  details > div { padding: 0 16px 14px; }
+  details ul { margin: 4px 0 8px; padding-left: 20px; }
+  .botones { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+  .boton { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 10px; background: var(--card); color: var(--text); border: 1px solid var(--line); border-radius: 12px; font: inherit; font-size: 14px; cursor: pointer; text-align: center; }
+  .boton:hover { border-color: var(--brand); }
+  .boton img { width: 100%; height: 110px; object-fit: contain; background: #fff; border-radius: 8px; }
+  .modal { position: fixed; inset: 0; background: rgba(0,0,0,.55); display: flex; align-items: center; justify-content: center; padding: 16px; z-index: 10; }
+  .modal .card { position: relative; max-width: 520px; width: 100%; max-height: 90vh; overflow: auto; margin: 0; }
+  .modal img { display: block; max-width: 100%; max-height: 260px; margin: 0 auto 6px; background: #fff; border-radius: 8px; padding: 6px; }
+  .modal h2 { margin-top: 6px; }
+  .cerrar { position: absolute; top: 8px; right: 8px; background: none; border: 0; color: var(--text); font-size: 20px; cursor: pointer; }
+  .dibujos { display: flex; flex-wrap: wrap; gap: 8px; margin: 2px 0 10px; }
+  .dibujos img { max-width: 100%; max-height: 220px; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 4px; }
+  .tuyo { background: var(--brand-soft); border-radius: 8px; padding: 8px 12px; font-size: 15px; }
+  .todo { display: flex; gap: 10px; align-items: flex-start; padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .todo input { width: 20px; height: 20px; margin-top: 2px; flex: none; }
+  .todo.done span { text-decoration: line-through; color: var(--muted); }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 560px) { .grid2 { grid-template-columns: 1fr; } }
+  label { font-size: 13px; color: var(--muted); display: block; margin-bottom: 4px; }
+  .btn { background: var(--brand); color: #fff; border: 0; border-radius: 10px; padding: 10px 16px; font: inherit; cursor: pointer; }
+  .btn.sec { background: none; color: var(--brand); border: 1px solid var(--line); }
+  .hit { padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .hit .tag { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+  mark { background: #ffe58a; color: #000; border-radius: 3px; }
+  a { color: var(--brand); }
+  .muted { color: var(--muted); font-size: 14px; }
+  svg text { fill: var(--muted); font-size: 11px; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Ford Explorer · C9389 <span class="dueno">Propiedad de Emmanuel Díaz · Creado por Emmanuel Díaz</span></h1>
+  <p>XLT 4x4 · 4.0 V6 gasolina · verde · 1995</p>
+  <nav id="tabs"></nav>
+</header>
+<main>
+  <section id="inicio"></section>
+  <section id="buscar">
+    <input type="search" class="big-search" id="q" placeholder="Busca o pregunta: fusible radio, 4x4, testigo, pinzas, aceite…" autocomplete="off">
+    <div id="res" class="card" style="margin-top:12px"></div>
+  </section>
+  <section id="sirve"></section>
+  <section id="manual"></section>
+  <section id="fallos"></section>
+  <section id="historial"></section>
+  <section id="mant"></section>
+  <section id="ficha"></section>
+  <section id="anotar"></section>
+</main>
+
+<script src="datos.js"></script>
+<script src="manual.js"></script>
+<script src="imagenes.js"></script>
+<script src="botones.js"></script>
+<script src="archivos.js" onerror="this.remove()"></script>
+<script>
+const D = window.DATOS;
+const HOY = new Date();
+const $ = s => document.querySelector(s);
+const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const fmtF = iso => iso.split("-").reverse().join("/");
+const km = n => n == null ? "" : n.toLocaleString("es-ES") + " km";
+const norm = s => String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+
+// Guardado local (solo en este navegador). Se puede exportar a un archivo.
+const store = {
+  get(k, def) { try { const v = localStorage.getItem("fe_" + k); return v ? JSON.parse(v) : def; } catch { return def; } },
+  set(k, v) { try { localStorage.setItem("fe_" + k, JSON.stringify(v)); } catch {} }
+};
+let hechos = store.get("hechos", {});
+let notas = store.get("notas", []);
+
+function kmActual() {
+  const n = notas.filter(x => x.km).sort((a, b) => b.km - a.km)[0];
+  return n && n.km > D.estado.kmActual ? { km: n.km, f: n.f } : { km: D.estado.kmActual, f: D.estado.kmFecha };
+}
+
+// ---------- Pestañas ----------
+// En el PC los documentos están una carpeta más arriba; en la web van en docs/
+const LOCAL = location.protocol === "file:" || location.port === "8765";
+const DOCS = LOCAL ? "../" : "docs/";
+const M = window.MANUAL || [];
+const IMG = window.IMAGENES || {};
+const dibujos = titulo => (IMG[titulo] || []).length
+  ? `<div class="dibujos">${IMG[titulo].map(n => `<img src="img/${n}.jpg" alt="Dibujo del manual" loading="lazy">`).join("")}</div>` : "";
+const TABS = [["inicio", "Inicio"], ["buscar", "Buscar"], ["sirve", "¿Para qué sirve?"], ["manual", "Manual"], ["fallos", "Problemas y dudas"], ["historial", "Historial"], ["mant", "Mantenimiento"], ["ficha", "Ficha"], ["anotar", "Anotar"]];
+$("#tabs").innerHTML = TABS.map(([id, t]) => `<button data-t="${id}">${t}</button>`).join("");
+function abrir(id) {
+  document.querySelectorAll("nav button").forEach(b => b.classList.toggle("on", b.dataset.t === id));
+  document.querySelectorAll("section").forEach(s => s.classList.toggle("on", s.id === id));
+  try { localStorage.setItem("fe_tab", id); } catch {}
+  if (id === "buscar") $("#q").focus();
+}
+$("#tabs").onclick = e => { if (e.target.dataset.t) abrir(e.target.dataset.t); };
+
+// ---------- Inicio ----------
+function alertas() {
+  const a = [], k = kmActual();
+  const dias = Math.ceil((new Date(D.estado.proximaITV) - HOY) / 864e5);
+  if (dias < 0) a.push(["bad", "ITV caducada", `Vencía el ${fmtF(D.estado.proximaITV)}.`]);
+  else a.push([dias <= 90 ? "warn" : "ok", `ITV en ${dias} días`, `Antes del ${fmtF(D.estado.proximaITV)}. Lleva la fuga de la transmisión reparada.`]);
+  const ac = D.estado.ultimoAceite, pasado = k.km - ac.proximoKm;
+  const aceiteNota = notas.filter(n => n.tipo === "Mantenimiento" && /aceite/i.test(n.t)).sort((x, y) => y.f.localeCompare(x.f))[0];
+  if (aceiteNota) a.push(["ok", "Aceite anotado", `Último cambio que anotaste: ${fmtF(aceiteNota.f)}.`]);
+  else if (pasado > 0) a.push(["bad", `Aceite pasado ${pasado.toLocaleString("es-ES")} km`, `Último cambio anotado: ${fmtF(ac.fecha)} a ${km(ac.km)}, sin filtros. Tocaba a ${km(ac.proximoKm)}.`]);
+  if (new Date(D.estado.seguroHasta) < HOY && !hechos.seguro) a.push(["bad", "Sin seguro vigente en los papeles", `El último recibo cubre hasta el ${fmtF(D.estado.seguroHasta)}.`]);
+  if (!hechos.titular) a.push(["warn", "Titular por aclarar", `Permiso: ${D.estado.titularPermiso}. Pagó la ITV 2026: ${D.estado.pagadorITV2026}.`]);
+  if (!hechos.liqfrenos) a.push(["warn", "Líquido de frenos sin registro", "Ford pide cambiarlo cada 3 años. Y el freno delantero derecho frena un 10 % menos."]);
+  return a;
+}
+function pintarInicio() {
+  const k = kmActual(), pend = D.pendientes.filter(p => !hechos[p.id]).length;
+  $("#inicio").innerHTML = `
+    <div class="kpis">
+      <div class="kpi"><span>Kilómetros</span><strong>${k.km.toLocaleString("es-ES")}</strong><span>a ${fmtF(k.f)}</span></div>
+      <div class="kpi"><span>Próxima ITV</span><strong>${fmtF(D.estado.proximaITV)}</strong></div>
+      <div class="kpi"><span>Edad</span><strong>${HOY.getFullYear() - 1995} años</strong><span>desde 1995</span></div>
+      <div class="kpi"><span>Tareas pendientes</span><strong>${pend} de ${D.pendientes.length}</strong></div>
+    </div>
+    <h2>Avisos</h2>
+    ${alertas().map(([c, t, d]) => `<div class="alert ${c}"><div><b>${esc(t)}</b><small>${esc(d)}</small></div></div>`).join("")}
+    <h2>Tareas</h2>
+    <div class="card">${D.pendientes.map(p => `
+      <label class="todo ${hechos[p.id] ? "done" : ""}"><input type="checkbox" data-id="${p.id}" ${hechos[p.id] ? "checked" : ""}><span>${esc(p.t)}${hechos[p.id] ? ` <span class="muted">· hecho ${fmtF(hechos[p.id])}</span>` : ""}</span></label>`).join("")}
+    </div>
+    <h2>Kilometraje a lo largo de los años</h2>
+    <div class="card">${grafico()}<p class="muted">Nunca retrocede: el kilometraje es coherente en 7 fuentes distintas.</p></div>
+    <h2>Documentos</h2>
+    <div class="card">${D.documentos.map(([t, p]) => `<div><a href="${DOCS}${encodeURI(p)}" target="_blank">${esc(t)}</a></div>`).join("")}</div>
+    ${window.ARCHIVOS ? `<h2>Todas las fotos y papeles</h2>${[...new Set(window.ARCHIVOS.map(a => a.includes("/") ? a.slice(0, a.lastIndexOf("/")) : "General"))].map(c => `
+      <details><summary>${esc(c)}</summary><div>${window.ARCHIVOS.filter(a => (a.includes("/") ? a.slice(0, a.lastIndexOf("/")) : "General") === c)
+        .map(a => `<div><a href="${DOCS}${encodeURI(a)}" target="_blank">${esc(a.slice(a.lastIndexOf("/") + 1))}</a></div>`).join("")}</div></details>`).join("")}` : ""}`;
+  $("#inicio").querySelectorAll("input[type=checkbox]").forEach(c => c.onchange = () => {
+    if (c.checked) hechos[c.dataset.id] = HOY.toISOString().slice(0, 10); else delete hechos[c.dataset.id];
+    store.set("hechos", hechos); pintarInicio();
+  });
+}
+function grafico() {
+  const pts = D.historial.filter(e => e.km).map(e => [new Date(e.f).getTime(), e.km])
+    .concat(notas.filter(n => n.km).map(n => [new Date(n.f).getTime(), n.km])).sort((a, b) => a[0] - b[0]);
+  const W = 800, H = 220, P = 36;
+  const x0 = pts[0][0], x1 = pts[pts.length - 1][0], yM = Math.ceil(Math.max(...pts.map(p => p[1])) / 20000) * 20000;
+  const X = t => P + (t - x0) / (x1 - x0) * (W - P - 10), Y = v => H - 22 - v / yM * (H - 34);
+  let g = "";
+  for (let v = 0; v <= yM; v += 20000) g += `<line x1="${P}" x2="${W - 10}" y1="${Y(v)}" y2="${Y(v)}" stroke="currentColor" opacity=".12"/><text x="${P - 4}" y="${Y(v) + 4}" text-anchor="end">${v / 1000}k</text>`;
+  for (let a = 1996; a <= new Date(x1).getFullYear(); a += 5) { const t = new Date(a, 0, 1).getTime(); if (t >= x0) g += `<text x="${X(t)}" y="${H - 4}" text-anchor="middle">${a}</text>`; }
+  const d = pts.map((p, i) => (i ? "L" : "M") + X(p[0]).toFixed(1) + " " + Y(p[1]).toFixed(1)).join(" ");
+  return `<svg viewBox="0 0 ${W} ${H}" width="100%" role="img" aria-label="Kilometraje por año" style="color:var(--text)">${g}
+    <path d="${d}" fill="none" stroke="var(--brand)" stroke-width="2.5"/>
+    ${pts.map(p => `<circle cx="${X(p[0])}" cy="${Y(p[1])}" r="3" fill="var(--brand)"><title>${new Date(p[0]).toLocaleDateString("es-ES")}: ${p[1].toLocaleString("es-ES")} km</title></circle>`).join("")}</svg>`;
+}
+
+// ---------- Buscador ----------
+function indice() {
+  const I = [];
+  D.faq.forEach(([p, r]) => I.push({ tag: "Pregunta", t: p, d: r, ir: "fallos" }));
+  B.forEach(b => I.push({ tag: "¿Para qué sirve? · pág. " + b.p, t: b.n, d: b.s + " " + b.u, ir: "sirve" }));
+  M.forEach(m => I.push({ tag: "Manual pág. " + m.p + " · " + m.c, t: m.t, d: m.x, ir: "manual" }));
+  D.fallos.forEach(f => I.push({ tag: "Problema · pág. " + f.p, t: f.s, d: f.c.join(" · "), ir: "fallos" }));
+  D.ficha.forEach(([k, v, s]) => I.push({ tag: "Ficha", t: k + ": " + v, d: "Fuente: " + s, ir: "ficha" }));
+  D.historial.forEach(e => I.push({ tag: "Historial " + fmtF(e.f), t: e.t + (e.km ? " · " + km(e.km) : ""), d: e.d, ir: "historial" }));
+  D.planFord.tareas.forEach(([c, t]) => I.push({ tag: "Plan Ford · " + c, t, d: "", ir: "mant" }));
+  D.pendientes.forEach(p => I.push({ tag: "Tarea", t: p.t, d: hechos[p.id] ? "Hecho" : "Pendiente", ir: "inicio" }));
+  D.propietarios.forEach(([f, q, n]) => I.push({ tag: "Propietario " + fmtF(f), t: q, d: n, ir: "historial" }));
+  D.documentos.forEach(([t, p]) => I.push({ tag: "Documento", t, d: p, ir: "inicio" }));
+  notas.forEach(n => I.push({ tag: "Tu nota " + fmtF(n.f), t: n.t + (n.km ? " · " + km(n.km) : ""), d: n.d || "", ir: "historial" }));
+  return I;
+}
+const VACIAS = new Set("el la los las de del un una que en y a o con por para se su sus mi es al lo le como cual cuando cuanto cuanta donde hay tiene tengo lleva llevar lleve pongo poner hace hacer cada".split(" "));
+function buscar() {
+  const q = $("#q").value.trim();
+  const palabras = norm(q).split(/[^a-z0-9ñ]+/).filter(w => w.length > 1 && !VACIAS.has(w));
+  if (!palabras.length) { $("#res").innerHTML = `<p class="muted">Escribe una palabra o una pregunta. Ejemplos: <i>¿qué aceite lleva?</i>, <i>frenos</i>, <i>remolque</i>, <i>seguro</i>, <i>fuga</i>, <i>2008</i>.</p>`; return; }
+  const raiz = w => w.length > 5 ? w.slice(0, -2) : w;
+  const hits = indice().map(it => {
+    const txt = norm(it.tag + " " + it.t + " " + it.d);
+    const tit = norm(it.t);
+    let s = 0; palabras.forEach(w => { const r = raiz(w); if (txt.includes(r)) s += tit.includes(r) ? 3 : 1; });
+    if (it.tag === "Pregunta") s *= 1.3;
+    return [s, it];
+  }).filter(([s]) => s > 0).sort((a, b) => b[0] - a[0]).slice(0, 25);
+  const marcar = s => { let h = esc(s); palabras.forEach(w => { const r = raiz(w).replace(/[.*+?^${}()|[\]\\]/g, "\\$&"); h = h.replace(new RegExp("(" + r + ")", "gi"), "<mark>$1</mark>"); }); return h; };
+  $("#res").innerHTML = hits.length ? hits.map(([, it]) => `<div class="hit"><div class="tag">${esc(it.tag)}</div><div><b>${marcar(it.t)}</b></div>${it.d ? `<div class="muted">${marcar(it.d)}</div>` : ""}</div>`).join("")
+    : `<p>No hay nada sobre «${esc(q)}» en los papeles del coche.</p><p class="muted">Pregúntaselo a Claude en el chat: puede mirarlo y añadir la respuesta aquí.</p>`;
+}
+$("#q").oninput = buscar;
+
+// ---------- ¿Para qué sirve? ----------
+const B = window.BOTONES || [];
+let grupoB = "todo";
+function pintarSirve() {
+  const grupos = [...new Set(B.map(b => b.g))];
+  const lista = B.filter(b => grupoB === "todo" || b.g === grupoB);
+  $("#sirve").innerHTML = `
+    <p class="muted">Toca un botón, un reloj o una luz para ver para qué sirve y cómo se usa.</p>
+    <div class="chips"><button class="chip ${grupoB === "todo" ? "on" : ""}" data-g="todo">Todo</button>${grupos.map(g => `<button class="chip ${grupoB === g ? "on" : ""}" data-g="${esc(g)}">${esc(g)}</button>`).join("")}</div>
+    <div class="botones">${lista.map((b, i) => `
+      <button class="boton" data-i="${B.indexOf(b)}"><img src="img/${b.img}.jpg" alt="" loading="lazy"><span>${esc(b.n)}</span></button>`).join("")}</div>
+    <div id="detalleBoton"></div>`;
+  $("#sirve").querySelectorAll(".chip").forEach(c => c.onclick = () => { grupoB = c.dataset.g; pintarSirve(); });
+  $("#sirve").querySelectorAll(".boton").forEach(c => c.onclick = () => verBoton(+c.dataset.i));
+}
+function verBoton(i) {
+  const b = B[i];
+  $("#detalleBoton").innerHTML = `<div class="modal" role="dialog" aria-label="${esc(b.n)}"><div class="card">
+    <button class="cerrar" aria-label="Cerrar">✕</button>
+    <img src="img/${b.img}.jpg" alt="">
+    <h2>${esc(b.n)}</h2>
+    <p><b>Para qué sirve:</b> ${esc(b.s)}</p>
+    <p><b>Cómo se usa:</b> ${esc(b.u)}</p>
+    <p class="muted">Manual, pág. ${esc(b.p)}</p></div></div>`;
+  const cerrar = () => $("#detalleBoton").innerHTML = "";
+  $("#detalleBoton .cerrar").onclick = cerrar;
+  $("#detalleBoton .modal").onclick = e => { if (e.target.classList.contains("modal")) cerrar(); };
+}
+document.addEventListener("keydown", e => { if (e.key === "Escape" && $("#detalleBoton")) $("#detalleBoton").innerHTML = ""; });
+
+// ---------- Manual ----------
+let capManual = "todo";
+function pintarManual() {
+  const caps = [...new Set(M.map(m => m.c))];
+  const lista = M.filter(m => capManual === "todo" || m.c === capManual);
+  $("#manual").innerHTML = `
+    <p class="muted">Tu manual del propietario (${M.length} temas). Cada tema lleva la página de tu libro.</p>
+    <div class="chips"><button class="chip ${capManual === "todo" ? "on" : ""}" data-c="todo">Todo</button>${caps.map(c => `<button class="chip ${capManual === c ? "on" : ""}" data-c="${esc(c)}">${esc(c)}</button>`).join("")}</div>
+    ${lista.map(m => `<details><summary>${esc(m.t)} <span class="muted" style="font-weight:400">· pág. ${esc(m.p)}</span></summary><div>${dibujos(m.t)}${esc(m.x)}</div></details>`).join("")}`;
+  $("#manual").querySelectorAll(".chip").forEach(b => b.onclick = () => { capManual = b.dataset.c; pintarManual(); });
+}
+
+// ---------- Fallos y dudas ----------
+function pintarFallos() {
+  $("#fallos").innerHTML = `
+    <p class="muted">Todo sacado de tu manual. Toca un problema para ver qué hacer.</p>
+    <h2>Problemas y solución</h2>
+    ${D.fallos.map(f => `<details><summary>${esc(f.s)}</summary><div>
+      ${dibujos(f.s)}<ol>${f.c.map(c => `<li>${esc(c)}</li>`).join("")}</ol>
+      <div class="muted">Manual, pág. ${esc(f.p)}</div></div></details>`).join("")}
+    <h2>Preguntas frecuentes</h2>
+    ${D.faq.map(([p, r]) => `<details><summary>${esc(p)}</summary><div>${esc(r)}</div></details>`).join("")}`;
+}
+
+// ---------- Historial ----------
+let filtro = "todo";
+function pintarHistorial() {
+  const ev = D.historial.map(e => ({ ...e }))
+    .concat(notas.map(n => ({ f: n.f, km: n.km, tipo: "user", t: n.t, d: [n.tipo, n.d, n.coste ? n.coste + " €" : ""].filter(Boolean).join(" · ") })))
+    .filter(e => filtro === "todo" || e.tipo === filtro)
+    .sort((a, b) => b.f.localeCompare(a.f));
+  const F = [["todo", "Todo"], ["itv", "ITV"], ["mant", "Mantenimiento"], ["seguro", "Seguro"], ["doc", "Papeles"], ["user", "Mis notas"]];
+  $("#historial").innerHTML = `
+    <div class="chips">${F.map(([id, t]) => `<button class="chip ${filtro === id ? "on" : ""}" data-f="${id}">${t}</button>`).join("")}</div>
+    <div class="card tl">${ev.map(e => `<div class="ev ${e.tipo} ${/DESFAV|CONDIC/.test(e.t) ? "malo" : ""}">
+      <div class="f">${fmtF(e.f)}${e.km ? " · " + km(e.km) : ""}</div><div><b>${esc(e.t)}</b></div>${e.d ? `<div class="d">${esc(e.d)}</div>` : ""}</div>`).join("") || `<p class="muted">Nada en este filtro.</p>`}</div>
+    <h2>Propietarios</h2>
+    <div class="card"><table>${D.propietarios.map(([f, q, n]) => `<tr><td style="white-space:nowrap">${fmtF(f)}</td><td>${esc(q)}<div class="muted">${esc(n)}</div></td></tr>`).join("")}</table></div>`;
+  $("#historial").querySelectorAll(".chip").forEach(b => b.onclick = () => { filtro = b.dataset.f; pintarHistorial(); });
+}
+
+// ---------- Mantenimiento ----------
+function pintarMant() {
+  const P = D.planFord;
+  $("#mant").innerHTML = `
+    <div class="alert warn"><div><b>Lo que le toca ahora</b><small>${esc(P.tuEstado)}</small></div></div>
+    <div class="card"><b>Plan oficial Ford</b><p style="margin:4px 0">${esc(P.resumen)}</p>
+      <table><tr><th>Intermedias</th><td>${esc(P.intermedia)}</td></tr><tr><th>Normales</th><td>${esc(P.normal)}</td></tr></table></div>
+    <div class="card"><table><tr><th>Cuándo</th><th>Qué</th></tr>${P.tareas.map(([c, t]) => `<tr><td style="white-space:nowrap">${esc(c)}</td><td>${esc(t)}</td></tr>`).join("")}</table></div>
+    <h2>Lo que se le ha hecho</h2>
+    <div class="card"><table><tr><th>Fecha</th><th>Km</th><th>Trabajo</th></tr>${D.historial.filter(e => e.tipo === "mant").concat(notas.filter(n => n.tipo !== "Nota")).sort((a, b) => b.f.localeCompare(a.f)).map(e => `<tr><td>${fmtF(e.f)}</td><td>${e.km ? e.km.toLocaleString("es-ES") : ""}</td><td>${esc(e.t)}<div class="muted">${esc(e.d || "")}</div></td></tr>`).join("")}</table>
+    <p class="muted">Libro de revisiones: 4 de 13 casillas usadas (hasta 30.000 km, en 1997). De 40.000 a 130.000 km, en blanco.</p></div>`;
+}
+
+// ---------- Ficha ----------
+function pintarFicha() {
+  $("#ficha").innerHTML = `<div class="card"><table><tr><th>Dato</th><th>Valor</th><th>Fuente</th></tr>${D.ficha.map(([k, v, s]) => `<tr><td>${esc(k)}</td><td><b>${esc(v)}</b></td><td class="src">${esc(s)}</td></tr>`).join("")}</table></div>`;
+}
+
+// ---------- Anotar ----------
+function pintarAnotar() {
+  $("#anotar").innerHTML = `
+    <div class="card">
+      <p style="margin-top:0">Apunta aquí cada cosa nueva: un cambio de aceite, una reparación, un ruido raro, los km de hoy…</p>
+      <div class="grid2">
+        <div><label>Fecha</label><input type="date" id="nf" value="${HOY.toISOString().slice(0, 10)}"></div>
+        <div><label>Kilómetros (opcional)</label><input type="number" id="nk" placeholder="${kmActual().km}"></div>
+        <div><label>Tipo</label><select id="nt"><option>Mantenimiento</option><option>Reparación</option><option>Avería / síntoma</option><option>Papeles</option><option>Nota</option></select></div>
+        <div><label>Coste € (opcional)</label><input type="number" step="0.01" id="nc"></div>
+      </div>
+      <div style="margin-top:10px"><label>Qué</label><input id="nq" placeholder="Ej.: Cambio de aceite 10W40 + filtro"></div>
+      <div style="margin-top:10px"><label>Detalles (taller, piezas, notas)</label><textarea id="nd" rows="3"></textarea></div>
+      <p><button class="btn" id="guardar">Guardar</button></p>
+    </div>
+    <h2>Tus notas</h2>
+    <div class="card">${notas.length ? notas.slice().sort((a, b) => b.f.localeCompare(a.f)).map((n, i) => `<div class="hit"><div class="tag">${fmtF(n.f)} · ${esc(n.tipo)}${n.km ? " · " + km(n.km) : ""}${n.coste ? " · " + n.coste + " €" : ""}</div><b>${esc(n.t)}</b><div class="muted">${esc(n.d || "")}</div><button class="chip" data-del="${n.id}">Borrar</button></div>`).join("") : `<p class="muted">Todavía no has anotado nada.</p>`}</div>
+    <div class="card"><b>Copia de seguridad</b>
+      <p class="muted">Las notas se guardan solo en este aparato (el PC y el móvil tienen cada uno las suyas).${LOCAL ? " Exporta un archivo de vez en cuando y guárdalo en la carpeta del coche." : ""}</p>
+      ${LOCAL ? `<button class="btn sec" id="exp">Exportar notas</button> ` : ""}<label class="btn sec" style="display:inline-block;color:var(--brand)">Importar<input type="file" id="imp" accept=".json" hidden></label>
+      <p class="muted" id="impMsg"></p></div>`;
+  $("#guardar").onclick = () => {
+    const t = $("#nq").value.trim(); if (!t) { $("#nq").focus(); return; }
+    notas.push({ id: Date.now(), f: $("#nf").value, km: +$("#nk").value || null, tipo: $("#nt").value, t, d: $("#nd").value.trim(), coste: $("#nc").value || null });
+    store.set("notas", notas); pintarTodo(); abrir("anotar");
+  };
+  $("#anotar").querySelectorAll("[data-del]").forEach(b => b.onclick = () => {
+    if (!b.dataset.seguro) { b.dataset.seguro = "1"; b.textContent = "¿Seguro? Toca otra vez"; return; }
+    notas = notas.filter(n => n.id != b.dataset.del); store.set("notas", notas); pintarTodo(); abrir("anotar");
+  });
+  if ($("#exp")) $("#exp").onclick = () => {
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(new Blob([JSON.stringify({ notas, hechos }, null, 2)], { type: "application/json" }));
+    a.download = `ford-explorer-notas-${HOY.toISOString().slice(0, 10)}.json`; a.click();
+  };
+  $("#imp").onchange = e => {
+    const f = e.target.files[0]; if (!f) return;
+    f.text().then(t => { const j = JSON.parse(t); notas = j.notas || []; hechos = j.hechos || {}; store.set("notas", notas); store.set("hechos", hechos); pintarTodo(); abrir("anotar"); })
+      .catch(() => { $("#impMsg").textContent = "Ese archivo no es una copia válida de las notas."; });
+  };
+}
+
+function pintarTodo() { pintarInicio(); pintarSirve(); pintarManual(); pintarFallos(); pintarHistorial(); pintarMant(); pintarFicha(); pintarAnotar(); buscar(); }
+pintarTodo();
+let t0 = "inicio"; try { t0 = localStorage.getItem("fe_tab") || "inicio"; } catch {}
+abrir(TABS.some(t => t[0] === t0) ? t0 : "inicio");
+</script>
+</body>
+</html>
