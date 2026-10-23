@@ -138,8 +138,6 @@ window.MANUAL = [
     x: "Con el contacto puesto. ▲ abre, ▼ cierra. Para levantar la parte de atrás, ciérralo y vuelve a pulsar delante. Funciona 10 minutos después de quitar el contacto, hasta que abras una puerta." },
   { c: "Interior y equipamiento", p: "42", t: "Poner en hora el reloj",
     x: "Con el contacto puesto: botón H para las horas y M para los minutos (dejándolo pulsado avanza solo)." },
-  { c: "Interior y equipamiento", p: "42", t: "Carátula extraíble de la radio",
-    x: "Se puede quitar parte del frontal de la radio contra los robos. Empuja a la izquierda el cierre de debajo de la ranura del casete y se suelta. Para ponerla, engánchala abajo a izquierda y derecha y aprieta hasta que haga clic." },
   { c: "Interior y equipamiento", p: "43", t: "Luces interiores y ahorro de batería",
     x: "Se encienden unos 25 segundos al abrir con el mando o al abrir una puerta delantera, y se apagan antes si cierras o pones el contacto. Las de lectura tienen su propio botón. Para no gastar batería, 40 minutos después de quitar el contacto se cortan las luces interiores y la del capó. Vuelven al usar el mando, abrir una puerta o poner el contacto." },
   { c: "Interior y equipamiento", p: "44", t: "Brújula y temperatura exterior",
