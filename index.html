@@ -104,6 +104,13 @@
   .dibujos figcaption { position: absolute; top: 6px; left: 6px; width: 24px; height: 24px; border-radius: 50%; background: var(--brand); color: var(--bg); font-size: 13px; font-weight: 700; display: grid; place-items: center; }
   .dibujos img { display: block; max-width: 100%; max-height: 200px; background: #fff; border: 1px solid var(--line); border-radius: 8px; padding: 4px; }
 
+  .fus { display: grid; grid-template-columns: 44px 70px 1fr; gap: 8px; align-items: baseline; padding: 8px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+  .fus:last-child { border-bottom: 0; }
+  .fus .num { font-variant-numeric: tabular-nums; }
+  .fus .amp { color: var(--muted); font-size: 14px; font-variant-numeric: tabular-nums; }
+  .fus .amp i { display: block; font-style: normal; font-size: 12px; }
+  .fus.libre { color: var(--muted); }
+  #fusQue { margin: 8px 0; }
   .sub-h { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--brand); margin: 14px 0 2px; }
   .sub-h:first-child { margin-top: 0; }
   .dato { padding: 9px 0; border-bottom: 1px solid var(--line); }
@@ -147,11 +154,12 @@
 <div id="detalleBoton"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=7"></script>
-<script src="manual.js?v=7"></script>
-<script src="imagenes.js?v=7"></script>
-<script src="botones.js?v=7"></script>
-<script src="archivos.js?v=7" onerror="this.remove()"></script>
+<script src="datos.js?v=8"></script>
+<script src="manual.js?v=8"></script>
+<script src="imagenes.js?v=8"></script>
+<script src="botones.js?v=8"></script>
+<script src="fusibles.js?v=8"></script>
+<script src="archivos.js?v=8" onerror="this.remove()"></script>
 <script>
 const D = window.DATOS, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -226,6 +234,11 @@ function indice() {
   M.forEach(m => I.push({ tag: "Manual · pág. " + m.p, t: m.t, d: m.x }));
   D.ficha.forEach(([k, v, g]) => I.push({ tag: "Ficha · " + g, t: k + ": " + v, d: "" }));
   D.pendientes.forEach(p => I.push({ tag: "Tarea", t: p.t, d: "" }));
+  if (window.FUSIBLES) {
+    const F = window.FUSIBLES;
+    F.rapidos.forEach(([q, f]) => I.push({ tag: "Fusible", t: "No funciona: " + q, d: "Mira el fusible: " + f }));
+    [F.dentro, F.motor].forEach(c => c.lista.filter(x => x[1]).forEach(([n, a, , q]) => I.push({ tag: "Fusible · " + c.nombre, t: `Fusible ${n} (${String(a).replace(".", ",")} A)`, d: q })));
+  }
   return I;
 }
 const VACIAS = new Set("el la los las de del un una que en y a o con por para se su sus mi es al lo le como cual cuando cuanto cuanta donde hay tiene tengo lleva llevar lleve pongo poner hace hacer cada".split(" "));
@@ -277,14 +290,53 @@ function verBoton(i) {
 document.addEventListener("keydown", e => { if (e.key === "Escape") $("#detalleBoton").innerHTML = ""; });
 
 // ---------- Problemas ----------
+function fusiblesHTML() {
+  const F = window.FUSIBLES; if (!F) return "";
+  const A = n => n ? String(n).replace(".", ",") + " A" : "—";
+  const caja = (c, abierta) => `<details class="grupo"${abierta ? " open" : ""}><summary>${esc(c.nombre)}</summary><div>
+    <p>${esc(c.donde)}</p>
+    <div class="dibujos"><img src="img/${c.img}.jpg" alt="Dibujo de la ${esc(c.nombre.toLowerCase())}" loading="lazy"></div>
+    ${c.lista.map(([n, a, col, q]) => `<div class="fus ${a ? "" : "libre"}"><b class="num">${esc(n)}</b><span class="amp">${A(a)}${col ? `<i>${esc(col)}</i>` : ""}</span><span>${esc(q)}</span></div>`).join("")}
+    ${c.reles ? `<h3 class="sub-h">Relés</h3>${c.reles.map(([n, q]) => `<div class="fus"><b class="num">${esc(n)}</b><span class="amp"></span><span>${esc(q)}</span></div>`).join("")}` : ""}
+  </div></details>`;
+  return `
+    <h2>Fusibles</h2>
+    <div class="card">
+      <b>¿Qué no funciona?</b>
+      <select id="fusQue" aria-label="Qué no funciona"><option value="">Elige…</option>${F.rapidos.map(([q], i) => `<option value="${i}">${esc(q)}</option>`).join("")}</select>
+      <div id="fusRes" class="alert ok" hidden></div>
+      <p class="muted" style="margin:0">Dentro = caja del salpicadero. Motor = caja bajo el capó.</p>
+    </div>
+    <details class="grupo"><summary>Cómo cambiar un fusible</summary><div>
+      <div class="dibujos"><img src="img/fus_donde.jpg" alt="Dónde están las dos cajas de fusibles" loading="lazy"></div>
+      <ol>
+        <li>Quita la llave y apaga todo.</li>
+        <li>Busca la caja: la de dentro está en el extremo izquierdo del salpicadero; la del motor, bajo el capó, delante a la izquierda.</li>
+        <li>Saca el fusible con la pinza que hay en la tapa de la caja de dentro.</li>
+        <li>Míralo a contraluz: si el hilo de dentro está cortado, está fundido.</li>
+        <li>Pon uno <b>del mismo amperaje</b> (el número que lleva encima). Hay 5 de repuesto en la tapa de la caja de dentro.</li>
+        <li>Si se vuelve a fundir enseguida, hay un fallo en ese circuito: llévalo al taller.</li>
+      </ol>
+      <div class="muted">Manual, págs. 104-107</div></div></details>
+    ${caja(F.dentro)}${caja(F.motor)}`;
+}
+
 function pintarFallos() {
   $("#fallos").innerHTML = `
+    ${fusiblesHTML()}
+    <h2>Problemas y solución</h2>
     <p class="intro">Toca un problema para ver qué hacer, paso a paso.</p>
     ${D.fallos.map(f => `<details><summary>${esc(f.s)}</summary><div>
       ${dibujos(f.s)}<ol>${f.c.map(c => `<li>${esc(c)}</li>`).join("")}</ol>
       <div class="muted">Manual, pág. ${esc(f.p)}</div></div></details>`).join("")}
     <h2>Preguntas rápidas</h2>
     ${D.faq.map(([p, r]) => `<details><summary>${esc(p)}</summary><div>${esc(r)}</div></details>`).join("")}`;
+  const sel = $("#fusQue");
+  if (sel) sel.onchange = () => {
+    const r = window.FUSIBLES.rapidos[sel.value];
+    $("#fusRes").hidden = !r;
+    if (r) $("#fusRes").innerHTML = `<b>${esc(r[0])}</b><small>Mira el fusible: ${esc(r[1])}</small>`;
+  };
 }
 
 // ---------- Manual ----------
