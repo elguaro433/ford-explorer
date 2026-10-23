@@ -1,7 +1,15 @@
 // «¿Para qué sirve?»: cada botón, reloj y luz del coche con su dibujo del manual.
 // img = archivo de img/ · n = nombre · s = para qué sirve · u = cómo se usa · p = página de tu libro
 window.BOTONES = [
-  { g: "Relojes del cuadro", img: "cuadro", n: "El cuadro completo", p: "4-13",
+  { g: "Fusibles", img: "fus_donde", n: "Dónde están los fusibles", p: "104",
+    s: "El coche tiene 2 cajas de fusibles: una dentro y otra en el motor.",
+    u: "Caja de dentro: en el extremo izquierdo del salpicadero, junto a la puerta del conductor (abre la puerta y quita la tapa). Caja del motor: bajo el capó, delante a la izquierda. Antes de tocar nada, quita la llave. Cambia siempre un fusible por otro del mismo amperaje. Hay 5 de repuesto y una pinza en la tapa de la caja de dentro." },
+  { g: "Fusibles", img: "fus_caja_dentro", n: "Caja de fusibles de dentro", p: "107", fus: "dentro",
+    s: "Protege luces, radio, intermitentes, limpias, mechero, airbag, ABS, aire acondicionado y más.",
+    u: "Abajo tienes cada número con sus amperios y lo que protege. Un fusible fundido tiene el hilo de dentro cortado." },
+  { g: "Fusibles", img: "fus_caja_motor", n: "Caja de fusibles del motor", p: "106", fus: "motor",
+    s: "Fusibles grandes y relés: ventilador, elevalunas, ABS, faros, 4x4, bocina, bomba de gasolina…",
+    u: "Abajo tienes cada número con sus amperios, su color y lo que protege, y los relés (R1 a R6)." },  { g: "Relojes del cuadro", img: "cuadro", n: "El cuadro completo", p: "4-13",
     s: "Muestra la velocidad, las revoluciones, la gasolina, la temperatura, la presión de aceite, la batería, la marcha puesta y las luces de aviso.",
     u: "De izquierda a derecha: temperatura y gasolina, cuentarrevoluciones, velocímetro con km, y presión de aceite y batería. Debajo, la marcha (P R N D 2 1)." },
   { g: "Relojes del cuadro", img: "gasolina", n: "Reloj de gasolina (E–F)", p: "7",
