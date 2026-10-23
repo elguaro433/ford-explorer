@@ -191,12 +191,12 @@
 <div id="detalleBoton"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=15"></script>
-<script src="manual.js?v=15"></script>
-<script src="imagenes.js?v=15"></script>
-<script src="botones.js?v=15"></script>
-<script src="fusibles.js?v=15"></script>
-<script src="archivos.js?v=15" onerror="this.remove()"></script>
+<script src="datos.js?v=16"></script>
+<script src="manual.js?v=16"></script>
+<script src="imagenes.js?v=16"></script>
+<script src="botones.js?v=16"></script>
+<script src="fusibles.js?v=16"></script>
+<script src="archivos.js?v=16" onerror="this.remove()"></script>
 <script>
 const D = window.DATOS, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -343,9 +343,10 @@ function pintarGasolina() {
       <label class="campo">Kilómetros del cuentakilómetros
         <input id="gKm" inputmode="numeric" placeholder="${ult ? "Último: " + ult.km.toLocaleString("es-ES") : "Ej.: " + kmHoy()}" autocomplete="off"></label>
       <div class="fila2">
-        <label class="campo">Litros<input id="gL" inputmode="decimal" placeholder="Ej.: 60,5" autocomplete="off"></label>
-        <label class="campo">Euros<input id="gE" inputmode="decimal" placeholder="Ej.: 85,20" autocomplete="off"></label>
+        <label class="campo">Precio €/L<input id="gP" inputmode="decimal" placeholder="${ult && ult.p ? "Último: " + n1(ult.p, 3) : "Ej.: 1,548"}" autocomplete="off"></label>
+        <label class="campo">Euros del ticket<input id="gE" inputmode="decimal" placeholder="Ej.: 85,20" autocomplete="off"></label>
       </div>
+      <label class="campo">Litros <span id="gLauto"></span><input id="gL" inputmode="decimal" placeholder="Se calcula con el precio y los euros" autocomplete="off"></label>
       <div class="fila2">
         <label class="campo">Fecha<input id="gF" type="date" value="${hoy}"></label>
         <label class="campo chk" style="margin-top:22px"><input id="gLleno" type="checkbox" checked>Depósito lleno</label>
@@ -376,6 +377,21 @@ function pintarGasolina() {
       </div>`).join("") : `<p class="muted" style="margin:0">Aún no hay ninguno. Apunta el próximo cuando eches gasolina.</p>`}</div>
     ${L.length ? `<button class="btn" id="gCopia">📋 Copiar copia de seguridad</button>` : ""}`;
 
+  // Con dos de los tres (precio, euros, litros) se calcula el que falta
+  const orden = [];
+  const CAMPOS = { gP: 3, gE: 2, gL: 2 };
+  Object.keys(CAMPOS).forEach(id => $("#" + id).oninput = () => {
+    const i = orden.indexOf(id); if (i >= 0) orden.splice(i, 1); orden.push(id);
+    const dos = orden.filter(k => num($("#" + k).value)).slice(-2);
+    if (dos.length < 2) return;
+    const falta = Object.keys(CAMPOS).find(k => !dos.includes(k));
+    const P = num($("#gP").value), E = num($("#gE").value), Lt = num($("#gL").value);
+    const v = falta === "gL" ? E / P : falta === "gE" ? P * Lt : E / Lt;
+    if (!isFinite(v) || v <= 0) return;
+    $("#" + falta).value = n1(v, CAMPOS[falta]).replace(/\./g, "");
+    $("#gLauto").textContent = falta === "gL" ? "(calculados)" : "";
+  });
+
   $("#gGuardar").onclick = () => {
     const kmV = num($("#gKm").value), l = num($("#gL").value), e = num($("#gE").value), f = $("#gF").value || hoy;
     const av = $("#gAviso");
@@ -383,7 +399,7 @@ function pintarGasolina() {
     if (l > 90) { av.textContent = "El depósito es de 83 litros: revisa los litros."; return; }
     const antes = calcLlenos().filter(r => r.f <= f).at(-1);
     if (antes && kmV < antes.km && !av.dataset.ok) { av.textContent = `Ojo: son menos km que el anterior (${antes.km.toLocaleString("es-ES")}). Pulsa Guardar otra vez si está bien.`; av.dataset.ok = 1; return; }
-    llenos.push({ id: Date.now().toString(36), f, km: Math.round(kmV), l, eur: e, lleno: $("#gLleno").checked });
+    llenos.push({ id: Date.now().toString(36), f, km: Math.round(kmV), l, eur: e, p: Math.round(e / l * 1000) / 1000, lleno: $("#gLleno").checked });
     guardarLlenos(); pintarGasolina(); pintarInicio();
   };
   $("#gasolina").querySelectorAll("[data-borrar]").forEach(b => b.onclick = () => {
