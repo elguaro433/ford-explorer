@@ -155,12 +155,12 @@
 <div id="detalleBoton"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=10"></script>
-<script src="manual.js?v=10"></script>
-<script src="imagenes.js?v=10"></script>
-<script src="botones.js?v=10"></script>
-<script src="fusibles.js?v=10"></script>
-<script src="archivos.js?v=10" onerror="this.remove()"></script>
+<script src="datos.js?v=11"></script>
+<script src="manual.js?v=11"></script>
+<script src="imagenes.js?v=11"></script>
+<script src="botones.js?v=11"></script>
+<script src="fusibles.js?v=11"></script>
+<script src="archivos.js?v=11" onerror="this.remove()"></script>
 <script>
 const D = window.DATOS, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -274,14 +274,20 @@ function pintarSirve() {
   $("#sirve").querySelectorAll(".chip").forEach(c => c.onclick = () => { grupoB = c.dataset.g; pintarSirve(); });
   $("#sirve").querySelectorAll(".boton").forEach(c => c.onclick = () => verBoton(+c.dataset.i));
 }
+function listaFusibles(c) {
+  const A = n => n ? String(n).replace(".", ",") + " A" : "—";
+  return c.lista.map(([n, a, col, q]) => `<div class="fus ${a ? "" : "libre"}"><b class="num">${esc(n)}</b><span class="amp">${A(a)}${col ? `<i>${esc(col)}</i>` : ""}</span><span>${esc(q)}</span></div>`).join("")
+    + (c.reles ? `<h3 class="sub-h">Relés</h3>${c.reles.map(([n, q]) => `<div class="fus"><b class="num">${esc(n)}</b><span class="amp"></span><span>${esc(q)}</span></div>`).join("")}` : "");
+}
 function verBoton(i) {
   const b = B[i];
   $("#detalleBoton").innerHTML = `<div class="modal" role="dialog" aria-modal="true" aria-label="${esc(b.n)}"><div class="card">
     <button class="cerrar" aria-label="Cerrar">✕</button>
     <h3>${esc(b.n)}</h3>
-    <img src="img/${b.img}.jpg" alt="">
+    <img src="img/${b.img}.jpg" alt=""${b.fus ? ' style="max-height:none;width:100%"' : ""}>
     <p><b>Para qué sirve:</b> ${esc(b.s)}</p>
     <p><b>Cómo se usa:</b> ${esc(b.u)}</p>
+    ${b.fus && window.FUSIBLES ? listaFusibles(window.FUSIBLES[b.fus]) : ""}
     <p class="muted">Manual, pág. ${esc(b.p)}</p></div></div>`;
   const cerrar = () => $("#detalleBoton").innerHTML = "";
   $("#detalleBoton .cerrar").onclick = cerrar;
