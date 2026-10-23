@@ -39,6 +39,9 @@ window.DATOS = {
     ]
   },
 
+  // Seguro en vigor (lo usa el botón de accidente)
+  seguro: { compania: "Multisegur Assegurances", poliza: "10043515", desde: "2026-10-23", hasta: "2027-09-30", agente: "Assega (Francesc Sega)" },
+
   // Teléfonos de urgencia (se pueden pulsar para llamar). [quién, número, para qué]
   emergencias: [
     ["Asistencia en carretera Multisegur (en Andorra)", "+376 860 366", "Grúa, avería, pinchazo, batería. Si no contesta: +376 321 432"],

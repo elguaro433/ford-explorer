@@ -4,6 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Ford Explorer C9389</title>
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Explorer">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="theme-color" content="#1f5f4a">
 <meta name="claude:viewport-fit-sides" content="cover">
 <meta http-equiv="Cache-Control" content="no-cache">
 <meta http-equiv="Pragma" content="no-cache">
@@ -41,7 +49,7 @@
   nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 12px; }
   nav button { background: rgba(255,255,255,.12); border: 0; color: var(--on-head); padding: 10px 2px; border-radius: 10px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; min-height: 44px; }
   nav button.on { background: var(--tab-on); color: var(--tab-on-text); }
-  @media (min-width: 700px) { nav { grid-template-columns: repeat(7, 1fr); } nav button { font-size: 14px; } }
+  @media (min-width: 700px) { nav { grid-template-columns: repeat(8, 1fr); } nav button { font-size: 14px; } }
   .total { display: flex; justify-content: space-between; font-weight: 700; padding-top: 10px; }
   .foto-anuncio { display: block; width: 100%; border-radius: 10px; margin-bottom: 10px; }
 
@@ -63,6 +71,28 @@
   .tel strong { flex: 0 0 auto; font-size: 18px; color: var(--bad); font-variant-numeric: tabular-nums; }
   .tel span { flex: 1; min-width: 0; font-size: 15px; }
   .tel small { display: block; color: var(--muted); font-size: 13px; }
+  .btn { display: flex; align-items: center; justify-content: center; gap: 8px; width: 100%; min-height: 48px; padding: 10px 14px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); color: var(--text); font: inherit; font-weight: 600; cursor: pointer; text-decoration: none; margin-bottom: 10px; }
+  .btn.prim { background: var(--brand); border-color: var(--brand); color: var(--bg); }
+  .btn.sos { background: var(--bad); border-color: var(--bad); color: #fff; font-size: 18px; min-height: 56px; }
+  .fila2 { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .fila2 .btn { margin-bottom: 0; }
+  .campo { display: block; margin-bottom: 10px; font-size: 14px; color: var(--muted); }
+  .campo input { display: block; width: 100%; margin-top: 4px; font: inherit; font-size: 18px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--text); }
+  .campo.chk { display: flex; gap: 10px; align-items: center; color: var(--text); font-size: 16px; }
+  .campo.chk input { width: 22px; height: 22px; margin: 0; accent-color: var(--brand); }
+  .lleno { padding: 10px 0; border-bottom: 1px solid var(--line); display: grid; grid-template-columns: 1fr auto; gap: 2px 10px; }
+  .lleno:last-child { border-bottom: 0; }
+  .lleno .f { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
+  .lleno .r { text-align: right; font-variant-numeric: tabular-nums; }
+  .lleno .x { grid-column: 1 / -1; font-size: 14px; color: var(--muted); }
+  .lleno button { border: 0; background: none; color: var(--muted); font: inherit; font-size: 13px; cursor: pointer; padding: 6px 0 0; text-decoration: underline; justify-self: start; }
+  .paso { display: flex; gap: 12px; align-items: flex-start; padding: 10px 0; border-bottom: 1px solid var(--line); }
+  .paso:last-child { border-bottom: 0; }
+  .paso input { width: 24px; height: 24px; margin: 2px 0 0; flex: none; accent-color: var(--ok); }
+  .paso.done > div { opacity: .55; }
+  .paso small { display: block; color: var(--muted); font-size: 14px; }
+  .paso a { font-weight: 700; }
+  .misdatos { background: var(--bg); border-radius: 10px; padding: 10px 12px; font-size: 15px; margin: 6px 0 10px; white-space: pre-line; }
   .alert { border-radius: 10px; padding: 10px 12px; margin-bottom: 8px; }
   .alert b { display: block; }
   .alert small { display: block; color: var(--text); opacity: .85; font-size: 14px; }
@@ -147,6 +177,7 @@
 </header>
 <main class="pad">
   <section id="inicio"></section>
+  <section id="gasolina"></section>
   <section id="buscar">
     <input type="search" id="q" placeholder="Ej.: fusible radio, 4x4, aceite…" autocomplete="off" aria-label="Buscar">
     <div id="res"></div>
@@ -160,12 +191,12 @@
 <div id="detalleBoton"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=14"></script>
-<script src="manual.js?v=14"></script>
-<script src="imagenes.js?v=14"></script>
-<script src="botones.js?v=14"></script>
-<script src="fusibles.js?v=14"></script>
-<script src="archivos.js?v=14" onerror="this.remove()"></script>
+<script src="datos.js?v=15"></script>
+<script src="manual.js?v=15"></script>
+<script src="imagenes.js?v=15"></script>
+<script src="botones.js?v=15"></script>
+<script src="fusibles.js?v=15"></script>
+<script src="archivos.js?v=15" onerror="this.remove()"></script>
 <script>
 const D = window.DATOS, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -188,7 +219,7 @@ const dibujos = titulo => (IMG[titulo] || []).length
   ? `<div class="dibujos">${IMG[titulo].map((n, i, a) => `<figure>${a.length > 2 ? `<figcaption>${i + 1}</figcaption>` : ""}<img src="img/${n}.jpg" alt="" loading="lazy"></figure>`).join("")}</div>` : "";
 
 // ---------- Pestañas ----------
-const TABS = [["inicio", "Inicio"], ["buscar", "Buscar"], ["sirve", "Botones"], ["fallos", "Problemas"], ["manual", "Manual"], ["coche", "Mi coche"], ["compra", "Mi compra"]];
+const TABS = [["inicio", "Inicio"], ["gasolina", "Gasolina"], ["buscar", "Buscar"], ["sirve", "Botones"], ["fallos", "Problemas"], ["manual", "Manual"], ["coche", "Mi coche"], ["compra", "Mi compra"]];
 $("#tabs").innerHTML = TABS.map(([id, t]) => `<button data-t="${id}">${t}</button>`).join("");
 function abrir(id) {
   document.querySelectorAll("nav button").forEach(b => b.classList.toggle("on", b.dataset.t === id));
@@ -197,6 +228,171 @@ function abrir(id) {
   scrollTo(0, 0);
 }
 $("#tabs").onclick = e => { const b = e.target.closest("button"); if (b) abrir(b.dataset.t); };
+
+// ---------- Ventana (accidente) ----------
+function ventana(titulo, html, alAbrir) {
+  $("#detalleBoton").innerHTML = `<div class="modal" role="dialog" aria-modal="true" aria-label="${esc(titulo)}"><div class="card">
+    <button class="cerrar" aria-label="Cerrar">✕</button><h3>${esc(titulo)}</h3>${html}</div></div>`;
+  const cerrar = () => $("#detalleBoton").innerHTML = "";
+  $("#detalleBoton .cerrar").onclick = cerrar;
+  $("#detalleBoton .modal").onclick = e => { if (e.target.classList.contains("modal")) cerrar(); };
+  if (alAbrir) alAbrir($("#detalleBoton .card"));
+}
+
+// ---------- Accidente, paso a paso ----------
+const tel = n => `<a href="tel:${n.replace(/\s/g, "")}">${esc(n)}</a>`;
+const MIS_DATOS = () => `Conductor y tomador: Emmanuel [nombre]
+Coche: Ford Explorer XLT 4x4, verde · Matrícula C9389 (Andorra)
+Seguro: Multisegur Assegurances · Póliza ${D.seguro.poliza}
+Válido del ${fmtF(D.seguro.desde)} al ${fmtF(D.seguro.hasta)} · Agente: ${D.seguro.agente}`;
+const PASOS = [
+  ["Para en sitio seguro y pon los warning", "Ponte el chaleco reflectante ANTES de bajar del coche."],
+  ["¿Alguien herido? Llama al 112", "No muevas a los heridos (salvo peligro de fuego). " + "112 = emergencias en Andorra y en toda Europa."],
+  ["Pon los triángulos", "Unos 50 m por detrás, donde se vean bien. Si no es seguro bajarte, no lo hagas."],
+  ["Haz fotos", "Los dos coches enteros, las matrículas, los golpes de cerca, la carretera, las señales y el carnet y el seguro del otro."],
+  ["Rellena el parte amistoso con el otro conductor", "Un solo parte, firmado por los dos. Si no estás de acuerdo con lo que pone, no firmes y llama a la policía (110 en Andorra)."],
+  ["Si el coche no anda: grúa", "Asistencia Multisegur: en Andorra " + "+376 860 366" + ", fuera de Andorra " + "+34 933 001 050" + "."],
+  ["Avisa al seguro", "Multisegur +376 808 808 (o WhatsApp +376 626 808), en los próximos días. Guarda el parte y las fotos."]
+];
+let pasosHechos = {};
+function verAccidente() {
+  const pinta = () => PASOS.map(([t, d], i) => `<label class="paso ${pasosHechos[i] ? "done" : ""}"><input type="checkbox" data-i="${i}" ${pasosHechos[i] ? "checked" : ""}><div><b>${i + 1}. ${esc(t)}</b><small>${esc(d).replace(/(\+\d[\d ]{6,}\d|\b11[0268]\b)/g, m => tel(m))}</small></div></label>`).join("");
+  ventana("Accidente: paso a paso", `
+    <a class="btn sos" href="tel:112">📞 Llamar al 112</a>
+    <div id="pasos">${pinta()}</div>
+    <h3 style="margin-top:14px">Mis datos para el parte</h3>
+    <div class="misdatos">${esc(MIS_DATOS())}</div>
+    <div class="fila2"><button class="btn" id="copiarDatos">📋 Copiar</button><button class="btn" id="limpiarPasos">↺ Empezar de nuevo</button></div>`, card => {
+    const enganchar = () => card.querySelectorAll("#pasos input").forEach(c => c.onchange = () => {
+      pasosHechos[c.dataset.i] = c.checked; card.querySelector("#pasos").innerHTML = pinta(); enganchar();
+    });
+    enganchar();
+    card.querySelector("#copiarDatos").onclick = async e => {
+      try { await navigator.clipboard.writeText(MIS_DATOS()); e.target.textContent = "✓ Copiado"; } catch { e.target.textContent = "No se pudo copiar"; }
+    };
+    card.querySelector("#limpiarPasos").onclick = () => { pasosHechos = {}; card.querySelector("#pasos").innerHTML = pinta(); enganchar(); };
+  });
+}
+
+// ---------- Mecánico ----------
+function textoMecanico() {
+  const F = Object.fromEntries(D.ficha.map(([k, v]) => [k, v]));
+  return [
+    "Ford Explorer C9389 (Andorra)",
+    F["Modelo"] + " · " + F["Fabricado"],
+    "Bastidor: " + F["Bastidor (VIN)"],
+    "Motor: " + F["Motor"],
+    "Cambio: " + F["Cambio"] + " · " + F["Tracción"],
+    "Kilómetros: " + kmHoy().toLocaleString("es-ES"),
+    "",
+    "Aceite motor: " + F["Aceite del motor"],
+    "Cambio automático: " + F["Aceite del cambio automático"],
+    "Caja transfer: " + F["Caja transfer"],
+    "Ejes: " + F["Eje delantero / trasero"],
+    "Refrigerante: " + F["Refrigerante"],
+    "Líquido de frenos: " + F["Líquido de frenos"],
+    "Neumáticos: " + F["Neumáticos"],
+    "Faros: " + F["Bombilla de los faros"],
+    "",
+    "Pendiente: " + D.pendientes.filter(p => !hechos[p.id]).map(p => p.t).join("; ")
+  ].join("\n");
+}
+async function mandarMecanico() {
+  const t = textoMecanico();
+  if (navigator.share) { try { await navigator.share({ text: t }); return; } catch (e) { if (e.name === "AbortError") return; } }
+  location.href = "https://wa.me/?text=" + encodeURIComponent(t);
+}
+
+// ---------- Gasolina ----------
+// Cada repostaje: { id, f: "AAAA-MM-DD", km, l, eur, lleno }. Se guarda en el móvil.
+let llenos = store.get("gasolina", []);
+const guardarLlenos = () => store.set("gasolina", llenos);
+const num = v => { const n = parseFloat(String(v).replace(/\s/g, "").replace(",", ".")); return isFinite(n) ? n : null; };
+const n1 = (n, d = 1) => n.toLocaleString("es-ES", { minimumFractionDigits: d, maximumFractionDigits: d });
+const eur = n => n1(n, 2) + " €";
+function kmHoy() { return Math.max(D.estado.kmActual, ...llenos.map(r => r.km)); }
+function calcLlenos() {
+  const L = llenos.slice().sort((a, b) => a.km - b.km || a.f.localeCompare(b.f));
+  let prev = null, ultLleno = null, litrosDesde = 0;
+  for (const r of L) {
+    r.dist = prev ? r.km - prev.km : null;
+    litrosDesde += r.l;
+    r.cons = null;
+    if (r.lleno) {
+      if (ultLleno && r.km > ultLleno.km) { r.cons = litrosDesde / (r.km - ultLleno.km) * 100; r.tramo = r.km - ultLleno.km; }
+      ultLleno = r; litrosDesde = 0;
+    }
+    prev = r;
+  }
+  return L;
+}
+function pintarGasolina() {
+  const L = calcLlenos();
+  const conCons = L.filter(r => r.cons != null);
+  const kmTramos = conCons.reduce((s, r) => s + r.tramo, 0);
+  const litTramos = conCons.reduce((s, r) => s + r.cons * r.tramo / 100, 0);
+  const media = kmTramos ? litTramos / kmTramos * 100 : null;
+  const precioMedio = L.length ? L.reduce((s, r) => s + r.eur, 0) / L.reduce((s, r) => s + r.l, 0) : null;
+  const hoy = new Date().toISOString().slice(0, 10);
+  const gasto = pref => L.filter(r => r.f.startsWith(pref)).reduce((s, r) => s + r.eur, 0);
+  const kmAno = (() => { const a = L.filter(r => r.f.startsWith(hoy.slice(0, 4))); return a.length > 1 ? a.at(-1).km - a[0].km : 0; })();
+  const ult = L.at(-1);
+  $("#gasolina").innerHTML = `
+    <h2 style="margin-top:0">Apuntar repostaje</h2>
+    <div class="card">
+      <label class="campo">Kilómetros del cuentakilómetros
+        <input id="gKm" inputmode="numeric" placeholder="${ult ? "Último: " + ult.km.toLocaleString("es-ES") : "Ej.: " + kmHoy()}" autocomplete="off"></label>
+      <div class="fila2">
+        <label class="campo">Litros<input id="gL" inputmode="decimal" placeholder="Ej.: 60,5" autocomplete="off"></label>
+        <label class="campo">Euros<input id="gE" inputmode="decimal" placeholder="Ej.: 85,20" autocomplete="off"></label>
+      </div>
+      <div class="fila2">
+        <label class="campo">Fecha<input id="gF" type="date" value="${hoy}"></label>
+        <label class="campo chk" style="margin-top:22px"><input id="gLleno" type="checkbox" checked>Depósito lleno</label>
+      </div>
+      <p class="muted" id="gAviso" style="margin:0 0 8px"></p>
+      <button class="btn prim" id="gGuardar">Guardar</button>
+      <p class="muted" style="margin:0">Para saber cuánto gasta, llena el depósito del todo cada vez (o marca «lleno» solo cuando lo llenes).</p>
+    </div>
+
+    <h2>Resumen</h2>
+    <div class="kpis">
+      <div class="kpi"><span>Gasta de media</span><strong>${media ? n1(media) + " L/100" : "—"}</strong></div>
+      <div class="kpi"><span>Cuesta cada 100 km</span><strong>${media && precioMedio ? eur(media * precioMedio) : "—"}</strong></div>
+      <div class="kpi"><span>Gasolina este mes</span><strong>${eur(gasto(hoy.slice(0, 7)))}</strong></div>
+      <div class="kpi"><span>Gasolina este año</span><strong>${eur(gasto(hoy.slice(0, 4)))}</strong></div>
+      <div class="kpi"><span>Km este año</span><strong>${kmAno.toLocaleString("es-ES")}</strong></div>
+      <div class="kpi"><span>Precio medio</span><strong>${precioMedio ? n1(precioMedio, 3) + " €/L" : "—"}</strong></div>
+    </div>
+    ${L.length && !media ? `<p class="muted">La media sale a partir del segundo depósito lleno.</p>` : ""}
+
+    <h2>Repostajes</h2>
+    <div class="card">${L.length ? L.slice().reverse().map(r => `
+      <div class="lleno">
+        <div><div class="f">${fmtF(r.f)} · ${r.km.toLocaleString("es-ES")} km</div><b>${r.dist != null ? "+" + r.dist.toLocaleString("es-ES") + " km desde el anterior" : "Primer repostaje"}</b></div>
+        <div class="r"><b>${eur(r.eur)}</b><div class="f">${n1(r.l, 2)} L · ${n1(r.eur / r.l, 3)} €/L</div></div>
+        <div class="x">${r.lleno ? "Lleno" : "No lleno"}${r.cons != null ? ` · <b>${n1(r.cons)} L/100 km</b> en ${r.tramo.toLocaleString("es-ES")} km` : ""}</div>
+        <button data-borrar="${r.id}">Borrar</button>
+      </div>`).join("") : `<p class="muted" style="margin:0">Aún no hay ninguno. Apunta el próximo cuando eches gasolina.</p>`}</div>
+    ${L.length ? `<button class="btn" id="gCopia">📋 Copiar copia de seguridad</button>` : ""}`;
+
+  $("#gGuardar").onclick = () => {
+    const kmV = num($("#gKm").value), l = num($("#gL").value), e = num($("#gE").value), f = $("#gF").value || hoy;
+    const av = $("#gAviso");
+    if (!kmV || !l || !e) { av.textContent = "Rellena kilómetros, litros y euros."; return; }
+    if (l > 90) { av.textContent = "El depósito es de 83 litros: revisa los litros."; return; }
+    const antes = calcLlenos().filter(r => r.f <= f).at(-1);
+    if (antes && kmV < antes.km && !av.dataset.ok) { av.textContent = `Ojo: son menos km que el anterior (${antes.km.toLocaleString("es-ES")}). Pulsa Guardar otra vez si está bien.`; av.dataset.ok = 1; return; }
+    llenos.push({ id: Date.now().toString(36), f, km: Math.round(kmV), l, eur: e, lleno: $("#gLleno").checked });
+    guardarLlenos(); pintarGasolina(); pintarInicio();
+  };
+  $("#gasolina").querySelectorAll("[data-borrar]").forEach(b => b.onclick = () => {
+    if (!confirm("¿Borrar este repostaje?")) return;
+    llenos = llenos.filter(r => r.id !== b.dataset.borrar); guardarLlenos(); pintarGasolina(); pintarInicio();
+  });
+  const cp = $("#gCopia");
+  if (cp) cp.onclick = async () => { try { await navigator.clipboard.writeText(JSON.stringify(llenos)); cp.textContent = "✓ Copiada (pégala en Notas)"; } catch { cp.textContent = "No se pudo copiar"; } };
+}
 
 // ---------- Inicio ----------
 function avisos() {
@@ -216,14 +412,19 @@ function pintarInicio() {
   const pend = D.pendientes.filter(p => !hechos[p.id]).length;
   $("#inicio").innerHTML = `
     <div class="kpis">
-      <div class="kpi"><span>Kilómetros</span><strong>${D.estado.kmActual.toLocaleString("es-ES")}</strong></div>
+      <div class="kpi"><span>Kilómetros</span><strong>${kmHoy().toLocaleString("es-ES")}</strong></div>
       <div class="kpi"><span>Próxima ITV</span><strong>${fmtF(D.estado.proximaITV)}</strong></div>
       <div class="kpi"><span>Seguro hasta</span><strong>${fmtF(D.estado.seguroHasta)}</strong></div>
       <div class="kpi"><span>Tareas pendientes</span><strong>${pend} de ${D.pendientes.length}</strong></div>
     </div>
     <h2>Emergencias</h2>
+    <button class="btn sos" id="btnAccidente">🚨 He tenido un accidente</button>
     <div class="card">${D.emergencias.map(([q, n, d]) => `
       <a class="tel" href="tel:${n.replace(/\s/g, "")}"><span>${esc(q)}${d ? `<small>${esc(d)}</small>` : ""}</span><strong>${esc(n)}</strong></a>`).join("")}
+    </div>
+    <div class="fila2" style="margin-bottom:10px">
+      <button class="btn prim" id="btnRepostar">⛽ Apuntar gasolina</button>
+      <button class="btn" id="btnMecanico">🔧 Datos al mecánico</button>
     </div>
     <h2>Avisos</h2>
     ${avisos().map(([c, t, d]) => `<div class="alert ${c}"><b>${esc(t)}</b><small>${esc(d)}</small></div>`).join("")}
@@ -232,6 +433,9 @@ function pintarInicio() {
     <div class="card">${D.pendientes.map(p => `
       <label class="todo ${hechos[p.id] ? "done" : ""}"><input type="checkbox" data-id="${p.id}" ${hechos[p.id] ? "checked" : ""}><span>${esc(p.t)}</span></label>`).join("")}
     </div>`;
+  $("#btnAccidente").onclick = verAccidente;
+  $("#btnRepostar").onclick = () => { abrir("gasolina"); setTimeout(() => $("#gKm")?.focus(), 50); };
+  $("#btnMecanico").onclick = mandarMecanico;
   $("#inicio").querySelectorAll("input[type=checkbox]").forEach(c => c.onchange = () => {
     if (c.checked) hechos[c.dataset.id] = HOY.toISOString().slice(0, 10); else delete hechos[c.dataset.id];
     store.set("hechos", hechos); pintarInicio();
@@ -426,10 +630,14 @@ function pintarCompra() {
     </div>`;
 }
 
-function pintarTodo() { pintarInicio(); pintarSirve(); pintarFallos(); pintarManual(); pintarCoche(); pintarCompra(); buscar(); }
+function pintarTodo() { pintarInicio(); pintarGasolina(); pintarSirve(); pintarFallos(); pintarManual(); pintarCoche(); pintarCompra(); buscar(); }
 pintarTodo();
 let t0 = "inicio"; try { t0 = localStorage.getItem("fe_tab") || "inicio"; } catch {}
 abrir(TABS.some(t => t[0] === t0) ? t0 : "inicio");
+
+// Sin cobertura: lo guarda todo en el móvil la primera vez que se abre con internet
+if ("serviceWorker" in navigator && isSecureContext) navigator.serviceWorker.register("sw.js").catch(() => {});
+if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
 </script>
 </body>
 </html>
