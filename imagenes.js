@@ -40,8 +40,8 @@ window.IMAGENES = {
   "Limpiaparabrisas y escobillas": ["escobillas"],
   "Batería": ["bateria"],
   "Arrancar con pinzas": ["pinzas"],
-  "Rueda pinchada: sacar la rueda de repuesto": ["repuesto_soporte", "repuesto_manivela"],
-  "Gato y levantar el coche": ["gato"],
+  "Rueda pinchada: sacar la rueda de repuesto": ["varillas", "repuesto_soporte", "repuesto_manivela"],
+  "Gato y levantar el coche": ["gato_guardado", "gato"],
   "Montar la rueda y apretar las tuercas": ["rueda_tuercas", "apriete"],
   "Guardar la rueda y puntos para el gato de taller": ["gato_taller"],
   "Bombillas (tipo y vatios)": ["faro"],
@@ -65,7 +65,7 @@ window.IMAGENES = {
   "Se enciende CHECK GAUGE": ["check_gauge", "cuadro"],
   "La luz del airbag no se apaga o pita 5 veces": ["luz_airbag"],
   "El mando no abre": ["mando_pila"],
-  "Rueda pinchada": ["repuesto_manivela", "gato", "apriete"],
+  "Rueda pinchada": ["gato_guardado", "varillas", "repuesto_soporte", "repuesto_manivela", "gato", "apriete"],
   "No funciona algo eléctrico": ["fusibles_dentro", "fusibles_motor"],
   "Se empañan los cristales": ["desempanar"]
 };
