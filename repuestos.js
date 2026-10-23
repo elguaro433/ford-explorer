@@ -69,7 +69,7 @@ window.REPUESTOS = {
       ref: [["Bilstein B6 4600", "24-021340 (4x4, sin suspensión neumática)"]],
       c: "Siempre por parejas.", q: "amortiguador trasero Ford Explorer 1996 4x4" },
     { g: "Suspensión", n: "Amortiguadores del capó", cu: "2", ok: true, dif: "Fácil",
-      ref: [["Pedidos", "eBay, pedido 01-15347-25208 (llegan el 2/11)"]],
+      ref: [["Pedidos", "eBay, pedido 01-15347-25208 (llegan el 2/11)"], ["Artículo de eBay", "405990031235 · vendedor abijyide-automotive"], ["Precio", "36,51 € (15,99 + 14,18 de envío + 6,34 de impuestos)"]],
       c: "", q: "amortiguador gas capo Ford Explorer 1995-2001" },
 
     // ---- Limpiaparabrisas ----

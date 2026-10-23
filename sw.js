@@ -1,7 +1,7 @@
 // Ford Explorer: funciona sin cobertura.
 // Primero intenta la red (para tener siempre lo último); si no hay o tarda más de 4 s, usa lo guardado.
 // Al publicar una versión nueva, sube VERSION (y el ?v= de los guiones en index.html).
-const VERSION = "fe-20";
+const VERSION = "fe-21";
 const PRECACHE = [
 "./",
 "index.html",
