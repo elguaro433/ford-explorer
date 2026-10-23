@@ -138,8 +138,6 @@ window.MANUAL = [
     x: "Con el contacto puesto: botón H para las horas y M para los minutos (dejándolo pulsado avanza solo)." },
   { c: "Interior y equipamiento", p: "43", t: "Luces interiores y ahorro de batería",
     x: "Se encienden unos 25 segundos al abrir con el mando o al abrir una puerta delantera, y se apagan antes si cierras o pones el contacto. Las de lectura tienen su propio botón. Para no gastar batería, 40 minutos después de quitar el contacto se cortan las luces interiores y la del capó. Vuelven al usar el mando, abrir una puerta o poner el contacto." },
-  { c: "Interior y equipamiento", p: "44", t: "Brújula y temperatura exterior",
-    x: "Con el botón MODE cambias entre °C, °F y la brújula. Si fuera hay menos de +4 °C, parpadea «ICE» durante 1 minuto (riesgo de hielo). Zona de la brújula para ESPAÑA y Francia: 9. Para ponerla, pulsa MODE varias veces hasta que salga el número. Calibrar: para en un sitio despejado, mantén MODE hasta que salga CAL (unos 8 s) y da 2 o 3 vueltas en círculo a menos de 5 km/h hasta que se apague." },
   { c: "Interior y equipamiento", p: "45-46", t: "Enchufe de 12 V y mechero",
     x: "Enchufe: aparatos de 12 V y 10 A como máximo; con el motor parado descarga la batería. El mechero salta solo cuando está caliente; no lo sujetes apretado. Quítalo si dejas niños solos en el coche." },
   { c: "Interior y equipamiento", p: "47", t: "Regular el volante",
