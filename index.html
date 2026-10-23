@@ -66,6 +66,17 @@
   .kpi { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 10px 12px; min-width: 0; }
   .kpi span { display: block; color: var(--muted); font-size: 13px; }
   .kpi strong { display: block; font-size: 20px; font-variant-numeric: tabular-nums; }
+  .busca { display: block; width: 100%; margin: 10px 0 0; font: inherit; font-size: 16px; padding: 11px 14px; border: 0; border-radius: 10px; background: rgba(255,255,255,.95); color: #1d2321; }
+  .rp { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; }
+  .rp h3 { margin: 0; font-size: 17px; }
+  .rp .meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 4px; }
+  .badge { font-size: 12px; font-weight: 600; border-radius: 99px; padding: 2px 9px; background: var(--brand-soft); color: var(--brand); }
+  .badge.ojo { background: var(--warn-soft); color: var(--warn); }
+  .badge.taller { background: var(--bad-soft); color: var(--bad); }
+  .rp .dato:last-of-type { border-bottom: 0; }
+  .rp .c { font-size: 14px; color: var(--muted); margin: 6px 0 0; }
+  .links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .links a { flex: 1 1 auto; text-align: center; font-size: 14px; font-weight: 600; text-decoration: none; padding: 9px 10px; border-radius: 10px; border: 1px solid var(--line); color: var(--brand); background: var(--bg); min-width: 30%; }
   .tel-g { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--brand); margin: 18px 0 6px; }
   .tel-g:first-child { margin-top: 0; }
   .tel { display: flex; align-items: center; gap: 10px; padding: 10px 0; border-bottom: 1px solid var(--line); color: var(--text); text-decoration: none; }
@@ -167,16 +178,15 @@
     <p class="sub">Propiedad de Emmanuel Díaz · Creado por Emmanuel Díaz</p>
     <p class="sub">XLT 4x4 · 4.0 V6 gasolina · verde · 1995</p>
     <nav id="tabs" aria-label="Secciones"></nav>
+    <input type="search" id="q" class="busca" placeholder="🔎 Buscar: fusible radio, bujías, aceite…" autocomplete="off" aria-label="Buscar">
   </div>
 </header>
 <main class="pad">
   <section id="inicio"></section>
   <section id="gasolina"></section>
   <section id="telefonos"></section>
-  <section id="buscar">
-    <input type="search" id="q" placeholder="Ej.: fusible radio, 4x4, aceite…" autocomplete="off" aria-label="Buscar">
-    <div id="res"></div>
-  </section>
+  <section id="buscar"><div id="res"></div></section>
+  <section id="repuestos"></section>
   <section id="sirve"></section>
   <section id="fallos"></section>
   <section id="manual"></section>
@@ -185,14 +195,15 @@
 <div id="detalleBoton"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=17"></script>
-<script src="manual.js?v=17"></script>
-<script src="imagenes.js?v=17"></script>
-<script src="botones.js?v=17"></script>
-<script src="fusibles.js?v=17"></script>
-<script src="archivos.js?v=17" onerror="this.remove()"></script>
+<script src="datos.js?v=18"></script>
+<script src="manual.js?v=18"></script>
+<script src="imagenes.js?v=18"></script>
+<script src="botones.js?v=18"></script>
+<script src="fusibles.js?v=18"></script>
+<script src="repuestos.js?v=18"></script>
+<script src="archivos.js?v=18" onerror="this.remove()"></script>
 <script>
-const D = window.DATOS, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
+const D = window.DATOS, R = window.REPUESTOS || { consejos: [], piezas: [] }, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -213,12 +224,12 @@ const dibujos = titulo => (IMG[titulo] || []).length
   ? `<div class="dibujos">${IMG[titulo].map((n, i, a) => `<figure>${a.length > 2 ? `<figcaption>${i + 1}</figcaption>` : ""}<img src="img/${n}.jpg" alt="" loading="lazy"></figure>`).join("")}</div>` : "";
 
 // ---------- Pestañas ----------
-const TABS = [["inicio", "Inicio"], ["gasolina", "Gasolina"], ["telefonos", "Teléfonos"], ["buscar", "Buscar"], ["sirve", "Botones"], ["fallos", "Problemas"], ["manual", "Manual"], ["coche", "Mi coche"]];
+const TABS = [["inicio", "Inicio"], ["gasolina", "Gasolina"], ["telefonos", "Teléfonos"], ["repuestos", "Repuestos"], ["sirve", "Botones"], ["fallos", "Problemas"], ["manual", "Manual"], ["coche", "Mi coche"]];
 $("#tabs").innerHTML = TABS.map(([id, t]) => `<button data-t="${id}">${t}</button>`).join("");
 function abrir(id) {
   document.querySelectorAll("nav button").forEach(b => b.classList.toggle("on", b.dataset.t === id));
   document.querySelectorAll("section").forEach(s => s.classList.toggle("on", s.id === id));
-  try { localStorage.setItem("fe_tab", id); } catch {}
+  if (id !== "buscar") { try { localStorage.setItem("fe_tab", id); } catch {} }
   scrollTo(0, 0);
 }
 $("#tabs").onclick = e => { const b = e.target.closest("button"); if (b) abrir(b.dataset.t); };
@@ -401,6 +412,31 @@ function pintarInicio() {
   });
 }
 
+// ---------- Repuestos ----------
+const ROCKAUTO = "https://www.rockauto.com/en/catalog/ford,1996,explorer,4.0l+v6,1119653";
+const enlaces = r => {
+  const q = encodeURIComponent(r.q), g = t => "https://www.google.com/search?q=" + encodeURIComponent(t);
+  const L = [["Autodoc", g(r.q + " site:autodoc.es")], ["Oscaro", g(r.q + " site:oscaro.es")], ["Amazon", "https://www.amazon.es/s?k=" + q], ["eBay", "https://www.ebay.es/sch/i.html?_nkw=" + q]];
+  if (r.g !== "Bombillas" && r.g !== "Llave y mando") L.push(["Desguaces", g(r.q + " desguace segunda mano")], ["Wallapop", "https://es.wallapop.com/app/search?keywords=" + q], ["RockAuto (EE. UU.)", ROCKAUTO]);
+  return L.map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`).join("");
+};
+let rpGrupo = "Todo";
+function pintarRepuestos() {
+  const grupos = ["Todo", ...new Set(R.piezas.map(r => r.g))];
+  const lista = R.piezas.filter(r => rpGrupo === "Todo" || r.g === rpGrupo);
+  $("#repuestos").innerHTML = `
+    <details><summary>Cómo buscar y comprar bien</summary><div><ul>${R.consejos.map(c => `<li>${esc(c)}</li>`).join("")}</ul></div></details>
+    <div class="chips">${grupos.map(g => `<button class="chip ${g === rpGrupo ? "on" : ""}" data-g="${esc(g)}">${esc(g)}</button>`).join("")}</div>
+    ${lista.map(r => `<div class="rp">
+      <h3>${esc(r.n)}</h3>
+      <div class="meta"><span class="badge">${esc(r.cu)}</span><span class="badge ${r.dif === "Taller" ? "taller" : ""}">${({ "Fácil": "Fácil de cambiar", "Media": "Dificultad media", "Taller": "Mejor en el taller" })[r.dif]}</span>${r.ok ? "" : `<span class="badge ojo">Comprobar antes de comprar</span>`}</div>
+      ${r.ref.map(([k, v]) => `<div class="dato"><span>${esc(k)}</span>${esc(v)}</div>`).join("")}
+      ${r.c ? `<p class="c">${esc(r.c)}</p>` : ""}
+      <div class="links">${enlaces(r)}</div>
+    </div>`).join("")}`;
+  $("#repuestos").querySelectorAll(".chip").forEach(b => b.onclick = () => { rpGrupo = b.dataset.g; pintarRepuestos(); });
+}
+
 // ---------- Teléfonos ----------
 function pintarTelefonos() {
   const grupos = [...new Set(D.telefonos.map(t => t[0]))];
@@ -416,6 +452,7 @@ function indice() {
   const I = [];
   D.faq.forEach(([p, r]) => I.push({ tag: "Pregunta", t: p, d: r }));
   D.telefonos.forEach(([g, q, n, d]) => I.push({ tag: "Teléfono · " + g, t: q + ": " + n, d }));
+  R.piezas.forEach(r => I.push({ tag: "Repuesto · " + r.g, t: r.n, d: r.ref.map(x => x.join(": ")).join(" · ") }));
   B.forEach(b => I.push({ tag: "Botón o luz · pág. " + b.p, t: b.n, d: b.s + " " + b.u }));
   D.fallos.forEach(f => I.push({ tag: "Problema · pág. " + f.p, t: f.s, d: f.c.join(" ") }));
   M.forEach(m => I.push({ tag: "Manual · pág. " + m.p, t: m.t, d: m.x }));
@@ -445,7 +482,13 @@ function buscar() {
     ? `<div class="card">${hits.map(([, it]) => `<div class="hit"><div class="tag">${esc(it.tag)}</div><b>${marcar(it.t)}</b>${it.d ? `<div class="muted">${marcar(it.d)}</div>` : ""}</div>`).join("")}</div>`
     : `<p class="intro">No hay nada sobre «${esc(q)}». Prueba con otra palabra.</p>`;
 }
-$("#q").oninput = buscar;
+let tabAntes = "inicio";
+$("#q").oninput = () => {
+  const hay = $("#q").value.trim();
+  if (hay && !$("#buscar").classList.contains("on")) { tabAntes = (TABS.find(t => $("#" + t[0]).classList.contains("on")) || ["inicio"])[0]; abrir("buscar"); }
+  if (!hay) abrir(tabAntes);
+  buscar();
+};
 
 // ---------- Botones ----------
 let grupoB = "todo";
@@ -602,7 +645,7 @@ function pintarCompra() {
     </div>`;
 }
 
-function pintarTodo() { pintarInicio(); pintarGasolina(); pintarTelefonos(); pintarSirve(); pintarFallos(); pintarManual(); pintarCoche(); pintarCompra(); buscar(); }
+function pintarTodo() { pintarInicio(); pintarGasolina(); pintarTelefonos(); pintarRepuestos(); pintarSirve(); pintarFallos(); pintarManual(); pintarCoche(); pintarCompra(); buscar(); }
 pintarTodo();
 let t0 = "inicio"; try { t0 = localStorage.getItem("fe_tab") || "inicio"; } catch {}
 abrir(TABS.some(t => t[0] === t0) ? t0 : "inicio");
