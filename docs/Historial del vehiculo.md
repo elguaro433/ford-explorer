@@ -12,7 +12,8 @@ Lo que no se lee bien en la letra a mano va marcado con **(?)**.
    - Permiso de circulación del 18/09/2023: **Hotchandani Tanwani Suresh-Madan** (Ordino).
    - Factura de la ITV del 12/10/2026: **Victor Roque** (Andorra la Vella).
    Si el coche se ha vendido después de 2023, el permiso tiene que estar a nombre del nuevo dueño.
-2. **No hay seguro vigente en los papeles.** El último recibo cubre del 25/12/2022 al 25/06/2023. Hay que tener la póliza actual.
+   **Resuelto el 23/10/2026:** traspaso hecho en el Registre de Vehicles; el coche ya está a nombre de Emmanuel Arcadio Díaz Sánchez.
+2. **Seguro:** resuelto. Multisegur, póliza 10043515, a mi nombre del 23/10/2026 al 30/09/2027 (340,26 €, pagado).
 3. **El aceite está muy pasado.** El último cambio anotado es del 31/03/2021 a 80.082 km. Tocaba a 90.082 km y el coche ya tiene 117.496 (más de 27.000 km de retraso). Además, aquel día no se cambiaron ni el filtro de aceite ni el de aire.
 4. **Próxima ITV antes del 31/01/2027**, con la fuga de la transmisión reparada (ver análisis de la ITV).
 
