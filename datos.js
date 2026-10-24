@@ -105,7 +105,7 @@ window.DATOS = {
     ["1997-06-12", "Pasa a Andorra con matrícula C9389", "Permiso"],
     ["2022-12-25", "[dueño anterior] — Encamp", "Tomador del seguro 2022–2023"],
     ["2023-09-18", "[dueño anterior] — Ordino", "Titular en el permiso"],
-    ["2026-10-12", "[vendedor] — Andorra la Vella (NIA/NRT [NIA], doc. [doc])", "Pagó la ITV 2026 y es quien te vende el coche. Falta confirmar si la carta groga está a su nombre"],
+    ["2026-10-12", "[vendedor] — Andorra la Vella (NIA/NRT [NIA], doc. [doc])", "Pagó la ITV 2026 y me vendió el coche. En el Registre el titular era [dueño anterior], que firmó el traspaso"],
     ["2026-10-23", "Emmanuel [nombre] (NIA [NIA]) — Av. [dirección], Andorra la Vella", "Titular desde el 23/10/2026 (traspaso hecho en el Registre de Vehicles)"]
   ],
 
@@ -161,8 +161,8 @@ window.DATOS = {
     ["Certificado del propietario 1995", "01 Documentacion/1995-12-13 Certificado del propietario (Espana L-2825-Z).jpg"],
     ["Placa del fabricante + aceite 2021", "01 Documentacion/Placa del fabricante + etiqueta aceite 2021.jpg"],
     ["Seguro actual Multisegur 2026–2027 (PDF)", "02 Seguro/2026-10-15 Certificado seguro Multisegur (FAGA) hasta 2027-10-15.pdf"],
-    ["Solicitud compraventa R2T003 (borrador)", "01 Documentacion/2026-10-22 Solicitud compraventa R2T003 (borrador).pdf"],
-    ["Cambio de titular — lista para mañana", "Cambio de titular - lista para mañana.md"],
+    ["Traspaso, reserva de dominio e impuestos (Govern, 23/10/2026)", "07 Compra/2026-10-23 Traspaso, reserva de dominio e impuestos (Govern).pdf"],
+    ["Recibo del seguro Multisegur 2026-2027", "02 Seguro/2026-10-23 Recibo seguro Multisegur poliza 10043515 (340,26 €).pdf"],
     ["Recibo seguro 2022–2023", "02 Seguro/2023-05-31 Recibo seguro Financera 2022-12 a 2023-06.jpg"],
     ["Cargo banco seguro", "02 Seguro/2022-12-27 Cargo banco seguro Credit Andorra.jpg"],
     ["ITV 2023 + 2026 + factura (PDF)", "03 ITV/2026-10-12 ITV informes 2023 y 2026 + factura.pdf"],
