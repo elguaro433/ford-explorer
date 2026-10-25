@@ -195,13 +195,13 @@
 <div id="detalleBoton"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=21"></script>
-<script src="manual.js?v=21"></script>
-<script src="imagenes.js?v=21"></script>
-<script src="botones.js?v=21"></script>
-<script src="fusibles.js?v=21"></script>
-<script src="repuestos.js?v=21"></script>
-<script src="archivos.js?v=21" onerror="this.remove()"></script>
+<script src="datos.js?v=22"></script>
+<script src="manual.js?v=22"></script>
+<script src="imagenes.js?v=22"></script>
+<script src="botones.js?v=22"></script>
+<script src="fusibles.js?v=22"></script>
+<script src="repuestos.js?v=22"></script>
+<script src="archivos.js?v=22" onerror="this.remove()"></script>
 <script>
 const D = window.DATOS, R = window.REPUESTOS || { consejos: [], piezas: [] }, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -463,6 +463,7 @@ function indice() {
   D.fallos.forEach(f => I.push({ tag: "Problema · pág. " + f.p, t: f.s, d: f.c.join(" ") }));
   M.forEach(m => I.push({ tag: "Manual · pág. " + m.p, t: m.t, d: m.x }));
   D.ficha.forEach(([k, v, g]) => I.push({ tag: "Ficha · " + g, t: k + ": " + v, d: "" }));
+  D.equipo.forEach(([k, v, g]) => I.push({ tag: "Mi coche · " + g, t: k, d: v }));
   D.pendientes.forEach(p => I.push({ tag: "Tarea", t: p.t, d: "" }));
   if (window.FUSIBLES) {
     const F = window.FUSIBLES;
@@ -608,6 +609,11 @@ function pintarCoche() {
     <details class="grupo"><summary>Ficha del coche</summary><div>
       ${[...new Set(D.ficha.map(f => f[2]))].map(g => `<h3 class="sub-h">${esc(g)}</h3>
         ${D.ficha.filter(f => f[2] === g).map(([k, v]) => `<div class="dato"><span>${esc(k)}</span>${esc(v)}</div>`).join("")}`).join("")}</div></details>
+
+    <details class="grupo"><summary>Ruedas, radio y fábrica</summary><div>
+      <p class="muted" style="margin:0 0 4px">Sacado de las fotos del 25/10/2026. Lo dudoso lleva (?).</p>
+      ${[...new Set(D.equipo.map(f => f[2]))].map(g => `<h3 class="sub-h">${esc(g)}</h3>
+        ${D.equipo.filter(f => f[2] === g).map(([k, v]) => `<div class="dato"><span>${esc(k)}</span>${esc(v)}</div>`).join("")}`).join("")}</div></details>
 
     <details class="grupo"><summary>Mantenimiento</summary><div>
       <div class="alert warn"><b>Lo que le toca ahora</b><small>${esc(P.tuEstado)}</small></div>

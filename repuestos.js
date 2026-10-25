@@ -124,6 +124,11 @@ window.REPUESTOS = {
       ref: [["Según el manual", "5 W"], ["Código", "Sin confirmar: saca una y mira"]],
       c: "", q: "bombilla 5W 12V luz cortesia puerta" },
 
+    // ---- Ruedas ----
+    { g: "Ruedas", n: "Neumáticos", cu: "4 (o 2 por eje)", ok: true, dif: "Taller",
+      ref: [["Los que lleva", "Cooper Discoverer AT3 4S 255/70 R16 111T (octubre de 2020)"], ["Medida de fábrica", "P225/70 R16"], ["Precio aproximado", "130-180 € cada uno, más montaje"]],
+      c: "Si cambias solo 2, los nuevos van detrás. Con 4x4, mejor los 4 iguales. Cambiarlos como muy tarde en octubre de 2030 (10 años).", q: "Cooper Discoverer AT3 4S 255/70 R16 111T" },
+
     // ---- Llave ----
     { g: "Llave y mando", n: "Pila del mando", cu: "1", ok: true, dif: "Fácil",
       ref: [["Tipo", "A23 (MN21/23) 12 V"]],

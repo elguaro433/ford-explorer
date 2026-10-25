@@ -3,7 +3,7 @@
 // Para añadir algo nuevo de forma permanente, edita este archivo (o pídeselo a Claude).
 
 window.DATOS = {
-  actualizado: "2026-10-23",
+  actualizado: "2026-10-25",
 
   // Mi compra. Sin teléfonos: la web es pública.
   compra: {
@@ -76,7 +76,7 @@ window.DATOS = {
     ["Peso máximo por eje", "1.270 kg delante · 1.361 kg detrás", "Datos técnicos"],
     ["Medidas", "Largo 4.789 · ancho 1.874 · alto 1.830 mm", "Datos técnicos"],
     ["Distancia entre ejes", "2.831 mm", "Datos técnicos"],
-    ["Neumáticos", "P225/70 R16 · 2,1 bar delante y detrás", "Datos técnicos"],
+    ["Neumáticos", "Puestos: Cooper 255/70 R16 111T (de fábrica: P225/70 R16) · 2,1 bar delante y detrás", "Datos técnicos"],
     ["Rueda de repuesto", "225/70 R15 · 2,1 bar · máx. 80 km/h", "Datos técnicos"],
     ["Par de apriete de ruedas", "135 Nm", "Datos técnicos"],
     ["Depósito de gasolina", "83,3 litros", "Líquidos y capacidades"],
@@ -88,6 +88,62 @@ window.DATOS = {
     ["Refrigerante", "7,4 L · 50 % agua y 50 % anticongelante", "Líquidos y capacidades"],
     ["Líquido de frenos", "DOT 4", "Líquidos y capacidades"],
     ["Bombilla de los faros", "H4 60/55 W", "Líquidos y capacidades"]
+  ],
+
+  // Lo que lleva puesto, sacado de las fotos del 25/10/2026 y buscado en internet. [dato, valor, grupo]
+  equipo: [
+    ["Marca y modelo", "Cooper Discoverer AT3 4S (todoterreno para las 4 estaciones, letras blancas)", "Neumáticos"],
+    ["Medida", "255/70 R16: 255 mm de ancho, flanco del 70 % del ancho, radial (R), para llanta de 16 pulgadas", "Neumáticos"],
+    ["Fabricados", "Semana 41 de 2020 (octubre de 2020): tienen unos 6 años", "Neumáticos"],
+    ["Hechos en", "Fábrica de Cooper en Texarkana, Arkansas (EE. UU.)", "Neumáticos"],
+    ["Presión", "2,1 bar (30 psi) en frío, delante y detrás. Es lo que pide Ford para esta medida. Nunca más de 3,0 bar (44 psi), que es el máximo del neumático", "Neumáticos"],
+    ["Carga y velocidad (111T)", "111 = aguanta 1.090 kg cada uno. T = hasta 190 km/h. De sobra para la Explorer (máx. 1.361 kg por eje)", "Neumáticos"],
+    ["Carga normal (Standard Load)", "No es reforzado (XL) ni de camión (LT): es la carga normal de turismo", "Neumáticos"],
+    ["Por dentro", "Banda: 1 capa de nailon + 2 de acero + 2 de poliéster. Flanco: 2 capas de poliéster", "Neumáticos"],
+    ["Precio aproximado", "Unos 130-180 € cada uno (2026), más el montaje. En Europa se encuentra poco: pedir precio en el taller (?)", "Neumáticos"],
+    ["Cuándo cambiarlos", "Cuando el dibujo baje de 3 mm (la ley pide 1,6 mm) o a los 10 años (octubre de 2030), lo que llegue antes. A partir de ahora, que los miren cada año por si salen grietas", "Neumáticos"],
+    ["Las grietas de las letras blancas", "Es solo la pintura blanca de las letras: no es peligroso. Lo que hay que vigilar son grietas en la goma negra del flanco", "Neumáticos"],
+    ["Ojo: miden más que los de fábrica", "Son unos 4 cm más altos que los 225/70 R16 originales (76 cm contra 72 cm). El velocímetro marca un 6 % menos: cuando pone 94 km/h vas a 100. Y el cuentakilómetros cuenta algo menos de lo que haces", "Neumáticos"],
+    ["¿Es legal esa medida?", "255/70 R16 era una medida de fábrica de la Explorer de 1996 en EE. UU. Si en la ITV ponen pegas, enséñales esto (?)", "Neumáticos"],
+    ["Rueda de repuesto", "Sigue siendo la pequeña de 225/70 R15: solo para llegar al taller, máx. 80 km/h", "Neumáticos"],
+
+    ["M+S", "Barro y nieve (Mud + Snow): dibujo pensado para barro y nieve", "Qué significan las letras del neumático"],
+    ["Montaña con copo de nieve (3PMSF)", "Homologado de verdad como neumático de invierno: ha pasado una prueba en nieve. Vale donde piden neumáticos de invierno (en Andorra, cuando piden cadenas, mira siempre el cartel) (?)", "Qué significan las letras del neumático"],
+    ["UTQG 620 A B", "Notas de EE. UU.: 620 = dura mucho (un neumático normal tiene 300-500). A = buen agarre frenando en mojado (AA es lo mejor). B = aguanta bien el calor (A es lo mejor)", "Qué significan las letras del neumático"],
+    ["DOT UT0K 1M6 … 4120", "Código de EE. UU.: UT = fábrica (Texarkana), 0K = medida, 1M6 = código de Cooper, 4120 = semana 41 del año 2020. Los 4 últimos números siempre dicen la fecha", "Qué significan las letras del neumático"],
+    ["E4 0210475…", "Homologación europea (E4 = aprobado en los Países Bajos). Es la que permite usarlo en Europa", "Qué significan las letras del neumático"],
+    ["Adaptive-Traction Technology", "Nombre comercial de Cooper para el dibujo que agarra en seco, mojado, barro y nieve", "Qué significan las letras del neumático"],
+
+    ["Llantas", "Originales Ford de 16 pulgadas, cromadas, con tapacubos central con el óvalo de Ford", "Llantas"],
+    ["Tornillería", "5 tuercas, apretar a 135 Nm en cruz. Medida de los tornillos: 5 x 114,3 mm (?)", "Llantas"],
+    ["Cuidado del cromado", "Lavar con agua y jabón y secar. Nada de limpiadores ácidos de llantas: estropean el cromo. Los puntitos blancos son cal y sal de la carretera", "Llantas"],
+    ["Montar neumáticos", "Solo en llanta de 16 pulgadas y en un taller (lo pone en el neumático)", "Llantas"],
+
+    ["Dónde se hizo", "Louisville Assembly Plant, Louisville, Kentucky (EE. UU.). Lo dice la pegatina del cristal y lo confirma el bastidor: la letra 11 es U = Louisville y la 10 es T = año modelo 1996", "Fábrica"],
+    ["La fábrica", "Fábrica de Ford desde los años 50. Allí se hicieron la Ranger y el Bronco II (desde 1982) y la Explorer desde febrero de 1990 hasta diciembre de 2010", "Fábrica"],
+    ["«Home of Explorer and Ranger»", "«Casa de la Explorer y la Ranger»: en 1995 allí se fabricaban las dos", "Fábrica"],
+    ["UAW Local 862", "El sindicato de los trabajadores de la fábrica (United Auto Workers, sección 862)", "Fábrica"],
+    ["Q1", "Premio de calidad de Ford a sus fábricas (Q1 = calidad número 1)", "Fábrica"],
+    ["Hoy", "Ahora fabrica el Ford Escape y el Lincoln Corsair, y se está preparando para una camioneta eléctrica", "Fábrica"],
+    ["La pegatina", "Es un recuerdo de fábrica: no la quites", "Fábrica"],
+
+    ["Modelo", "Pioneer DEH-2300UB (modelo de 2011). No es la original de Ford", "Radio"],
+    ["Qué tiene", "CD, USB delante, entrada AUX delante (clavija de 3,5 mm), radio FM/AM con RDS, MP3 y WMA. 4 x 50 W (potencia máxima). 1 salida RCA para un subwoofer o un amplificador", "Radio"],
+    ["Cambiar de fuente", "Botón SRC (arriba a la izquierda): radio → CD → USB → AUX. Mantenerlo pulsado la apaga", "Radio"],
+    ["Volumen y menú", "Gira la rueda grande para el volumen. Púlsala para entrar en los ajustes (sonido, etc.)", "Radio"],
+    ["Canciones y carpetas", "◀ ▶ = canción anterior / siguiente (mantener = avanzar rápido). ▲ ▼ = carpeta anterior / siguiente. Lupa = buscar en la lista de carpetas y canciones", "Radio"],
+    ["Botones 1 y 2", "1 (S.Rtrv) = mejora el sonido de los MP3. 2 (PAUSE) = pausa", "Radio"],
+    ["TA/NEWS", "Avisos de tráfico y noticias de la radio (RDS)", "Radio"],
+    ["La pantalla", "«T-005 00'17\"» = canción 5, segundo 17", "Radio"],
+    ["Pendrive", "El USB «Emmanuel» va en el lado derecho. Formato FAT32 con canciones MP3 o WMA (?)", "Radio"],
+    ["Frontal extraíble", "Botón pequeño de arriba a la izquierda: suelta el frontal. Llévatelo al dejar el coche aparcado para que no roben la radio. No toques los contactos dorados", "Radio"],
+    ["Si se apaga o no va", "Fusible 29 de la caja de dentro (radio)", "Radio"],
+    ["Manual", "En la web de Pioneer: busca «DEH-2300UB manual»", "Radio"],
+
+    ["Climatizador", "Manual, con 3 ruedas: ventilador (4 velocidades), temperatura (azul frío, rojo calor) y salida del aire", "Interior"],
+    ["A/C", "Aire acondicionado con aire de fuera", "Interior"],
+    ["MAX A/C", "Máximo frío: aire acondicionado con el aire de dentro (recircula). Úsalo para enfriar rápido en verano", "Interior"],
+    ["Desempañar", "La última posición (parabrisas): el aire acondicionado se enciende solo para secar el aire", "Interior"]
   ],
 
   // Valores que usan las alertas
@@ -152,6 +208,8 @@ window.DATOS = {
     { f: "2026-10-22", km: null,   tipo: "doc",  t: "Solicitud de compraventa R2T003 preparada (borrador)", d: "Faltan los datos y la firma del vendedor." },
     { f: "2026-10-23", km: null,   tipo: "doc",  t: "Traspaso hecho: el coche ya está a mi nombre", d: "Registre de Vehicles del Govern d'Andorra. Pagado 40 €." },
     { f: "2026-10-23", km: null,   tipo: "seguro", t: "Seguro pagado: Multisegur, póliza 10043515", d: "340,26 € (en 3 cuotas: 30/10, 30/11 y 30/12). Cubre del 23/10/2026 al 30/09/2027." },
+    { f: "2026-10-25", km: null,   tipo: "mant", t: "Pila del mando cambiada (A23 12 V)", d: "Cambiada por Emmanuel. El manual dice cambiarla cada 6 meses: la próxima, hacia abril de 2027." },
+    { f: "2026-10-25", km: null,   tipo: "doc",  t: "Fotos de ruedas, radio y pegatina de fábrica", d: "Neumáticos Cooper Discoverer AT3 4S 255/70 R16 de octubre de 2020, llantas cromadas Ford de 16 pulgadas, radio Pioneer DEH-2300UB. Todo en Mi coche › Ruedas, radio y fábrica." },
     { f: "2026-10-12", km: 117496, tipo: "itv",  t: "ITV Favorable con defecto LEVE", d: "8.1.7.1 Fuga en cárteres de la transmisión. Tarifa fuera de plazo 49,10 €. Con placas de prueba 435. Freno delantero 10 % descompensado." }
   ],
 
@@ -232,7 +290,7 @@ window.DATOS = {
     ["¿Qué gasolina le pongo?", "Sin plomo de 95 (mínimo 91). Nunca con plomo. Caben 83,3 L. (pág. 113)"],
     ["¿Qué aceite lleva el motor?", "5W-30 (o 10W-30, 10W-40, 5W-40). Con filtro caben 4,7 L. Nunca por encima de MAX. (pág. 114-115)"],
     ["¿Cómo miro el aceite?", "Coche en llano, motor caliente y apagado unos minutos. Saca la varilla, límpiala, métela y sácala: tiene que estar entre MIN y MAX. (pág. 78)"],
-    ["¿Qué presión llevan las ruedas?", "2,1 bar delante, detrás y en la de repuesto, en frío. (pág. 116)"],
+    ["¿Qué presión llevan las ruedas?", "2,1 bar (30 psi) delante, detrás y en la de repuesto, en frío. Vale también para los Cooper 255/70 R16 que lleva puestos. (pág. 116)"],
     ["¿Qué líquido de frenos lleva?", "DOT 4. Se cambia cada 3 años. (pág. 115)"],
     ["¿Qué refrigerante lleva?", "50 % agua y 50 % anticongelante. Se cambia cada 2 años. (pág. 115)"],
     ["¿Qué reviso al echar gasolina?", "Aceite, líquido de frenos, agua del limpiaparabrisas y presión de las ruedas. (pág. 75)"],
@@ -248,6 +306,10 @@ window.DATOS = {
     ["¿Cuánto peso puede ir en la bola del remolque?", "100 kg como máximo. (pág. 71)"],
     ["¿Qué bombilla llevan los faros?", "H4 60/55 W. (pág. 100)"],
     ["¿Cuánto se aprietan las tuercas de las ruedas?", "135 Nm, en cruz. Vuelve a apretarlas a los 800 km. (pág. 98)"],
+    ["¿Qué neumáticos lleva?", "Cooper Discoverer AT3 4S 255/70 R16 111T, de octubre de 2020. Valen para invierno (montaña con copo de nieve). (fotos 25/10/2026)"],
+    ["¿De qué año son los neumáticos?", "Semana 41 de 2020: los 4 últimos números del código DOT (4120). Cambiarlos como muy tarde en octubre de 2030."],
+    ["¿Qué radio tiene?", "Pioneer DEH-2300UB: CD, USB, AUX y radio. SRC cambia de fuente; la rueda es el volumen. (fotos 25/10/2026)"],
+    ["¿Dónde se fabricó?", "En Louisville, Kentucky (EE. UU.), en la fábrica de Ford donde se hacían la Explorer y la Ranger."],
     ["¿Cada cuánto hay que hacerle revisión?", "Cada 10.000 km o cada 12 meses, lo que llegue antes. (Programa de mantenimiento)"]
   ],
 
