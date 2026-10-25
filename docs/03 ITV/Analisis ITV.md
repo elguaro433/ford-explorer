@@ -42,7 +42,7 @@ Página 1 = factura 2026 · Página 2 = informe ITV 2023 · Página 3 = informe 
 | Emisor | ITV Serveis S.A., Ctra. de Bixessarri s/n, Aixovall, AD600 Sant Julià de Lòria · NRT A-707191-T · Tel. 741 350 |
 | Nº factura | AND1FC260044196 |
 | Fecha | 12/10/2026 |
-| Cliente | [vendedor] · NIA/NRT [NIA] · C/ [dirección], AD500 Andorra la Vella |
+| Cliente | (datos personales: solo en el PC) |
 | Servicio | PR – Primera Inspección Periódica |
 | Tarifa | **«Fora de termini»** (fuera de plazo) para vehículos L, O1, O2 y M1 |
 | Base | 46,99 € |

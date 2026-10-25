@@ -28,7 +28,7 @@ window.DATOS = {
       ["2026-10-21", "Pagos a cuenta", "500 € por Bizum y 2.000 € en efectivo. Recibo firmado por los dos."],
       ["2026-10-22", "Pago final", "500 €. Coche pagado entero."],
       ["2026-10-23", "Traspaso hecho", "Registre de Vehicles: el coche ya está a mi nombre. Pagado 40 €."],
-      ["2026-10-23", "Impuesto 2026", "Lo pagó el dueño anterior en el traspaso (169,50 € + 3,39 de recargo). Desde 2027 lo pago yo: 169,50 € cada marzo, domiciliado en MoraBanc."],
+      ["2026-10-23", "Impuesto 2026", "Lo pagó el dueño anterior en el traspaso (169,50 € + 3,39 de recargo). Desde 2027 lo pago yo: 169,50 € cada marzo, domiciliado en el banco."],
       ["2026-10-23", "Seguro pagado", "Multisegur, póliza 10043515: 340,26 € (en 3 cuotas). Cubre hasta el 30/09/2027."]
     ],
     pagos: [
@@ -96,17 +96,17 @@ window.DATOS = {
     proximaITV: "2027-01-31",
     ultimoAceite: { fecha: "2021-03-31", km: 80082, proximoKm: 90082 },
     seguroHasta: "2027-09-30",
-    titularPermiso: "Emmanuel [nombre] (traspaso 23/10/2026)",
-    pagadorITV2026: "[vendedor]"
+    titularPermiso: "Emmanuel (traspaso 23/10/2026)",
+    pagadorITV2026: "el vendedor"
   },
 
   propietarios: [
-    ["1995-12-13", "Sr. [primer dueño] (?) — [dirección], Vilanova de la Barca (Lleida)", "Primer dueño. Vendido por Servel Motor S.L., Lleida"],
+    ["1995-12-13", "Primer dueño (Lleida)", "Primer dueño. Vendido por Servel Motor S.L., Lleida"],
     ["1997-06-12", "Pasa a Andorra con matrícula C9389", "Permiso"],
-    ["2022-12-25", "[dueño anterior] — Encamp", "Tomador del seguro 2022–2023"],
-    ["2023-09-18", "[dueño anterior] — Ordino", "Titular en el permiso"],
-    ["2026-10-12", "[vendedor] — Andorra la Vella (NIA/NRT [NIA], doc. [doc])", "Pagó la ITV 2026 y me vendió el coche. En el Registre el titular era [dueño anterior], que firmó el traspaso"],
-    ["2026-10-23", "Emmanuel [nombre] (NIA [NIA]) — Av. [dirección], Andorra la Vella", "Titular desde el 23/10/2026 (traspaso hecho en el Registre de Vehicles)"]
+    ["2022-12-25", "Dueño anterior (Encamp)", "Tomador del seguro 2022–2023"],
+    ["2023-09-18", "Dueño anterior (Ordino)", "Titular en el permiso"],
+    ["2026-10-12", "Vendedor (Andorra la Vella)", "Pagó la ITV 2026 y me vendió el coche"],
+    ["2026-10-23", "Emmanuel (Andorra la Vella)", "Titular desde el 23/10/2026 (traspaso hecho en el Registre de Vehicles)"]
   ],
 
   // tipo: itv | mant | seguro | doc
@@ -139,38 +139,29 @@ window.DATOS = {
     { f: "2020-12-16", km: 78145,  tipo: "itv",  t: "ITV Favorable", d: "" },
     { f: "2021-03-31", km: 80082,  tipo: "mant", t: "Cambio de aceite 10W40", d: "Filtro de aceite NO, filtro de aire NO. Próximo a 90.082 km." },
     { f: "2021-12-22", km: 89436,  tipo: "itv",  t: "ITV Favorable", d: "" },
-    { f: "2022-12-25", km: null,   tipo: "seguro", t: "Seguro Financera FINAUTO (semestre)", d: "Póliza [póliza] · 240,52 € · hasta 25/06/2023 · [dueño anterior]." },
+    { f: "2022-12-25", km: null,   tipo: "seguro", t: "Seguro Financera FINAUTO (semestre)", d: "240,52 € · hasta 25/06/2023 · a nombre del dueño anterior." },
     { f: "2023-06-01", km: 116781, tipo: "itv",  t: "ITV Favorable, sin defectos", d: "Informe AND100001022426. Próxima 31/01/2024 (no se hizo)." },
-    { f: "2023-09-18", km: null,   tipo: "doc",  t: "Permiso de circulación nuevo", d: "Titular: [dueño anterior] (Ordino)." },
-    { f: "2026-10-13", km: null,   tipo: "doc",  t: "Compra: paga y señal 1.500 € (efectivo)", d: "Vendedor [vendedor] (doc. [doc], tel. [tel]). Precio total 4.500 €." },
+    { f: "2023-09-18", km: null,   tipo: "doc",  t: "Permiso de circulación nuevo", d: "A nombre del dueño anterior (Ordino)." },
+    { f: "2026-10-13", km: null,   tipo: "doc",  t: "Compra: paga y señal 1.500 € (efectivo)", d: "Precio total 4.500 €." },
     { f: "2026-10-21", km: 118000, tipo: "doc",  t: "Compra: pagos a cuenta 500 € (Bizum) + 2.000 € (efectivo)", d: "Total pagado 4.000 €. Pendiente 500 €. Recibo firmado por los dos por duplicado." },
-    { f: "2026-10-22", km: null,   tipo: "mant", t: "Pedidos amortiguadores de gas del capó (2 uds.)", d: "Los actuales están mal. eBay, pedido [pedido], vendedor abijyide-automotive, «2 Stück für 1995-2001 Ford Explorer Gasfeder Motorhaube». 15,99 € artículo, 36,51 € total. Llega el lun. 2/11/2026. Devolución hasta el 2/12/2026." },
+    { f: "2026-10-22", km: null,   tipo: "mant", t: "Pedidos amortiguadores de gas del capó (2 uds.)", d: "Los actuales están mal. eBay, «2 Stück für 1995-2001 Ford Explorer Gasfeder Motorhaube». 15,99 € artículo, 36,51 € total. Llega el lun. 2/11/2026. Devolución hasta el 2/12/2026." },
     { f: "2026-10-22", km: null,   tipo: "doc",  t: "Revisado el mando: original Bosch RK112, pila A23 12 V", d: "Solo hay una llave y un mando. El mando es el homologado para este coche (G108 511D)." },
     { f: "2026-10-22", km: null,   tipo: "doc",  t: "Compra: pago final 500 € — PAGADO ENTERO (4.500 €)", d: "Coche pagado del todo. Traspaso en el Govern el 23/10/2026." },
     { f: "2026-10-15", km: 117514, tipo: "doc",  t: "Foto del cuentakilómetros: 117.514 km", d: "Vídeo del 15/10/2026 a las 18:50. Parcial 207 km. Cuadro en km/h (versión europea). Motor al ralentí (unas 1.000 rpm), en P, frío y con el depósito casi en reserva." },
-    { f: "2026-10-15", km: null,   tipo: "seguro", t: "Seguro nuevo Multisegur Assegurances", d: "A nombre de Emmanuel [nombre]. Responsabilidad civil hasta 50.000.000 €. Del 15/10/2026 al 15/10/2027. Certificado FAGA nº [nº]." },
-    { f: "2026-10-22", km: null,   tipo: "doc",  t: "Solicitud de compraventa R2T003 preparada (borrador)", d: "Comprador: Emmanuel [nombre]. Faltan los datos y la firma del vendedor." },
+    { f: "2026-10-15", km: null,   tipo: "seguro", t: "Seguro nuevo Multisegur Assegurances", d: "A mi nombre. Responsabilidad civil hasta 50.000.000 €. Del 15/10/2026 al 15/10/2027. " },
+    { f: "2026-10-22", km: null,   tipo: "doc",  t: "Solicitud de compraventa R2T003 preparada (borrador)", d: "Faltan los datos y la firma del vendedor." },
     { f: "2026-10-23", km: null,   tipo: "doc",  t: "Traspaso hecho: el coche ya está a mi nombre", d: "Registre de Vehicles del Govern d'Andorra. Pagado 40 €." },
     { f: "2026-10-23", km: null,   tipo: "seguro", t: "Seguro pagado: Multisegur, póliza 10043515", d: "340,26 € (en 3 cuotas: 30/10, 30/11 y 30/12). Cubre del 23/10/2026 al 30/09/2027." },
     { f: "2026-10-12", km: 117496, tipo: "itv",  t: "ITV Favorable con defecto LEVE", d: "8.1.7.1 Fuga en cárteres de la transmisión. Tarifa fuera de plazo 49,10 €. Con placas de prueba 435. Freno delantero 10 % descompensado." }
   ],
 
   documentos: [
-    ["Permiso de circulación (carta amarilla)", "01 Documentacion/2023-09-18 Permiso de circulacion C9389.jpg"],
-    ["Permiso — ficha completa", "01 Documentacion/Permiso de circulacion - ficha completa.md"],
-    ["Certificado del propietario 1995", "01 Documentacion/1995-12-13 Certificado del propietario (Espana L-2825-Z).jpg"],
+    // En la web no van papeles personales (permiso, seguro, ITV, compra): están solo en el PC.
     ["Placa del fabricante + aceite 2021", "01 Documentacion/Placa del fabricante + etiqueta aceite 2021.jpg"],
-    ["Seguro actual Multisegur 2026–2027 (PDF)", "02 Seguro/2026-10-15 Certificado seguro Multisegur (FAGA) hasta 2027-10-15.pdf"],
-    ["Traspaso, reserva de dominio e impuestos (Govern, 23/10/2026)", "07 Compra/2026-10-23 Traspaso, reserva de dominio e impuestos (Govern).pdf"],
-    ["Recibo del seguro Multisegur 2026-2027", "02 Seguro/2026-10-23 Recibo seguro Multisegur poliza 10043515 (340,26 €).pdf"],
-    ["Recibo seguro 2022–2023", "02 Seguro/2023-05-31 Recibo seguro Financera 2022-12 a 2023-06.jpg"],
-    ["Cargo banco seguro", "02 Seguro/2022-12-27 Cargo banco seguro Credit Andorra.jpg"],
-    ["ITV 2023 + 2026 + factura (PDF)", "03 ITV/2026-10-12 ITV informes 2023 y 2026 + factura.pdf"],
     ["Análisis ITV", "03 ITV/Analisis ITV.md"],
     ["Hoja de revisiones Ford 1996–97", "04 Mantenimiento/1996-1997 Hoja de revisiones Ford.jpg"],
     ["Etiquetas Motul 1997–98", "04 Mantenimiento/1997-1998 Etiquetas aceite Motul.jpg"],
     ["Nota aceite 2004", "04 Mantenimiento/2004-06-17 Nota aceite y niveles.jpg"],
-    ["Historial completo", "Historial del vehiculo.md"],
     ["Manual del propietario — índice", "01 Documentacion/Manuales Ford 1995/Manual del propietario - indice.jpg"],
     ["Manual — guía estación de servicio (gasolina, aceite, neumáticos)", "01 Documentacion/Manuales Ford 1995/Manual del propietario - contraportada guia estacion de servicio.jpg"],
     ["Manual — pág. 23 mando y alarma", "01 Documentacion/Manuales Ford 1995/Manual del propietario - pag 23 mando y alarma.jpg"],

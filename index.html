@@ -195,13 +195,13 @@
 <div id="detalleBoton"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=20"></script>
-<script src="manual.js?v=20"></script>
-<script src="imagenes.js?v=20"></script>
-<script src="botones.js?v=20"></script>
-<script src="fusibles.js?v=20"></script>
-<script src="repuestos.js?v=20"></script>
-<script src="archivos.js?v=20" onerror="this.remove()"></script>
+<script src="datos.js?v=21"></script>
+<script src="manual.js?v=21"></script>
+<script src="imagenes.js?v=21"></script>
+<script src="botones.js?v=21"></script>
+<script src="fusibles.js?v=21"></script>
+<script src="repuestos.js?v=21"></script>
+<script src="archivos.js?v=21" onerror="this.remove()"></script>
 <script>
 const D = window.DATOS, R = window.REPUESTOS || { consejos: [], piezas: [] }, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -381,7 +381,7 @@ function avisos() {
   if (!hechos.liqfrenos) a.push(["warn", "Revisar frenos", "Líquido sin cambiar desde hace años y el freno delantero derecho frena un 10 % menos."]);
   const mz = new Date(HOY.getMonth() < 2 ? HOY.getFullYear() : HOY.getFullYear() + 1, 2, 1);
   const dm = Math.ceil((mz - HOY) / 864e5);
-  if (dm <= 45) a.push(["warn", `Impuesto de circulación en ${dm} días`, "169,50 € en marzo. Se cobra solo de la cuenta de MoraBanc: que haya saldo."]);
+  if (dm <= 45) a.push(["warn", `Impuesto de circulación en ${dm} días`, "169,50 € en marzo. Se cobra solo de la cuenta del banco: que haya saldo."]);
   return a;
 }
 function pintarInicio() {
