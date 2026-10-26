@@ -81,7 +81,9 @@ window.DATOS = {
     ["Par de apriete de ruedas", "135 Nm", "Datos técnicos"],
     ["Depósito de gasolina", "83,3 litros", "Líquidos y capacidades"],
     ["Gasolina", "Sin plomo 95 (mínimo 91)", "Líquidos y capacidades"],
-    ["Aceite del motor", "5W-30 (o 10W-40) · 4,7 L con filtro · filtro Motorcraft FL-1A", "Líquidos y capacidades"],
+    ["Aceite del motor", "5W-30 (o 10W-40) · 4,7 L con filtro · filtro Motorcraft FL-1A (en Europa: Mahle OC 59)", "Líquidos y capacidades"],
+    ["Filtro de aire", "Motorcraft FA-1616, redondo en cono (en Europa: Mahle LX 1937)", "Líquidos y capacidades"],
+    ["Bujías", "Motorcraft SP-486 (6) · separación 1,4 mm", "Líquidos y capacidades"],
     ["Aceite del cambio automático", "ATF Mercon · 9,25 L", "Líquidos y capacidades"],
     ["Caja transfer", "ATF Mercon · 1,4 L", "Líquidos y capacidades"],
     ["Eje delantero / trasero", "1,7 L / 2,6 L (el trasero con aditivo autoblocante)", "Líquidos y capacidades"],
@@ -229,6 +231,7 @@ window.DATOS = {
   pendientes: [
     { id: "segundaLlave", t: "Hacer 2.ª llave y 2.º mando (sin mando no arranca)" },
     { id: "aceite", t: "Cambiar aceite, filtro de aceite y filtro de aire" },
+    { id: "bujias", t: "Cambiar bujías, filtro de gasolina y válvula PCV (sin registro desde 1995)" },
     { id: "fuga", t: "Reparar la fuga de la transmisión (defecto de la ITV)" },
     { id: "liqfrenos", t: "Cambiar líquido de frenos y revisar freno delantero derecho" },
     { id: "refrigerante", t: "Cambiar el refrigerante y revisar el tapón del radiador" },

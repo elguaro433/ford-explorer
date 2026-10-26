@@ -251,7 +251,7 @@ window.MANUAL = [
   { c: "Aceites, líquidos y capacidades", p: "116", t: "Presión de los neumáticos",
     x: "Neumáticos P225/70 R16. En frío: 2,1 bar delante y 2,1 bar detrás. Rueda de repuesto (225/70 R15): 2,1 bar. No mezcles neumáticos de distinto tipo. Los de invierno, en las 4 ruedas; respeta su velocidad máxima. Cadenas: solo de eslabón fino y solo en las ruedas TRASERAS, a 50 km/h como máximo; quítalas cuando no haya nieve." },
   { c: "Aceites, líquidos y capacidades", p: "109", t: "Datos del motor",
-    x: "4.0 V6 de gasolina con catalizador, 3.958 cc, inyección electrónica, potencia fiscal 22,67 CV. Orden de encendido: 1-4-2-5-3-6. Filtro de aceite: Motorcraft FL-1A. Para las bujías, pide la referencia en la tienda dando el número de bastidor." },
+    x: "4.0 V6 de gasolina con catalizador, 3.958 cc, inyección electrónica, potencia fiscal 22,67 CV. Orden de encendido: 1-4-2-5-3-6. Filtro de aceite: Motorcraft FL-1A. Filtro de aire: Motorcraft FA-1616 (redondo). Bujías: Motorcraft SP-486, separación 1,4 mm (ver Repuestos)." },
   { c: "Aceites, líquidos y capacidades", p: "111", t: "Pesos",
     x: "Tara: 2.150 kg. Peso máximo: 2.522 kg (carga útil de unos 372 kg). Con remolque: 4.902 kg. Máximo por eje: 1.270 kg delante y 1.361 kg detrás. Cada persona cuenta como unos 75 kg." },
   { c: "Aceites, líquidos y capacidades", p: "108 / 112", t: "Placas, número de bastidor y medidas",
