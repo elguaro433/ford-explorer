@@ -3,7 +3,7 @@
 // Para añadir algo nuevo de forma permanente, edita este archivo (o pídeselo a Claude).
 
 window.DATOS = {
-  actualizado: "2026-10-25",
+  actualizado: "2026-10-27",
 
   // Mi compra. Sin teléfonos: la web es pública.
   compra: {
@@ -29,7 +29,8 @@ window.DATOS = {
       ["2026-10-22", "Pago final", "500 €. Coche pagado entero."],
       ["2026-10-23", "Traspaso hecho", "Registre de Vehicles: el coche ya está a mi nombre. Pagado 40 €."],
       ["2026-10-23", "Impuesto 2026", "Lo pagó el dueño anterior en el traspaso (169,50 € + 3,39 de recargo). Desde 2027 lo pago yo: 169,50 € cada marzo, domiciliado en el banco."],
-      ["2026-10-23", "Seguro pagado", "Multisegur, póliza 10043515: 340,26 € (en 3 cuotas). Cubre hasta el 30/09/2027."]
+      ["2026-10-23", "Seguro pagado", "Multisegur, póliza 10043515: 340,26 € (en 3 cuotas). Cubre hasta el 30/09/2027."],
+      ["2026-10-26", "Carta groga nueva", "Ya tengo el permiso de circulación a mi nombre (titular y propietario)."]
     ],
     pagos: [
       ["2026-10-13", "Paga y señal (efectivo)", 1500],
@@ -154,7 +155,7 @@ window.DATOS = {
     proximaITV: "2027-01-31",
     ultimoAceite: { fecha: "2021-03-31", km: 80082, proximoKm: 90082 },
     seguroHasta: "2027-09-30",
-    titularPermiso: "Emmanuel (traspaso 23/10/2026)",
+    titularPermiso: "Emmanuel (carta groga del 26/10/2026)",
     pagadorITV2026: "el vendedor"
   },
 
@@ -164,7 +165,7 @@ window.DATOS = {
     ["2022-12-25", "Dueño anterior (Encamp)", "Tomador del seguro 2022–2023"],
     ["2023-09-18", "Dueño anterior (Ordino)", "Titular en el permiso"],
     ["2026-10-12", "Vendedor (Andorra la Vella)", "Pagó la ITV 2026 y me vendió el coche"],
-    ["2026-10-23", "Emmanuel (Andorra la Vella)", "Titular desde el 23/10/2026 (traspaso hecho en el Registre de Vehicles)"]
+    ["2026-10-23", "Emmanuel (Andorra la Vella)", "Titular desde el 23/10/2026 (traspaso hecho en el Registre de Vehicles). Carta groga nueva del 26/10/2026"]
   ],
 
   // tipo: itv | mant | seguro | doc
@@ -212,6 +213,9 @@ window.DATOS = {
     { f: "2026-10-23", km: null,   tipo: "seguro", t: "Seguro pagado: Multisegur, póliza 10043515", d: "340,26 € (en 3 cuotas: 30/10, 30/11 y 30/12). Cubre del 23/10/2026 al 30/09/2027." },
     { f: "2026-10-25", km: null,   tipo: "mant", t: "Pila del mando cambiada (A23 12 V)", d: "Cambiada por Emmanuel. El manual dice cambiarla cada 6 meses: la próxima, hacia abril de 2027." },
     { f: "2026-10-25", km: null,   tipo: "doc",  t: "Fotos de ruedas, radio y pegatina de fábrica", d: "Neumáticos Cooper Discoverer AT3 4S 255/70 R16 de octubre de 2020, llantas cromadas Ford de 16 pulgadas, radio Pioneer DEH-2300UB. Todo en Mi coche › Ruedas, radio y fábrica." },
+    { f: "2026-10-26", km: null,   tipo: "doc",  t: "Carta groga nueva a mi nombre", d: "Permiso de circulación del Registre de Vehicles: titular y propietario Emmanuel. El original está solo en el PC." },
+    { f: "2026-10-27", km: null,   tipo: "mant", t: "Presupuesto de piezas en AD Tecnomòbil (Andorra la Vella)", d: "Tienen, con un 20 % de descuento: filtro de aceite Mann W940/1 (7,96 €), junta del tapón del cárter (0,47 €), filtro de gasolina Mann WK614/46 (12,74 €), bujías Bosch 0242229737 (2,40 € cada una) y aceite Castrol 5W-30 LL 5 L (116,37 €, caro). No tienen filtro de aire ni válvula PCV. Precios PVP antes del descuento." },
+    { f: "2026-10-27", km: null,   tipo: "mant", t: "Pedida cita al Taller San Martín", d: "Por correo: cambio de aceite y filtros, bujías, PCV y revisión general (fuga de la transmisión, freno delantero derecho, niveles 4x4). Esperando respuesta." },
     { f: "2026-10-12", km: 117496, tipo: "itv",  t: "ITV Favorable con defecto LEVE", d: "8.1.7.1 Fuga en cárteres de la transmisión. Tarifa fuera de plazo 49,10 €. Con placas de prueba 435. Freno delantero 10 % descompensado." }
   ],
 
@@ -240,7 +244,7 @@ window.DATOS = {
     { id: "parado", t: "Revisar batería y edad de los neumáticos" },
     { id: "pilaMando", t: "Comprar pila de repuesto A23 12 V para el mando" },
     { id: "airbag", t: "Preguntar en el taller por el airbag (tiene 31 años)" },
-    { id: "cartanueva", t: "Hacer foto de la carta groga nueva a mi nombre" },
+    { id: "citaTaller", t: "Cita en el Taller San Martín: esperar respuesta (si no contestan, llamar)" },
     { id: "itv2027", t: "Pasar la ITV antes del 31/01/2027" }
   ],
 

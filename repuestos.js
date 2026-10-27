@@ -32,7 +32,7 @@ window.REPUESTOS = {
 
     // ---- Motor ----
     { g: "Motor", n: "Bujías", cu: "6", ok: true, dif: "Media",
-      ref: [["Original (4.0 OHV)", "Motorcraft SP-486 o SP-486X (AGSF-42FM, platino)"], ["Separación", "1,4 mm (0,054\")"], ["Otra que vale", "NGK TR55 (n.º 3951): viene a 1,5 mm, hay que cerrarla a 1,4"], ["OJO", "La AGSF-22PP es del motor SOHC: no vale"], ["Precio visto (26/10/2026)", "6 SP-486 en eBay desde EE. UU.: unos 63 € con envío · 6 NGK TR55 en Amazon.es: 38 € (no envía a Andorra)"]],
+      ref: [["Original (4.0 OHV)", "Motorcraft SP-486 o SP-486X (AGSF-42FM, platino)"], ["Separación", "1,4 mm (0,054\")"], ["Otra que vale", "NGK TR55 (n.º 3951): viene a 1,5 mm, hay que cerrarla a 1,4"], ["OJO", "La AGSF-22PP es del motor SOHC: no vale"], ["Precio visto (26/10/2026)", "6 SP-486 en eBay desde EE. UU.: unos 63 € con envío · 6 NGK TR55 en Amazon.es: 38 € (no envía a Andorra)"], ["AD Tecnomòbil (27/10/2026)", "Bosch 0242229737: 2,40 € cada una, −20 % (sin comprobar que sea equivalente a la SP-486)"]],
       c: "No hay registro de cambio desde 1995: tocan ya. Con el motor frío, una a una, para no mezclar los cables.", q: "Motorcraft SP486 bujia" },
     { g: "Motor", n: "Cables de bujías", cu: "1 juego", ok: false, dif: "Fácil",
       ref: [["Probable", "Motorcraft WR-4062 (Explorer 1991-1996)"]],
@@ -49,13 +49,13 @@ window.REPUESTOS = {
 
     // ---- Filtros y aceites ----
     { g: "Filtros y aceites", n: "Filtro de aceite", cu: "1", ok: true, dif: "Fácil",
-      ref: [["Original", "Motorcraft FL-1A (rosca 3/4-16 UNF)"], ["En Europa", "Mahle OC 59 (8,29 € en Autodoc) o Bosch 0 451 103 357 (8,59 €)"], ["OJO", "VAICO V26-0141 no: tiene otra rosca (13/16)"], ["Aceite", "5W-30 (o 10W-40) API SN/SP · 4,7 L con filtro: compra una garrafa de 5 L"]],
+      ref: [["Original", "Motorcraft FL-1A (rosca 3/4-16 UNF)"], ["En Europa", "Mahle OC 59 (8,29 € en Autodoc) o Bosch 0 451 103 357 (8,59 €)"], ["OJO", "VAICO V26-0141 no: tiene otra rosca (13/16)"], ["Aceite", "5W-30 (o 10W-40) API SN/SP · 4,7 L con filtro: compra una garrafa de 5 L"], ["AD Tecnomòbil (27/10/2026)", "Mann W940/1: 7,96 € · junta del tapón 952155: 0,47 € · Castrol 5W-30 LL 5 L: 116,37 € (caro). Todo con −20 %"]],
       c: "Está en tus tareas: el último cambio fue en 2021, y sin filtro.", q: "Mahle OC 59 filtro aceite" },
     { g: "Filtros y aceites", n: "Filtro de aire", cu: "1", ok: true, dif: "Fácil",
       ref: [["Original (1995-96, 4.0 OHV)", "Motorcraft FA-1616 (Ford F57Z-9601-A)"], ["Forma", "REDONDO, en cono (unos 17 cm de ancho y 20 de alto)"], ["En Europa", "Mahle LX 1937 o Knecht LX 1937 (19,49 € en Autodoc; equivale a F57Z-9601-A)"], ["OJO", "Mahle LX 443 y Motorcraft FA-1641 son planos: no valen para el tuyo"]],
       c: "Antes de comprar, abre la caja (unas pinzas) y mira que el viejo sea un cono. Autodoc pone el LX 1937 como «no compatible» por un fallo de su catálogo: fíate del número de Ford.", q: "Mahle LX 1937 filtro aire" },
     { g: "Filtros y aceites", n: "Filtro de gasolina", cu: "1", ok: false, dif: "Taller",
-      ref: [["Probable", "Motorcraft FG-872"], ["En Europa", "Bosch 0 986 450 154 (GF 154), 15,99 € en Autodoc (para Explorer hasta 08/1996)"], ["Dónde está", "Debajo del coche, en el chasis, lado del conductor"]],
+      ref: [["Probable", "Motorcraft FG-872"], ["En Europa", "Bosch 0 986 450 154 (GF 154), 15,99 € en Autodoc (para Explorer hasta 08/1996)"], ["Dónde está", "Debajo del coche, en el chasis, lado del conductor"], ["AD Tecnomòbil (27/10/2026)", "Mann WK614/46: 12,74 €, −20 %"]],
       c: "No consta ningún cambio. Hace falta una herramienta para soltar los racores y quitar presión antes. Mejor en el taller.", q: "Bosch 0 986 450 154 filtro combustible" },
     { g: "Filtros y aceites", n: "Válvula PCV (respiradero del motor)", cu: "1", ok: false, dif: "Media",
       ref: [["Probable (4.0 OHV)", "Motorcraft EV-225"], ["Dónde está", "Detrás de la tapa de balancines del lado del conductor, bajo el colector"]],
