@@ -195,13 +195,13 @@
 <div id="detalleBoton"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=26"></script>
-<script src="manual.js?v=26"></script>
-<script src="imagenes.js?v=26"></script>
-<script src="botones.js?v=26"></script>
-<script src="fusibles.js?v=26"></script>
-<script src="repuestos.js?v=26"></script>
-<script src="archivos.js?v=26" onerror="this.remove()"></script>
+<script src="datos.js?v=27"></script>
+<script src="manual.js?v=27"></script>
+<script src="imagenes.js?v=27"></script>
+<script src="botones.js?v=27"></script>
+<script src="fusibles.js?v=27"></script>
+<script src="repuestos.js?v=27"></script>
+<script src="archivos.js?v=27" onerror="this.remove()"></script>
 <script>
 const D = window.DATOS, R = window.REPUESTOS || { consejos: [], piezas: [] }, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -446,10 +446,10 @@ function pintarRepuestos() {
 // ---------- Teléfonos ----------
 function pintarTelefonos() {
   const grupos = [...new Set(D.telefonos.map(t => t[0]))];
-  $("#telefonos").innerHTML = `<p class="intro">Toca un número para llamar.</p>` + grupos.map(g => `
+  $("#telefonos").innerHTML = `<p class="intro">Toca un número para llamar (o para escribir, si pone WhatsApp).</p>` + grupos.map(g => `
     <h3 class="tel-g">${esc(g)}</h3>
-    <div class="card">${D.telefonos.filter(t => t[0] === g).map(([, q, n, d]) => `
-      <a class="tel" href="tel:${n.replace(/\s/g, "")}"><span>${esc(q)}${d ? `<small>${esc(d)}</small>` : ""}</span><strong>${esc(n)}</strong></a>`).join("")}
+    <div class="card">${D.telefonos.filter(t => t[0] === g).map(([, q, n, d, wa]) => `
+      <a class="tel" href="${wa ? "https://wa.me/" + n.replace(/\D/g, "") + '" target="_blank" rel="noopener' : "tel:" + n.replace(/\s/g, "")}"><span>${esc(q)}${d ? `<small>${esc(d)}</small>` : ""}</span><strong>${esc(n)}</strong></a>`).join("")}
     </div>`).join("");
 }
 

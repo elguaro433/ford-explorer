@@ -43,7 +43,7 @@ window.DATOS = {
   // Seguro en vigor (lo usa el botón de accidente)
   seguro: { compania: "Multisegur Assegurances", poliza: "10043515", desde: "2026-10-23", hasta: "2027-09-30", agente: "Assega (Francesc Sega)" },
 
-  // Teléfonos de interés. [grupo, quién, número, nota]
+  // Teléfonos de interés. [grupo, quién, número, nota, "wa" = abre WhatsApp en vez de llamar]
   telefonos: [
     ["Urgencias", "Emergencias (Andorra y toda Europa)", "112", "Accidente con heridos, fuego, peligro"],
     ["Urgencias", "Policía de Andorra", "110", "Accidente sin heridos, robo, tráfico"],
@@ -52,7 +52,8 @@ window.DATOS = {
     ["Si el coche se para", "Asistencia Multisegur en Andorra", "+376 860 366", "Grúa, avería, pinchazo, batería. Si no contesta: +376 321 432"],
     ["Si el coche se para", "Asistencia Multisegur fuera de Andorra", "+34 933 001 050", "España, Francia y resto de Europa"],
     ["Seguro", "Multisegur (oficina y partes)", "+376 808 808", "Póliza 10043515 · WhatsApp +376 626 808"],
-    ["Mi taller", "La Cúpula Cars (mecánica multimarca)", "+376 824 209", "WhatsApp +376 614 700 · Av. Tarragona 73, Andorra la Vella (mismo sitio y teléfono que el Taller San Martín) · cupulaandorra.com"],
+    ["Mi taller", "La Cúpula Cars · WhatsApp (mensajes y fotos)", "+376 614 700", "Para escribir: toca y se abre WhatsApp", "wa"],
+    ["Mi taller", "La Cúpula Cars · para llamar", "+376 824 209", "Av. Tarragona 73, Andorra la Vella (mismo sitio que el Taller San Martín) · lacupulaandorra.com"],
     ["Talleres Ford", "Ford Andorra · Auto Selecció", "+376 803 811", "C/ Dr. Vilanova 5, Andorra la Vella"],
     ["Talleres Ford", "Ford La Seu d'Urgell · Tallers Valira", "+34 973 351 258", "Ctra. de Lleida a Puigcerdà s/n · L-V 9-13 y 15-19, sáb 9-12"]
   ],
