@@ -3,7 +3,7 @@
 // Para añadir algo nuevo de forma permanente, edita este archivo (o pídeselo a Claude).
 
 window.DATOS = {
-  actualizado: "2026-10-27",
+  actualizado: "2026-10-28",
 
   // Mi compra. Sin teléfonos: la web es pública.
   compra: {
@@ -52,6 +52,7 @@ window.DATOS = {
     ["Si el coche se para", "Asistencia Multisegur en Andorra", "+376 860 366", "Grúa, avería, pinchazo, batería. Si no contesta: +376 321 432"],
     ["Si el coche se para", "Asistencia Multisegur fuera de Andorra", "+34 933 001 050", "España, Francia y resto de Europa"],
     ["Seguro", "Multisegur (oficina y partes)", "+376 808 808", "Póliza 10043515 · WhatsApp +376 626 808"],
+    ["Mi taller", "La Cúpula Cars (mecánica multimarca)", "+376 824 209", "WhatsApp +376 614 700 · Av. Tarragona 73, Andorra la Vella (mismo sitio y teléfono que el Taller San Martín) · cupulaandorra.com"],
     ["Talleres Ford", "Ford Andorra · Auto Selecció", "+376 803 811", "C/ Dr. Vilanova 5, Andorra la Vella"],
     ["Talleres Ford", "Ford La Seu d'Urgell · Tallers Valira", "+34 973 351 258", "Ctra. de Lleida a Puigcerdà s/n · L-V 9-13 y 15-19, sáb 9-12"]
   ],
@@ -149,6 +150,33 @@ window.DATOS = {
     ["Desempañar", "La última posición (parabrisas): el aire acondicionado se enciende solo para secar el aire", "Interior"]
   ],
 
+  // Lo que se ve en las fotos del motor del 28/10/2026 (las fotos no se guardan). [dato, valor, grupo]
+  motor: [
+    ["Motor", "4.0 L V6 OHV (de varillas), gasolina, 3.958 cc. Lleva escrito «4.0 EFI» en el colector de admisión (EFI = inyección electrónica)", "El motor"],
+    ["Cambio", "Automático: detrás del motor está la varilla «TRANS FLUID» para mirar su aceite", "El motor"],
+    ["Encendido", "Sin delco: una bobina con 6 salidas (una por cilindro) y 6 cables de bujía", "El motor"],
+
+    ["Bobina de encendido", "Ford 90TF-12029-A1A · 12 V · D08GA · MB029700-7531 · hecha en España. Está encima del motor, en el centro", "Piezas identificadas"],
+    ["Batería", "Varta Dynamic SLI E11 · 12 V 74 Ah 680 A · código 574 012 068. Unos 278 × 175 × 190 mm, borne + a la derecha. Se ve bastante nueva", "Piezas identificadas"],
+    ["Caja del filtro de aire", "Redonda, con pegatina amarilla «EXPORT» y cierre de pinza: confirma que el filtro es el de cono (Motorcraft FA-1616 / Mahle LX 1937)", "Piezas identificadas"],
+    ["Caja de fusibles del motor", "«Power Distribution Box», en el lado del conductor, detrás de la bomba de freno", "Piezas identificadas"],
+    ["Grupo del ABS", "Bloque hidráulico Ford con etiqueta ATE, debajo de la caja de fusibles. La referencia se lee mal (F57A-…) (?)", "Piezas identificadas"],
+    ["Bomba de freno y servofreno", "Depósito del líquido de frenos con tapón negro y pegatina amarilla, con sensor de nivel. Detrás, el servofreno (el tambor grande)", "Piezas identificadas"],
+    ["Dirección asistida", "Bomba con el depósito redondo encima (tapón negro), delante del motor, junto a la correa", "Piezas identificadas"],
+    ["Cuerpo de mariposa", "Al final del tubo de admisión, con el sensor de la mariposa (TPS) y la válvula de ralentí (IAC) encima", "Piezas identificadas"],
+    ["Alternador", "Ford, abajo en el lado del acompañante", "Piezas identificadas"],
+    ["Aire acondicionado", "Compresor movido por la correa, y el acumulador (bote metálico con un interruptor encima) junto al cortafuegos, lado del acompañante", "Piezas identificadas"],
+    ["Polea loca", "Polea lisa de metal por donde pasa la correa", "Piezas identificadas"],
+    ["Depósitos", "Refrigerante («RADIATOR COOLANT ONLY») y agua del limpiaparabrisas («WASHER FLUID ONLY»), los dos en el lado del acompañante", "Piezas identificadas"],
+    ["Regulador de presión de gasolina", "El bote pequeño redondo en el tubo de los inyectores, junto a la bobina (?)", "Piezas identificadas"],
+    ["Varilla y tapón del aceite", "Varilla «ENGINE OIL» en el lado del conductor; tapón amarillo «ENGINE OIL» delante de la bobina", "Piezas identificadas"],
+
+    ["Depósito de la dirección", "Está manchado de aceite por fuera: que miren si pierde", "Que lo mire el taller"],
+    ["Aceite junto al colector", "Se ven manchas de aceite cerca de la bobina: que miren las juntas de las tapas de balancines (?)", "Que lo mire el taller"],
+    ["Ventilador de la calefacción", "Hay suciedad y restos sueltos alrededor de su caja (bajo el parabrisas, lado del acompañante): conviene limpiarlo", "Que lo mire el taller"],
+    ["Polvo en todo el motor", "Un lavado del motor ayudaría a ver si hay fugas", "Que lo mire el taller"]
+  ],
+
   // Valores que usan las alertas
   estado: {
     kmActual: 117514, kmFecha: "2026-10-15",
@@ -216,6 +244,8 @@ window.DATOS = {
     { f: "2026-10-26", km: null,   tipo: "doc",  t: "Carta groga nueva a mi nombre", d: "Permiso de circulación del Registre de Vehicles: titular y propietario Emmanuel. El original está solo en el PC." },
     { f: "2026-10-27", km: null,   tipo: "mant", t: "Presupuesto de piezas en AD Tecnomòbil (Andorra la Vella)", d: "Tienen, con un 20 % de descuento: filtro de aceite Mann W940/1 (7,96 €), junta del tapón del cárter (0,47 €), filtro de gasolina Mann WK614/46 (12,74 €), bujías Bosch 0242229737 (2,40 € cada una) y aceite Castrol 5W-30 LL 5 L (116,37 €, caro). No tienen filtro de aire ni válvula PCV. Precios PVP antes del descuento." },
     { f: "2026-10-27", km: null,   tipo: "mant", t: "Pedida cita al Taller San Martín", d: "Por correo: cambio de aceite y filtros, bujías, PCV y revisión general (fuga de la transmisión, freno delantero derecho, niveles 4x4). Esperando respuesta." },
+    { f: "2026-10-28", km: null,   tipo: "mant", t: "Cita en el taller La Cúpula Cars: revisión el martes 10/11/2026", d: "Av. Tarragona 73, Andorra la Vella (mismo sitio que el Taller San Martín). Cambio de aceite y filtros, bujías, PCV y revisión general (fuga de la transmisión, freno delantero derecho, niveles 4x4)." },
+    { f: "2026-10-28", km: null,   tipo: "doc",  t: "Fotos del motor: piezas identificadas", d: "Bobina Ford 90TF-12029-A1A, batería Varta E11 74 Ah, caja del filtro de aire redonda y más. Todo en Mi coche › El motor y sus piezas." },
     { f: "2026-10-12", km: 117496, tipo: "itv",  t: "ITV Favorable con defecto LEVE", d: "8.1.7.1 Fuga en cárteres de la transmisión. Tarifa fuera de plazo 49,10 €. Con placas de prueba 435. Freno delantero 10 % descompensado." }
   ],
 
@@ -244,7 +274,7 @@ window.DATOS = {
     { id: "parado", t: "Revisar batería y edad de los neumáticos" },
     { id: "pilaMando", t: "Comprar pila de repuesto A23 12 V para el mando" },
     { id: "airbag", t: "Preguntar en el taller por el airbag (tiene 31 años)" },
-    { id: "citaTaller", t: "Cita en el Taller San Martín: esperar respuesta (si no contestan, llamar)" },
+    { id: "citaTaller", t: "Llevar el coche a La Cúpula Cars el martes 10/11/2026 (revisión)" },
     { id: "itv2027", t: "Pasar la ITV antes del 31/01/2027" }
   ],
 
