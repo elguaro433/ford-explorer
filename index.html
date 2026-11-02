@@ -138,6 +138,16 @@
   .modal h3 { margin: 4px 44px 8px 0; font-size: 19px; }
   .modal p { margin: 0 0 10px; }
   .cerrar { position: absolute; top: 6px; right: 6px; width: 44px; height: 44px; background: var(--bg); border: 1px solid var(--line); border-radius: 50%; color: var(--text); font-size: 18px; cursor: pointer; }
+  /* La ✕ de la ficha se queda arriba aunque bajes (antes se iba con la lista de fusibles) */
+  .modal .cerrar { position: sticky; top: 0; float: right; margin: -10px -10px 0 8px; z-index: 1; }
+  /* Visor de documentos: la app instalada no tiene botón de atrás, así que lleva el suyo */
+  .visor { position: fixed; inset: 0; z-index: 20; display: flex; flex-direction: column; background: #111; }
+  .visor .barra { display: flex; align-items: center; gap: 10px; padding: max(8px, env(safe-area-inset-top, 0px)) 12px 8px; background: var(--brand); color: #fff; }
+  .visor .barra button { flex: none; min-height: 44px; padding: 0 16px; border: 0; border-radius: 22px; background: rgba(255,255,255,.2); color: #fff; font: inherit; font-weight: 700; cursor: pointer; }
+  .visor .barra span { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .visor .cont { flex: 1; overflow: auto; -webkit-overflow-scrolling: touch; padding-bottom: env(safe-area-inset-bottom, 0px); }
+  .visor .cont img { display: block; width: 100%; height: auto; }
+  .visor .cont pre { margin: 0; padding: 16px; white-space: pre-wrap; color: #eee; font: 15px/1.5 system-ui, sans-serif; }
 
   .dibujos { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 10px; }
   .dibujos img.grande { width: 100%; max-height: none; }
@@ -193,15 +203,16 @@
   <section id="coche"></section>
 </main>
 <div id="detalleBoton"></div>
+<div id="visor"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=27"></script>
-<script src="manual.js?v=27"></script>
-<script src="imagenes.js?v=27"></script>
-<script src="botones.js?v=27"></script>
-<script src="fusibles.js?v=27"></script>
-<script src="repuestos.js?v=27"></script>
-<script src="archivos.js?v=27" onerror="this.remove()"></script>
+<script src="datos.js?v=28"></script>
+<script src="manual.js?v=28"></script>
+<script src="imagenes.js?v=28"></script>
+<script src="botones.js?v=28"></script>
+<script src="fusibles.js?v=28"></script>
+<script src="repuestos.js?v=28"></script>
+<script src="archivos.js?v=28" onerror="this.remove()"></script>
 <script>
 const D = window.DATOS, R = window.REPUESTOS || { consejos: [], piezas: [] }, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -226,13 +237,50 @@ const dibujos = titulo => (IMG[titulo] || []).length
 // ---------- Pestañas ----------
 const TABS = [["inicio", "Inicio"], ["gasolina", "Gasolina"], ["telefonos", "Teléfonos"], ["repuestos", "Repuestos"], ["sirve", "Botones"], ["fallos", "Problemas"], ["manual", "Manual"], ["coche", "Mi coche"]];
 $("#tabs").innerHTML = TABS.map(([id, t]) => `<button data-t="${id}">${t}</button>`).join("");
-function abrir(id) {
+function abrir(id, sinHistorial) {
+  const antes = document.querySelector("section.on")?.id;
   document.querySelectorAll("nav button").forEach(b => b.classList.toggle("on", b.dataset.t === id));
   document.querySelectorAll("section").forEach(s => s.classList.toggle("on", s.id === id));
   if (id !== "buscar") { try { localStorage.setItem("fe_tab", id); } catch {} }
+  // Cada pestaña entra en el historial: el «atrás» del móvil vuelve a la anterior
+  // (la búsqueda no, que cambia con cada letra).
+  if (!sinHistorial) {
+    if (antes && antes !== id && id !== "buscar" && antes !== "buscar") history.pushState({ tab: id }, "");
+    else history.replaceState({ tab: id }, "");
+  }
   scrollTo(0, 0);
 }
 $("#tabs").onclick = e => { const b = e.target.closest("button"); if (b) abrir(b.dataset.t); };
+
+// ---------- Volver atrás ----------
+// En el iPhone la app instalada no tiene barra ni botón de atrás: lo que se abre
+// encima (ficha de un botón o documento) entra en el historial, y «atrás» (gesto,
+// botón del móvil o el de la propia ventana) lo cierra en vez de dejarte atrapado.
+let capa = null;
+function abrirCapa(cerrarla) { capa = cerrarla; history.pushState({ capa: 1 }, ""); }
+function cerrarCapa() { if (capa) history.back(); }
+addEventListener("popstate", e => {
+  if (capa) { const c = capa; capa = null; c(); return; }
+  if (e.state && e.state.capa) { history.back(); return; }  // capa ya cerrada: saltarla
+  abrir((e.state && e.state.tab) || "inicio", true);
+});
+function verDoc(url, titulo) {
+  const imagen = /\.(jpe?g|png|webp|gif)$/i.test(url);
+  $("#visor").innerHTML = `<div class="visor" role="dialog" aria-modal="true" aria-label="${esc(titulo)}">
+    <div class="barra"><button class="volver">‹ Volver</button><span>${esc(titulo)}</span></div>
+    <div class="cont">${imagen ? `<img src="${url}" alt="${esc(titulo)}">` : "<pre>Cargando…</pre>"}</div></div>`;
+  if (!imagen) fetch(url).then(r => r.ok ? r.text() : Promise.reject()).then(t => { const p = $("#visor pre"); if (p) p.textContent = t; })
+    .catch(() => { const p = $("#visor pre"); if (p) p.textContent = "No se pudo abrir el documento."; });
+  document.body.style.overflow = "hidden";
+  abrirCapa(() => { $("#visor").innerHTML = ""; document.body.style.overflow = ""; });
+  $("#visor .volver").onclick = cerrarCapa;
+}
+document.addEventListener("click", e => {
+  const a = e.target.closest("a.doc");
+  if (!a) return;
+  e.preventDefault();
+  verDoc(a.getAttribute("href"), a.textContent.trim());
+});
 
 // ---------- Mecánico ----------
 function textoMecanico() {
@@ -525,12 +573,12 @@ function verBoton(i) {
     <p><b>Cómo se usa:</b> ${esc(b.u)}</p>
     ${b.fus && window.FUSIBLES ? listaFusibles(window.FUSIBLES[b.fus]) : ""}
     <p class="muted">Manual, pág. ${esc(b.p)}</p></div></div>`;
-  const cerrar = () => $("#detalleBoton").innerHTML = "";
-  $("#detalleBoton .cerrar").onclick = cerrar;
-  $("#detalleBoton .modal").onclick = e => { if (e.target.classList.contains("modal")) cerrar(); };
+  if (!capa) abrirCapa(() => $("#detalleBoton").innerHTML = "");
+  $("#detalleBoton .cerrar").onclick = cerrarCapa;
+  $("#detalleBoton .modal").onclick = e => { if (e.target.classList.contains("modal")) cerrarCapa(); };
   $("#detalleBoton .cerrar").focus();
 }
-document.addEventListener("keydown", e => { if (e.key === "Escape") $("#detalleBoton").innerHTML = ""; });
+document.addEventListener("keydown", e => { if (e.key === "Escape") cerrarCapa(); });
 
 // ---------- Problemas ----------
 function fusiblesHTML() {
@@ -665,7 +713,8 @@ function pintarCompra() {
 function pintarTodo() { pintarInicio(); pintarGasolina(); pintarTelefonos(); pintarRepuestos(); pintarSirve(); pintarFallos(); pintarManual(); pintarCoche(); pintarCompra(); buscar(); }
 pintarTodo();
 let t0 = "inicio"; try { t0 = localStorage.getItem("fe_tab") || "inicio"; } catch {}
-abrir(TABS.some(t => t[0] === t0) ? t0 : "inicio");
+abrir(TABS.some(t => t[0] === t0) ? t0 : "inicio", true);
+history.replaceState({ tab: document.querySelector("section.on")?.id || "inicio" }, "");
 
 // Sin cobertura: lo guarda todo en el móvil la primera vez que se abre con internet
 if ("serviceWorker" in navigator && isSecureContext) navigator.serviceWorker.register("sw.js").catch(() => {});
