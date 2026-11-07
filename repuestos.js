@@ -8,6 +8,7 @@ window.REPUESTOS = {
     "En las webs elige: Ford › Explorer (U2) 1995-2001 › 4.0 V6 4x4. Si piden el bastidor: 1FMDU34X4TUA80751.",
     "El motor es el 4.0 OHV (de varillas), no el SOHC: muchas piezas cambian entre los dos.",
     "Pedidos desde España a Andorra: pagas el IGI (4,5 %) y a veces gastos de aduana. Muchos lo envían a un punto de recogida en La Seu d'Urgell.",
+    "PEDIDO MÁS BARATO (08/11/2026, a España): RockAuto (EE. UU.) filtro de aire WIX 46416 (= FA-1616 / F57Z-9601-A) 12,94 € + filtro de gasolina WIX 33296 (= FG-872) 8,30 € + tapón Dorman 090115 (M14 × 1,5, llave de 13) 3,12 € + 28,70 € de envío = 53,06 €, llega en unos días; el IVA de aduana se paga al recibirlo. Bujías: NGK 3951 en Autodoc (6 × 4,99 € + 9,95 €). OJO: RockAuto NO envía a la UE piezas Motorcraft, Ford, NGK ni Auveco (norma europea del acero ruso).",
     "Desguaces: hay pocas Explorer de esta generación en España. Para pilotos, espejos, llantas o tapicería, sí; para frenos, filtros o motor, mejor nuevo."
   ],
 
