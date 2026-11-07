@@ -203,7 +203,7 @@ window.DATOS = {
     proximo: "127.661 km o noviembre de 2027",
     falta: "Todo comprado (llega del 12 nov al 14 dic): bujías, filtro de aire, filtro de gasolina y tapón del cárter. Cuando llegue todo, al taller a montarlo.",
     calcomania: "04 Mantenimiento/2026-11-07 Calcomania revision.png",
-    calcomaniaA4: "04 Mantenimiento/2026-11-07 Calcomania revision - hoja A4 x8.pdf"
+    calcomaniaA4: "04 Mantenimiento/2026-11-07 Calcomania revision - hoja A4 x9.pdf"
   },
 
   // Lista de compra de lo que falta (precios vistos el 08/11/2026, con envío a España)
@@ -304,7 +304,7 @@ window.DATOS = {
     ["Manual — pág. 23 mando y alarma", "01 Documentacion/Manuales Ford 1995/Manual del propietario - pag 23 mando y alarma.jpg"],
     ["Programa de mantenimiento — portada", "01 Documentacion/Manuales Ford 1995/Programa de mantenimiento - portada.jpg"],
     ["07/11/2026 — Calcomanía de la revisión", "04 Mantenimiento/2026-11-07 Calcomania revision.png"],
-    ["07/11/2026 — Calcomanía: hoja A4 con 8 copias para imprimir", "04 Mantenimiento/2026-11-07 Calcomania revision - hoja A4 x8.pdf"],
+    ["07/11/2026 — Calcomanía: hoja A4 con 9 copias para imprimir", "04 Mantenimiento/2026-11-07 Calcomania revision - hoja A4 x9.pdf"],
     ["07/11/2026 — Cuentakilómetros 117.661 km", "04 Mantenimiento/2026-11-07 Cuentakilometros 117661 km.jpg"],
     ["07/11/2026 — Filtro de aire viejo (Motorcraft FA-1616)", "04 Mantenimiento/2026-11-07 Filtro aire viejo Motorcraft FA-1616.jpg"],
     ["07/11/2026 — Filtro de aire viejo, sucio", "04 Mantenimiento/2026-11-07 Filtro aire viejo sucio.jpg"],
