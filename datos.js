@@ -223,8 +223,8 @@ window.DATOS = {
       { t: "Opción 2 · Todo original Motorcraft (unos 157 € + IVA)",
         d: "Todo por eBay, desde EE. UU. Llega del 1 al 14 de diciembre.",
         items: [
-          ["6 bujías", "Motorcraft SP-486 (juego de 6)", "eBay · arthurtradingcompany", "32,54 € + 27,57 €", "https://www.ebay.es/itm/287699942527"],
-          ["Filtro de gasolina", "Motorcraft FG-872 (mismo vendedor: junta el envío)", "eBay · arthurtradingcompany", "21,67 € + 24,50 €", "https://www.ebay.es/itm/287229784215"],
+          ["Bujías (pack de 8: 2 de repuesto)", "Motorcraft SP-486", "eBay · santafetruckservice (99,9 %)", "39,09 € + 15,46 €", "https://www.ebay.es/itm/336097122686"],
+          ["Filtro de gasolina", "Motorcraft FG-872", "eBay · arthurtradingcompany", "21,67 € + 24,50 €", "https://www.ebay.es/itm/287229784215"],
           ["Filtro de aire", "Motorcraft FA-1616", "eBay · Grand Tex Auto Parts", "21,88 € + 16,37 €", "https://www.ebay.es/itm/156587745223"],
           ["Tapón del cárter", "F6TZ6730BA con goma (no es de marca Ford)", "eBay · desde China", "8,84 € + 3,77 €", "https://www.ebay.es/itm/366725248488"]
         ] }
