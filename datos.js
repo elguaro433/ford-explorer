@@ -189,6 +189,53 @@ window.DATOS = {
     pagadorITV2026: "el vendedor"
   },
 
+  // Última revisión (sale arriba en Mi coche › Mantenimiento, con la calcomanía)
+  revision: {
+    f: "2026-11-07", km: 117661,
+    hecho: [
+      ["Aceite de motor", "Sparco Mapetrol Competition C3 5W-30"],
+      ["Filtro de aceite", "Cambiado"],
+      ["Líquido de dirección", "Cambiado"],
+      ["Líquido refrigerante", "AD Plus orgánico rosa, 50 %, protege hasta −40 °C"],
+      ["Amortiguadores del capó", "Puestos"],
+      ["Revisión general", "Frenos bien"]
+    ],
+    proximo: "127.661 km o noviembre de 2027",
+    falta: "Filtro de aire (urgente), filtro de gasolina, 6 bujías y tapón del cárter: mira la lista de compra.",
+    calcomania: "04 Mantenimiento/2026-11-07 Calcomania revision.png",
+    calcomaniaA4: "04 Mantenimiento/2026-11-07 Calcomania revision - hoja A4 x8.pdf"
+  },
+
+  // Lista de compra de lo que falta (precios vistos el 08/11/2026, con envío a España)
+  listaCompra: {
+    nota: "Precios vistos el 08/11/2026, con envío a España (La Seu d'Urgell, 25700). Pueden cambiar: mira siempre el total antes de pagar.",
+    opciones: [
+      { t: "Opción 1 · La más barata (unos 104 €)",
+        d: "Mismas medidas y referencias que las originales, de otras marcas buenas. Los filtros llegan hacia el 12 de noviembre.",
+        items: [
+          ["Filtro de aire", "WIX 46416 (= Motorcraft FA-1616)", "RockAuto (EE. UU.)", "12,94 €", "https://www.rockauto.com/en/partsearch/?partnum=46416"],
+          ["Filtro de gasolina", "WIX 33296 (= Motorcraft FG-872)", "RockAuto (EE. UU.)", "8,30 €", "https://www.rockauto.com/en/partsearch/?partnum=33296"],
+          ["Tapón del cárter", "Dorman 090115 (M14 × 1,5, llave de 13, sin goma)", "RockAuto (EE. UU.)", "3,12 €", "https://www.rockauto.com/en/partsearch/?partnum=090115"],
+          ["Envío de RockAuto", "Los 3 juntos. El IVA de aduana (unos 11 €) se paga al recibirlo", "RockAuto (EE. UU.)", "28,70 €", ""],
+          ["6 bujías", "NGK TR55 (3951), pon cantidad 6", "Autodoc", "29,94 € + 9,95 € de envío", "https://www.autodoc.es/ngk/1042069"]
+        ],
+        extra: ["¿Tapón con la goma ya puesta? En vez del Dorman, el F6TZ6730BA de eBay: 8,84 € + 3,77 € (llega 16-23 nov)", "https://www.ebay.es/itm/366725248488"] },
+      { t: "Opción 2 · Todo original Motorcraft (unos 157 € + IVA)",
+        d: "Todo por eBay, desde EE. UU. Llega del 1 al 14 de diciembre.",
+        items: [
+          ["6 bujías", "Motorcraft SP-486 (juego de 6)", "eBay · arthurtradingcompany", "32,54 € + 27,57 €", "https://www.ebay.es/itm/287699942527"],
+          ["Filtro de gasolina", "Motorcraft FG-872 (mismo vendedor: junta el envío)", "eBay · arthurtradingcompany", "21,67 € + 24,50 €", "https://www.ebay.es/itm/287229784215"],
+          ["Filtro de aire", "Motorcraft FA-1616", "eBay · Grand Tex Auto Parts", "21,88 € + 16,37 €", "https://www.ebay.es/itm/156587745223"],
+          ["Tapón del cárter", "F6TZ6730BA con goma (no es de marca Ford)", "eBay · desde China", "8,84 € + 3,77 €", "https://www.ebay.es/itm/366725248488"]
+        ] }
+    ],
+    ojo: [
+      "RockAuto no envía a la UE piezas Motorcraft, Ford, NGK ni Auveco (norma europea del acero ruso). Por eso los originales solo se consiguen por eBay.",
+      "El filtro de aire de papel en cono (Mahle / Knecht LX 1937, Hengst E781L) está agotado en Autodoc, Oscaro, Amazon y kfzteile24.",
+      "Bujías: la vieja es de asiento cónico, sin arandela. Antes de montarlas, deja la separación en 1,4 mm."
+    ]
+  },
+
   propietarios: [
     ["1995-12-13", "Primer dueño (Lleida)", "Primer dueño. Vendido por Servel Motor S.L., Lleida"],
     ["1997-06-12", "Pasa a Andorra con matrícula C9389", "Permiso"],
@@ -267,6 +314,8 @@ window.DATOS = {
     ["Manual — guía estación de servicio (gasolina, aceite, neumáticos)", "01 Documentacion/Manuales Ford 1995/Manual del propietario - contraportada guia estacion de servicio.jpg"],
     ["Manual — pág. 23 mando y alarma", "01 Documentacion/Manuales Ford 1995/Manual del propietario - pag 23 mando y alarma.jpg"],
     ["Programa de mantenimiento — portada", "01 Documentacion/Manuales Ford 1995/Programa de mantenimiento - portada.jpg"],
+    ["07/11/2026 — Calcomanía de la revisión", "04 Mantenimiento/2026-11-07 Calcomania revision.png"],
+    ["07/11/2026 — Calcomanía: hoja A4 con 8 copias para imprimir", "04 Mantenimiento/2026-11-07 Calcomania revision - hoja A4 x8.pdf"],
     ["07/11/2026 — Cuentakilómetros 117.661 km", "04 Mantenimiento/2026-11-07 Cuentakilometros 117661 km.jpg"],
     ["07/11/2026 — Filtro de aire viejo (Motorcraft FA-1616)", "04 Mantenimiento/2026-11-07 Filtro aire viejo Motorcraft FA-1616.jpg"],
     ["07/11/2026 — Filtro de aire viejo, sucio", "04 Mantenimiento/2026-11-07 Filtro aire viejo sucio.jpg"],
@@ -384,6 +433,6 @@ window.DATOS = {
       ["Cada 12 meses", "Examinar los bajos y los paneles inferiores con PVC (protección anticorrosión)"]
     ],
     // Lo que te tocaría a ti ahora
-    tuEstado: "Con 117.496 km le correspondería la revisión NORMAL de 120.000 km (aceite + filtro, frenos, neumáticos y todo lo de cada revisión), además del líquido de frenos y el tapón del radiador, que llevan años sin registro."
+    tuEstado: "Revisión hecha el 07/11/2026 a 117.661 km: aceite, filtro de aceite, refrigerante y líquido de dirección. Faltan: filtro de aire (urgente), filtro de gasolina, las 6 bujías, el tapón del cárter, la válvula PCV, el líquido de frenos y el tapón del radiador."
   }
 };

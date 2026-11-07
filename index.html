@@ -67,6 +67,7 @@
   .kpi span { display: block; color: var(--muted); font-size: 13px; }
   .kpi strong { display: block; font-size: 20px; font-variant-numeric: tabular-nums; }
   .busca { display: block; width: 100%; margin: 10px 0 0; font: inherit; font-size: 16px; padding: 11px 14px; border: 0; border-radius: 10px; background: rgba(255,255,255,.95); color: #1d2321; }
+  .calco { display: block; width: 100%; max-width: 420px; height: auto; margin: 8px auto 4px; border-radius: 8px; }
   .rp { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; }
   .rp h3 { margin: 0; font-size: 17px; }
   .rp .meta { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0 4px; }
@@ -206,13 +207,13 @@
 <div id="visor"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=43"></script>
-<script src="manual.js?v=43"></script>
-<script src="imagenes.js?v=43"></script>
-<script src="botones.js?v=43"></script>
-<script src="fusibles.js?v=43"></script>
-<script src="repuestos.js?v=43"></script>
-<script src="archivos.js?v=43" onerror="this.remove()"></script>
+<script src="datos.js?v=44"></script>
+<script src="manual.js?v=44"></script>
+<script src="imagenes.js?v=44"></script>
+<script src="botones.js?v=44"></script>
+<script src="fusibles.js?v=44"></script>
+<script src="repuestos.js?v=44"></script>
+<script src="archivos.js?v=44" onerror="this.remove()"></script>
 <script>
 const D = window.DATOS, R = window.REPUESTOS || { consejos: [], piezas: [] }, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -647,7 +648,7 @@ function pintarManual() {
 
 // ---------- Mi coche ----------
 function pintarCoche() {
-  const P = D.planFord;
+  const P = D.planFord, RV = D.revision, CP = D.listaCompra;
   const hecho = D.historial.filter(e => e.tipo === "mant").sort((a, b) => b.f.localeCompare(a.f));
   const hist = D.historial.slice().sort((a, b) => b.f.localeCompare(a.f));
   const docs = window.ARCHIVOS
@@ -672,6 +673,23 @@ function pintarCoche() {
         ${D.motor.filter(f => f[2] === g).map(([k, v]) => `<div class="dato"><span>${esc(k)}</span>${esc(v)}</div>`).join("")}`).join("")}</div></details>
 
     <details class="grupo"><summary>Mantenimiento</summary><div>
+      ${RV ? `<h2>Última revisión</h2>
+      <div class="rp">
+        <div class="f muted">${fmtF(RV.f)} · ${km(RV.km)}</div>
+        <a href="${DOCS}${encodeURI(RV.calcomania)}" target="_blank" rel="noopener"><img class="calco" src="${DOCS}${encodeURI(RV.calcomania)}" alt="Calcomanía de la revisión"></a>
+        ${RV.hecho.map(([k, v]) => `<div class="dato"><span>${esc(k)}</span>${esc(v)}</div>`).join("")}
+        <div class="alert ok"><b>Próximo cambio de aceite</b><small>${esc(RV.proximo)}</small></div>
+        <div class="alert bad"><b>Falta</b><small>${esc(RV.falta)}</small></div>
+        <div class="links"><a href="${DOCS}${encodeURI(RV.calcomaniaA4)}" target="_blank" rel="noopener">Imprimir la calcomanía (A4, 8 copias)</a></div>
+      </div>` : ""}
+      ${CP ? `<h2>Lista de compra</h2>
+      <p class="muted">${esc(CP.nota)}</p>
+      ${CP.opciones.map(o => `<div class="rp">
+        <h3>${esc(o.t)}</h3><p class="c">${esc(o.d)}</p>
+        ${o.items.map(([p, q, t, pr, u]) => `<div class="dato"><span>${esc(p)} · ${esc(t)}</span>${u ? `<a href="${u}" target="_blank" rel="noopener">${esc(q)}</a>` : esc(q)} — <b>${esc(pr)}</b></div>`).join("")}
+        ${o.extra ? `<p class="c">${esc(o.extra[0])}: <a href="${o.extra[1]}" target="_blank" rel="noopener">ver anuncio</a></p>` : ""}
+      </div>`).join("")}
+      <div class="alert warn"><b>Ojo</b><small>${CP.ojo.map(esc).join("<br>")}</small></div>` : ""}
       <div class="alert warn"><b>Lo que le toca ahora</b><small>${esc(P.tuEstado)}</small></div>
       <p>${esc(P.resumen)}</p>
       ${P.tareas.map(([c, t]) => `<div class="dato"><span>${esc(c)}</span>${esc(t)}</div>`).join("")}
