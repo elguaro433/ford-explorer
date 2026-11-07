@@ -291,7 +291,6 @@ window.DATOS = {
     { id: "parado", t: "Revisar batería y edad de los neumáticos" },
     { id: "pilaMando", t: "Comprar pila de repuesto A23 12 V para el mando" },
     { id: "airbag", t: "Preguntar en el taller por el airbag (tiene 31 años)" },
-    { id: "citaTaller", t: "Llevar el coche a La Cúpula Cars el martes 10/11/2026 (revisión)" },
     { id: "itv2027", t: "Pasar la ITV antes del 31/01/2027" }
   ],
 
