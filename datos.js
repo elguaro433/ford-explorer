@@ -181,9 +181,9 @@ window.DATOS = {
 
   // Valores que usan las alertas
   estado: {
-    kmActual: 117514, kmFecha: "2026-10-15",
+    kmActual: 117661, kmFecha: "2026-11-07",
     proximaITV: "2027-01-31",
-    ultimoAceite: { fecha: "2021-03-31", km: 80082, proximoKm: 90082 },
+    ultimoAceite: { fecha: "2026-11-07", km: 117661, proximoKm: 127661 },
     seguroHasta: "2027-09-30",
     titularPermiso: "Emmanuel (carta groga del 26/10/2026)",
     pagadorITV2026: "el vendedor"
@@ -248,7 +248,12 @@ window.DATOS = {
     { f: "2026-10-27", km: null,   tipo: "mant", t: "Pedida cita al Taller San Martín", d: "Por correo: cambio de aceite y filtros, bujías, PCV y revisión general (fuga de la transmisión, freno delantero derecho, niveles 4x4). Esperando respuesta." },
     { f: "2026-10-28", km: null,   tipo: "mant", t: "Cita en el taller La Cúpula Cars: revisión el martes 10/11/2026", d: "Av. Tarragona 73, Andorra la Vella (mismo sitio que el Taller San Martín). Cambio de aceite y filtros, bujías, PCV y revisión general (fuga de la transmisión, freno delantero derecho, niveles 4x4)." },
     { f: "2026-10-28", km: null,   tipo: "doc",  t: "Fotos del motor: piezas identificadas", d: "Bobina Ford 90TF-12029-A1A, batería Varta E11 74 Ah, caja del filtro de aire redonda y más. Todo en Mi coche › El motor y sus piezas." },
-    { f: "2026-10-12", km: 117496, tipo: "itv",  t: "ITV Favorable con defecto LEVE", d: "8.1.7.1 Fuga en cárteres de la transmisión. Tarifa fuera de plazo 49,10 €. Con placas de prueba 435. Freno delantero 10 % descompensado." }
+    { f: "2026-10-12", km: 117496, tipo: "itv",  t: "ITV Favorable con defecto LEVE", d: "8.1.7.1 Fuga en cárteres de la transmisión. Tarifa fuera de plazo 49,10 €. Con placas de prueba 435. Freno delantero 10 % descompensado." },
+    { f: "2026-11-07", km: 117661, tipo: "mant", t: "Cambio de aceite y filtro de aceite", d: "Próximo cambio a 127.661 km (o en un año). El tapón del cárter se volvió a poner con su goma y su arandela de cobre viejas: hay que cambiarlas (o el tapón entero) en el próximo cambio." },
+    { f: "2026-11-07", km: 117661, tipo: "mant", t: "Refrigerante cambiado", d: "AD Plus anticongelante-refrigerante orgánico (rosa), 50 %, protege hasta −40 °C. Garrafa de 5 L, ref. 15505." },
+    { f: "2026-11-07", km: 117661, tipo: "mant", t: "Líquido de la dirección hidráulica cambiado", d: "ATF tipo F según el manual." },
+    { f: "2026-11-07", km: 117661, tipo: "mant", t: "Amortiguadores del capó puestos", d: "Los 2 de eBay que llegaron el 2/11." },
+    { f: "2026-11-07", km: 117661, tipo: "mant", t: "Revisión general: frenos bien", d: "Se revisó todo el coche. Quedan por cambiar: filtro de aire (urgente, el viejo está muy sucio), filtro de gasolina (el comprado no era el correcto: el original es Motorcraft FG-872), las 6 bujías (llevan NGK Iridium TR55IX y están feas) y la goma y arandela del tapón del cárter." }
   ],
 
   documentos: [
@@ -261,18 +266,28 @@ window.DATOS = {
     ["Manual del propietario — índice", "01 Documentacion/Manuales Ford 1995/Manual del propietario - indice.jpg"],
     ["Manual — guía estación de servicio (gasolina, aceite, neumáticos)", "01 Documentacion/Manuales Ford 1995/Manual del propietario - contraportada guia estacion de servicio.jpg"],
     ["Manual — pág. 23 mando y alarma", "01 Documentacion/Manuales Ford 1995/Manual del propietario - pag 23 mando y alarma.jpg"],
-    ["Programa de mantenimiento — portada", "01 Documentacion/Manuales Ford 1995/Programa de mantenimiento - portada.jpg"]
+    ["Programa de mantenimiento — portada", "01 Documentacion/Manuales Ford 1995/Programa de mantenimiento - portada.jpg"],
+    ["07/11/2026 — Cuentakilómetros 117.661 km", "04 Mantenimiento/2026-11-07 Cuentakilometros 117661 km.jpg"],
+    ["07/11/2026 — Filtro de aire viejo (Motorcraft FA-1616)", "04 Mantenimiento/2026-11-07 Filtro aire viejo Motorcraft FA-1616.jpg"],
+    ["07/11/2026 — Filtro de aire viejo, sucio", "04 Mantenimiento/2026-11-07 Filtro aire viejo sucio.jpg"],
+    ["07/11/2026 — Filtro de gasolina original (Motorcraft FG-872)", "04 Mantenimiento/2026-11-07 Filtro gasolina original Motorcraft FG-872.jpg"],
+    ["07/11/2026 — Bujía vieja (NGK TR55IX)", "04 Mantenimiento/2026-11-07 Bujia vieja NGK TR55IX.jpg"],
+    ["07/11/2026 — Tapón del cárter con goma y arandela", "04 Mantenimiento/2026-11-07 Tapon carter con goma y arandela.jpg"],
+    ["07/11/2026 — Refrigerante puesto (AD Plus)", "04 Mantenimiento/2026-11-07 Refrigerante AD Plus organico.jpg"],
+    ["07/11/2026 — Amortiguadores del capó puestos", "04 Mantenimiento/2026-11-07 Amortiguadores capo puestos.jpg"]
   ],
 
   pendientes: [
     { id: "segundaLlave", t: "Hacer 2.ª llave y 2.º mando (sin mando no arranca)" },
-    { id: "aceite", t: "Cambiar aceite, filtro de aceite y filtro de aire" },
-    { id: "bujias", t: "Cambiar bujías, filtro de gasolina y válvula PCV (sin registro desde 1995)" },
+    { id: "filtroAire", t: "URGENTE: comprar y poner el filtro de aire (Motorcraft FA-1616 / Mahle LX 1937)" },
+    { id: "filtroGasolina", t: "Comprar el filtro de gasolina correcto (Motorcraft FG-872) y ponerlo" },
+    { id: "bujias6", t: "Comprar y cambiar las 6 bujías (llevan NGK TR55IX, están feas)" },
+    { id: "taponCarter", t: "Comprar goma y arandela de cobre del tapón del cárter (o el tapón entero)" },
+    { id: "pcv", t: "Cambiar la válvula PCV (sin registro desde 1995)" },
     { id: "fuga", t: "Reparar la fuga de la transmisión (defecto de la ITV)" },
-    { id: "liqfrenos", t: "Cambiar líquido de frenos y revisar freno delantero derecho" },
-    { id: "refrigerante", t: "Cambiar el refrigerante y revisar el tapón del radiador" },
+    { id: "liqfrenos", t: "Cambiar el líquido de frenos (frenos revisados el 7/11: bien)" },
+    { id: "taponRadiador", t: "Revisar el tapón del radiador" },
     { id: "niveles4x4", t: "Revisar aceite del cambio, transfer y diferenciales" },
-    { id: "amortiguadores", t: "Poner los amortiguadores del capó (llegan el 2/11)" },
     { id: "parado", t: "Revisar batería y edad de los neumáticos" },
     { id: "pilaMando", t: "Comprar pila de repuesto A23 12 V para el mando" },
     { id: "airbag", t: "Preguntar en el taller por el airbag (tiene 31 años)" },

@@ -206,13 +206,13 @@
 <div id="visor"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=28"></script>
-<script src="manual.js?v=28"></script>
-<script src="imagenes.js?v=28"></script>
-<script src="botones.js?v=28"></script>
-<script src="fusibles.js?v=28"></script>
-<script src="repuestos.js?v=28"></script>
-<script src="archivos.js?v=28" onerror="this.remove()"></script>
+<script src="datos.js?v=29"></script>
+<script src="manual.js?v=29"></script>
+<script src="imagenes.js?v=29"></script>
+<script src="botones.js?v=29"></script>
+<script src="fusibles.js?v=29"></script>
+<script src="repuestos.js?v=29"></script>
+<script src="archivos.js?v=29" onerror="this.remove()"></script>
 <script>
 const D = window.DATOS, R = window.REPUESTOS || { consejos: [], piezas: [] }, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -425,8 +425,11 @@ function avisos() {
   if (dias < 0) a.push(["bad", "ITV caducada", `Vencía el ${fmtF(D.estado.proximaITV)}.`]);
   else a.push([dias <= 90 ? "warn" : "ok", `ITV en ${dias} días`, `Antes del ${fmtF(D.estado.proximaITV)}, con la fuga de la transmisión reparada.`]);
   if (!hechos.segundaLlave) a.push(["bad", "Solo tienes una llave y un mando", "Sin el mando el coche no arranca. Haz una copia."]);
-  if (!hechos.aceite) a.push(["bad", "Toca cambiar el aceite", `El último cambio fue en ${D.estado.ultimoAceite.fecha.slice(0, 4)} a ${km(D.estado.ultimoAceite.km)}. Ya pasa de ${km(D.estado.ultimoAceite.proximoKm)}.`]);
-  if (!hechos.liqfrenos) a.push(["warn", "Revisar frenos", "Líquido sin cambiar desde hace años y el freno delantero derecho frena un 10 % menos."]);
+  const ua = D.estado.ultimoAceite, faltaAceite = ua.proximoKm - kmHoy();
+  if (faltaAceite <= 0) a.push(["bad", "Toca cambiar el aceite", `El último cambio fue el ${fmtF(ua.fecha)} a ${km(ua.km)}. Ya pasa de ${km(ua.proximoKm)}.`]);
+  else a.push([faltaAceite <= 1000 ? "warn" : "ok", `Aceite cambiado el ${fmtF(ua.fecha)}`, `Próximo cambio a ${km(ua.proximoKm)} (faltan ${km(faltaAceite)}).`]);
+  if (!hechos.filtroAire) a.push(["bad", "Comprar el filtro de aire (urgente)", "El viejo está muy sucio. Motorcraft FA-1616 o Mahle LX 1937 (en Autodoc agotado)."]);
+  if (!hechos.liqfrenos) a.push(["warn", "Líquido de frenos sin cambiar", "Los frenos se revisaron el 07/11/2026 y están bien, pero el líquido lleva años sin cambiarse."]);
   const mz = new Date(HOY.getMonth() < 2 ? HOY.getFullYear() : HOY.getFullYear() + 1, 2, 1);
   const dm = Math.ceil((mz - HOY) / 864e5);
   if (dm <= 45) a.push(["warn", `Impuesto de circulación en ${dm} días`, "169,50 € en marzo. Se cobra solo de la cuenta del banco: que haya saldo."]);
