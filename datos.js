@@ -201,28 +201,21 @@ window.DATOS = {
       ["Revisión general", "Frenos bien"]
     ],
     proximo: "127.661 km o noviembre de 2027",
-    falta: "Comprados (llegan del 23 nov al 14 dic): bujías, filtro de aire y tapón del cárter. Falta comprar el filtro de gasolina.",
+    falta: "Todo comprado (llega del 12 nov al 14 dic): bujías, filtro de aire, filtro de gasolina y tapón del cárter. Cuando llegue todo, al taller a montarlo.",
     calcomania: "04 Mantenimiento/2026-11-07 Calcomania revision.png",
     calcomaniaA4: "04 Mantenimiento/2026-11-07 Calcomania revision - hoja A4 x8.pdf"
   },
 
   // Lista de compra de lo que falta (precios vistos el 08/11/2026, con envío a España)
   listaCompra: {
-    nota: "Pedidos hechos el 07/11/2026 por eBay, con envío a la taquilla STASH de La Seu d'Urgell. El IVA ya está pagado: no hay que pagar nada al recibirlos.",
+    nota: "Pedidos hechos el 07/11/2026 (eBay y Oscaro), con envío a la taquilla STASH de La Seu d'Urgell. El IVA ya está pagado: no hay que pagar nada al recibirlos. Total: unos 145 €.",
     pedidos: [
       ["8 bujías Motorcraft SP-486 / AGSF42FM (las originales)", "eBay · santafetruckservice", "67,54 USD (≈ 63,84 €)", "30 nov - 10 dic"],
       ["Filtro de aire Motorcraft FA-1616 (el original)", "eBay · gtex_auto", "49,38 USD (≈ 46,67 €)", "1 - 14 dic"],
-      ["Tapón del cárter F6TZ6730BA con su goma", "eBay · abaqjj1 (China)", "10,53 GBP (≈ 12,40 €)", "23 nov - 7 dic"]
+      ["Tapón del cárter F6TZ6730BA con su goma", "eBay · abaqjj1 (China)", "10,53 GBP (≈ 12,40 €)", "23 nov - 7 dic"],
+      ["Filtro de gasolina Mecafilter ELE6014 (equivale al Motorcraft FG-872)", "Oscaro · Paack a domicilio", "21,98 €", "unos días"]
     ],
-    opciones: [
-      { t: "Falta: filtro de gasolina",
-        d: "Equivalente del Motorcraft FG-872 (Ford F0TZ-9155-B). Las tres opciones valen para tu motor (4.0 V6, 115 kW).",
-        items: [
-          ["Recomendado", "Mecafilter ELE6014 (equivale a Motorcraft FG872, WIX 33296, Mann WK 78/2; tomas de 8 mm, 172 mm de alto)", "Oscaro", "12,99 € + envío", "https://www.oscaro.es/filtro-combustible-mecafilter-ele6014-1094731-9-p"],
-          ["Igual de barato", "Mismo filtro (ref. ACDelco FS112 / F0TZ9155B), foto genérica", "eBay · AutoiCenter (Valencia)", "13,00 €, envío gratis · llega 12-13 nov", "https://www.ebay.es/itm/163665329889"],
-          ["Más seguro", "WIX 33296", "Autodoc", "15,99 € + 9,95 € de envío", "https://www.autodoc.es/wix-filters/9578841"]
-        ] }
-    ],
+    opciones: [],
     ojo: [
       "Bujías: sobran 2 (guárdalas de repuesto). Cambia las 6 a la vez y déjalas a 1,4 mm antes de montarlas.",
       "Filtro de gasolina: mira la flecha del sentido de la gasolina y compara las tomas con el FG-872 viejo antes de montarlo.",
@@ -295,7 +288,8 @@ window.DATOS = {
     { f: "2026-11-07", km: 117661, tipo: "mant", t: "Líquido de la dirección hidráulica cambiado", d: "ATF tipo F según el manual." },
     { f: "2026-11-07", km: 117661, tipo: "mant", t: "Amortiguadores del capó puestos", d: "Los 2 de eBay que llegaron el 2/11." },
     { f: "2026-11-07", km: 117661, tipo: "mant", t: "Revisión general: frenos bien", d: "Se revisó todo el coche. Quedan por cambiar: filtro de aire (urgente, el viejo está muy sucio), filtro de gasolina (el comprado no era el correcto: el original es Motorcraft FG-872), las 6 bujías (llevan NGK Iridium TR55IX y están feas) y la goma y arandela del tapón del cárter." },
-    { f: "2026-11-07", km: null, tipo: "mant", t: "Comprados por eBay: 8 bujías Motorcraft SP-486, filtro de aire FA-1616 y tapón del cárter", d: "Bujías 67,54 USD (santafetruckservice), filtro de aire 49,38 USD (gtex_auto), tapón 10,53 GBP (abaqjj1). IVA ya pagado. Llegan del 23 nov al 14 dic." }
+    { f: "2026-11-07", km: null, tipo: "mant", t: "Comprados por eBay: 8 bujías Motorcraft SP-486, filtro de aire FA-1616 y tapón del cárter", d: "Bujías 67,54 USD (santafetruckservice), filtro de aire 49,38 USD (gtex_auto), tapón 10,53 GBP (abaqjj1). IVA ya pagado. Llegan del 23 nov al 14 dic." },
+    { f: "2026-11-07", km: null, tipo: "mant", t: "Comprado en Oscaro: filtro de gasolina Mecafilter ELE6014", d: "21,98 € con envío (Paack). Equivale al Motorcraft FG-872, WIX 33296 y Mann WK 78/2." }
   ],
 
   documentos: [
@@ -324,7 +318,7 @@ window.DATOS = {
   pendientes: [
     { id: "segundaLlave", t: "Hacer 2.ª llave y 2.º mando (sin mando no arranca)" },
     { id: "filtroAire", t: "Poner el filtro de aire Motorcraft FA-1616 (comprado, llega 1-14 dic)" },
-    { id: "filtroGasolina", t: "Comprar el filtro de gasolina (WIX 33296 o equivalente del FG-872) y ponerlo" },
+    { id: "filtroGasolina", t: "Poner el filtro de gasolina Mecafilter ELE6014 (comprado en Oscaro), respetando la flecha" },
     { id: "bujias6", t: "Poner las 6 bujías Motorcraft SP-486 a 1,4 mm (compradas, llegan 30 nov-10 dic)" },
     { id: "taponCarter", t: "Poner el tapón del cárter nuevo F6TZ-6730-BA (comprado, llega 23 nov-7 dic)" },
     { id: "pcv", t: "Cambiar la válvula PCV (sin registro desde 1995)" },

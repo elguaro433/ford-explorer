@@ -207,13 +207,13 @@
 <div id="visor"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=47"></script>
-<script src="manual.js?v=47"></script>
-<script src="imagenes.js?v=47"></script>
-<script src="botones.js?v=47"></script>
-<script src="fusibles.js?v=47"></script>
-<script src="repuestos.js?v=47"></script>
-<script src="archivos.js?v=47" onerror="this.remove()"></script>
+<script src="datos.js?v=48"></script>
+<script src="manual.js?v=48"></script>
+<script src="imagenes.js?v=48"></script>
+<script src="botones.js?v=48"></script>
+<script src="fusibles.js?v=48"></script>
+<script src="repuestos.js?v=48"></script>
+<script src="archivos.js?v=48" onerror="this.remove()"></script>
 <script>
 const D = window.DATOS, R = window.REPUESTOS || { consejos: [], piezas: [] }, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -430,7 +430,7 @@ function avisos() {
   if (faltaAceite <= 0) a.push(["bad", "Toca cambiar el aceite", `El último cambio fue el ${fmtF(ua.fecha)} a ${km(ua.km)}. Ya pasa de ${km(ua.proximoKm)}.`]);
   else a.push([faltaAceite <= 1000 ? "warn" : "ok", `Aceite cambiado el ${fmtF(ua.fecha)}`, `Próximo cambio a ${km(ua.proximoKm)} (faltan ${km(faltaAceite)}).`]);
   if (!hechos.filtroAire) a.push(["warn", "Filtro de aire comprado: ponerlo al llegar", "Motorcraft FA-1616 original, llega del 1 al 14 de diciembre. El viejo está muy sucio."]);
-  if (!hechos.filtroGasolina) a.push(["bad", "Falta comprar el filtro de gasolina", "WIX 33296 (o equivalente del FG-872). Opciones en Mi coche › Mantenimiento › Lista de compra."]);
+  if (!hechos.filtroGasolina) a.push(["warn", "Filtro de gasolina comprado: ponerlo al llegar", "Mecafilter ELE6014 de Oscaro (equivale al FG-872). Montarlo respetando la flecha."]);
   if (!hechos.liqfrenos) a.push(["warn", "Líquido de frenos sin cambiar", "Los frenos se revisaron el 07/11/2026 y están bien, pero el líquido lleva años sin cambiarse."]);
   const mz = new Date(HOY.getMonth() < 2 ? HOY.getFullYear() : HOY.getFullYear() + 1, 2, 1);
   const dm = Math.ceil((mz - HOY) / 864e5);
