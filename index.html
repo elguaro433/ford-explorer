@@ -207,13 +207,13 @@
 <div id="visor"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=49"></script>
-<script src="manual.js?v=49"></script>
-<script src="imagenes.js?v=49"></script>
-<script src="botones.js?v=49"></script>
-<script src="fusibles.js?v=49"></script>
-<script src="repuestos.js?v=49"></script>
-<script src="archivos.js?v=49" onerror="this.remove()"></script>
+<script src="datos.js?v=50"></script>
+<script src="manual.js?v=50"></script>
+<script src="imagenes.js?v=50"></script>
+<script src="botones.js?v=50"></script>
+<script src="fusibles.js?v=50"></script>
+<script src="repuestos.js?v=50"></script>
+<script src="archivos.js?v=50" onerror="this.remove()"></script>
 <script>
 const D = window.DATOS, R = window.REPUESTOS || { consejos: [], piezas: [] }, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -681,7 +681,7 @@ function pintarCoche() {
         ${RV.hecho.map(([k, v]) => `<div class="dato"><span>${esc(k)}</span>${esc(v)}</div>`).join("")}
         <div class="alert ok"><b>Próximo cambio de aceite</b><small>${esc(RV.proximo)}</small></div>
         <div class="alert bad"><b>Falta</b><small>${esc(RV.falta)}</small></div>
-        <div class="links"><a href="${DOCS}${encodeURI(RV.calcomaniaA4)}" target="_blank" rel="noopener">Imprimir la calcomanía (A4, 9 copias)</a></div>
+        <div class="links"><a href="${DOCS}${encodeURI(RV.calcomaniaA4)}" target="_blank" rel="noopener">Imprimir la calcomanía (A4, 12 copias)</a></div>
       </div>` : ""}
       ${CP ? `<h2>Lista de compra</h2>
       <p class="muted">${esc(CP.nota)}</p>
