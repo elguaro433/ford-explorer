@@ -201,38 +201,32 @@ window.DATOS = {
       ["Revisión general", "Frenos bien"]
     ],
     proximo: "127.661 km o noviembre de 2027",
-    falta: "Filtro de aire (urgente), filtro de gasolina, 6 bujías y tapón del cárter: mira la lista de compra.",
+    falta: "Comprados (llegan del 23 nov al 14 dic): bujías, filtro de aire y tapón del cárter. Falta comprar el filtro de gasolina.",
     calcomania: "04 Mantenimiento/2026-11-07 Calcomania revision.png",
     calcomaniaA4: "04 Mantenimiento/2026-11-07 Calcomania revision - hoja A4 x8.pdf"
   },
 
   // Lista de compra de lo que falta (precios vistos el 08/11/2026, con envío a España)
   listaCompra: {
-    nota: "Precios vistos el 08/11/2026, con envío a España (La Seu d'Urgell, 25700). Pueden cambiar: mira siempre el total antes de pagar.",
+    nota: "Pedidos hechos el 07/11/2026 por eBay, con envío a la taquilla STASH de La Seu d'Urgell. El IVA ya está pagado: no hay que pagar nada al recibirlos.",
+    pedidos: [
+      ["8 bujías Motorcraft SP-486 / AGSF42FM (las originales)", "eBay · santafetruckservice", "67,54 USD (≈ 63,84 €)", "30 nov - 10 dic"],
+      ["Filtro de aire Motorcraft FA-1616 (el original)", "eBay · gtex_auto", "49,38 USD (≈ 46,67 €)", "1 - 14 dic"],
+      ["Tapón del cárter F6TZ6730BA con su goma", "eBay · abaqjj1 (China)", "10,53 GBP (≈ 12,40 €)", "23 nov - 7 dic"]
+    ],
     opciones: [
-      { t: "Opción 1 · La más barata (unos 104 €)",
-        d: "Mismas medidas y referencias que las originales, de otras marcas buenas. Los filtros llegan hacia el 12 de noviembre.",
+      { t: "Falta: filtro de gasolina",
+        d: "Equivalente del Motorcraft FG-872 (Ford F0TZ-9155-B). Las tres opciones valen para tu motor (4.0 V6, 115 kW).",
         items: [
-          ["Filtro de aire", "WIX 46416 (= Motorcraft FA-1616)", "RockAuto (EE. UU.)", "12,94 €", "https://www.rockauto.com/en/partsearch/?partnum=46416"],
-          ["Filtro de gasolina", "WIX 33296 (= Motorcraft FG-872)", "RockAuto (EE. UU.)", "8,30 €", "https://www.rockauto.com/en/partsearch/?partnum=33296"],
-          ["Tapón del cárter", "Dorman 090115 (M14 × 1,5, llave de 13, sin goma)", "RockAuto (EE. UU.)", "3,12 €", "https://www.rockauto.com/en/partsearch/?partnum=090115"],
-          ["Envío de RockAuto", "Los 3 juntos. El IVA de aduana (unos 11 €) se paga al recibirlo", "RockAuto (EE. UU.)", "28,70 €", ""],
-          ["6 bujías", "NGK TR55 (3951), pon cantidad 6", "Autodoc", "29,94 € + 9,95 € de envío", "https://www.autodoc.es/ngk/1042069"]
-        ],
-        extra: ["¿Tapón con la goma ya puesta? En vez del Dorman, el F6TZ6730BA de eBay: 8,84 € + 3,77 € (llega 16-23 nov)", "https://www.ebay.es/itm/366725248488"] },
-      { t: "Opción 2 · Todo original Motorcraft (unos 157 € + IVA)",
-        d: "Todo por eBay, desde EE. UU. Llega del 1 al 14 de diciembre.",
-        items: [
-          ["Bujías (pack de 8: 2 de repuesto)", "Motorcraft SP-486", "eBay · santafetruckservice (99,9 %)", "39,09 € + 15,46 €", "https://www.ebay.es/itm/336097122686"],
-          ["Filtro de gasolina", "Motorcraft FG-872", "eBay · arthurtradingcompany", "21,67 € + 24,50 €", "https://www.ebay.es/itm/287229784215"],
-          ["Filtro de aire", "Motorcraft FA-1616", "eBay · Grand Tex Auto Parts", "21,88 € + 16,37 €", "https://www.ebay.es/itm/156587745223"],
-          ["Tapón del cárter", "F6TZ6730BA con goma (no es de marca Ford)", "eBay · desde China", "8,84 € + 3,77 €", "https://www.ebay.es/itm/366725248488"]
+          ["Recomendado", "Mecafilter ELE6014 (equivale a Motorcraft FG872, WIX 33296, Mann WK 78/2; tomas de 8 mm, 172 mm de alto)", "Oscaro", "12,99 € + envío", "https://www.oscaro.es/filtro-combustible-mecafilter-ele6014-1094731-9-p"],
+          ["Igual de barato", "Mismo filtro (ref. ACDelco FS112 / F0TZ9155B), foto genérica", "eBay · AutoiCenter (Valencia)", "13,00 €, envío gratis · llega 12-13 nov", "https://www.ebay.es/itm/163665329889"],
+          ["Más seguro", "WIX 33296", "Autodoc", "15,99 € + 9,95 € de envío", "https://www.autodoc.es/wix-filters/9578841"]
         ] }
     ],
     ojo: [
-      "RockAuto no envía a la UE piezas Motorcraft, Ford, NGK ni Auveco (norma europea del acero ruso). Por eso los originales solo se consiguen por eBay.",
-      "El filtro de aire de papel en cono (Mahle / Knecht LX 1937, Hengst E781L) está agotado en Autodoc, Oscaro, Amazon y kfzteile24.",
-      "Bujías: la vieja es de asiento cónico, sin arandela. Antes de montarlas, deja la separación en 1,4 mm."
+      "Bujías: sobran 2 (guárdalas de repuesto). Cambia las 6 a la vez y déjalas a 1,4 mm antes de montarlas.",
+      "Filtro de gasolina: mira la flecha del sentido de la gasolina y compara las tomas con el FG-872 viejo antes de montarlo.",
+      "Si un paquete no cabe en la taquilla STASH, avisarán por teléfono."
     ]
   },
 
@@ -300,7 +294,8 @@ window.DATOS = {
     { f: "2026-11-07", km: 117661, tipo: "mant", t: "Refrigerante cambiado", d: "AD Plus anticongelante-refrigerante orgánico (rosa), 50 %, protege hasta −40 °C. Garrafa de 5 L, ref. 15505." },
     { f: "2026-11-07", km: 117661, tipo: "mant", t: "Líquido de la dirección hidráulica cambiado", d: "ATF tipo F según el manual." },
     { f: "2026-11-07", km: 117661, tipo: "mant", t: "Amortiguadores del capó puestos", d: "Los 2 de eBay que llegaron el 2/11." },
-    { f: "2026-11-07", km: 117661, tipo: "mant", t: "Revisión general: frenos bien", d: "Se revisó todo el coche. Quedan por cambiar: filtro de aire (urgente, el viejo está muy sucio), filtro de gasolina (el comprado no era el correcto: el original es Motorcraft FG-872), las 6 bujías (llevan NGK Iridium TR55IX y están feas) y la goma y arandela del tapón del cárter." }
+    { f: "2026-11-07", km: 117661, tipo: "mant", t: "Revisión general: frenos bien", d: "Se revisó todo el coche. Quedan por cambiar: filtro de aire (urgente, el viejo está muy sucio), filtro de gasolina (el comprado no era el correcto: el original es Motorcraft FG-872), las 6 bujías (llevan NGK Iridium TR55IX y están feas) y la goma y arandela del tapón del cárter." },
+    { f: "2026-11-07", km: null, tipo: "mant", t: "Comprados por eBay: 8 bujías Motorcraft SP-486, filtro de aire FA-1616 y tapón del cárter", d: "Bujías 67,54 USD (santafetruckservice), filtro de aire 49,38 USD (gtex_auto), tapón 10,53 GBP (abaqjj1). IVA ya pagado. Llegan del 23 nov al 14 dic." }
   ],
 
   documentos: [
@@ -328,10 +323,10 @@ window.DATOS = {
 
   pendientes: [
     { id: "segundaLlave", t: "Hacer 2.ª llave y 2.º mando (sin mando no arranca)" },
-    { id: "filtroAire", t: "URGENTE: comprar y poner el filtro de aire (Motorcraft FA-1616 / Mahle LX 1937)" },
-    { id: "filtroGasolina", t: "Comprar el filtro de gasolina correcto (Motorcraft FG-872) y ponerlo" },
-    { id: "bujias6", t: "Comprar y cambiar las 6 bujías (llevan NGK TR55IX, están feas)" },
-    { id: "taponCarter", t: "Comprar goma y arandela de cobre del tapón del cárter (o el tapón entero)" },
+    { id: "filtroAire", t: "Poner el filtro de aire Motorcraft FA-1616 (comprado, llega 1-14 dic)" },
+    { id: "filtroGasolina", t: "Comprar el filtro de gasolina (WIX 33296 o equivalente del FG-872) y ponerlo" },
+    { id: "bujias6", t: "Poner las 6 bujías Motorcraft SP-486 a 1,4 mm (compradas, llegan 30 nov-10 dic)" },
+    { id: "taponCarter", t: "Poner el tapón del cárter nuevo F6TZ-6730-BA (comprado, llega 23 nov-7 dic)" },
     { id: "pcv", t: "Cambiar la válvula PCV (sin registro desde 1995)" },
     { id: "fuga", t: "Reparar la fuga de la transmisión (defecto de la ITV)" },
     { id: "liqfrenos", t: "Cambiar el líquido de frenos (frenos revisados el 7/11: bien)" },
