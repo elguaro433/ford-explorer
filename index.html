@@ -46,10 +46,10 @@
   header .pad { max-width: 760px; margin: 0 auto; padding-block: 14px 12px; }
   header h1 { margin: 0; font-size: 21px; line-height: 1.2; }
   header .sub { margin: 4px 0 0; font-size: 13px; opacity: .85; }
-  nav { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; margin-top: 12px; }
+  nav { display: grid; grid-template-columns: repeat(5, 1fr); gap: 6px; margin-top: 12px; }
   nav button { background: rgba(255,255,255,.12); border: 0; color: var(--on-head); padding: 10px 2px; border-radius: 10px; font: inherit; font-size: 13px; font-weight: 600; cursor: pointer; min-height: 44px; }
   nav button.on { background: var(--tab-on); color: var(--tab-on-text); }
-  @media (min-width: 700px) { nav { grid-template-columns: repeat(8, 1fr); } nav button { font-size: 14px; } }
+  @media (min-width: 700px) { nav button { font-size: 15px; } }
   .total { display: flex; justify-content: space-between; font-weight: 700; padding-top: 10px; }
   .foto-anuncio { display: block; width: 100%; border-radius: 10px; margin-bottom: 10px; }
 
@@ -85,6 +85,9 @@
   .pz .ref { font: 600 13px/1.3 ui-monospace, Consolas, monospace; overflow-wrap: anywhere; }
   .pz .nota { font-size: 13px; color: var(--muted); margin: 0; }
   .pz .ir { margin-top: auto; align-self: flex-start; font: inherit; font-size: 13px; font-weight: 600; color: var(--brand); background: none; border: 0; padding: 6px 0 0; cursor: pointer; }
+  .volverSec { width: auto; display: inline-flex; padding: 8px 16px; min-height: 44px; margin-bottom: 4px; }
+  .rpd > div .meta { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 4px; }
+  .rpd > div .c { font-size: 14px; color: var(--muted); margin: 6px 0 0; }
   .badge.nueva { background: var(--brand); color: var(--bg); }
   .links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
   .links a { flex: 1 1 auto; text-align: center; font-size: 14px; font-weight: 600; text-decoration: none; padding: 9px 10px; border-radius: 10px; border: 1px solid var(--line); color: var(--brand); background: var(--bg); min-width: 30%; }
@@ -196,8 +199,7 @@
 <header>
   <div class="pad">
     <h1>Ford Explorer · C9389</h1>
-    <p class="sub">Propiedad de Emmanuel Díaz · Creado por Emmanuel Díaz</p>
-    <p class="sub">XLT 4x4 · 4.0 V6 gasolina · verde · 1995</p>
+    <p class="sub">XLT 4x4 · 4.0 V6 gasolina · 1995</p>
     <nav id="tabs" aria-label="Secciones"></nav>
     <input type="search" id="q" class="busca" placeholder="🔎 Buscar: fusible radio, bujías, aceite…" autocomplete="off" aria-label="Buscar">
   </div>
@@ -218,14 +220,13 @@
 <div id="visor"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=53"></script>
-<script src="manual.js?v=53"></script>
-<script src="imagenes.js?v=53"></script>
-<script src="botones.js?v=53"></script>
-<script src="fusibles.js?v=53"></script>
-<script src="repuestos.js?v=53"></script>
-<script src="piezas.js?v=53"></script>
-<script src="archivos.js?v=53" onerror="this.remove()"></script>
+<script src="datos.js?v=54"></script>
+<script src="manual.js?v=54"></script>
+<script src="imagenes.js?v=54"></script>
+<script src="botones.js?v=54"></script>
+<script src="fusibles.js?v=54"></script>
+<script src="repuestos.js?v=54"></script>
+<script src="piezas.js?v=54"></script>
 <script>
 const D = window.DATOS, R = window.REPUESTOS || { consejos: [], piezas: [] }, PZ = window.PIEZAS || [], M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -248,7 +249,10 @@ const dibujos = titulo => (IMG[titulo] || []).length
   ? `<div class="dibujos">${IMG[titulo].map((n, i, a) => `<figure>${a.length > 2 ? `<figcaption>${i + 1}</figcaption>` : ""}<img src="img/${n}.jpg" alt="" loading="lazy"></figure>`).join("")}</div>` : "";
 
 // ---------- Pestañas ----------
-const TABS = [["inicio", "Inicio"], ["gasolina", "Gasolina"], ["telefonos", "Teléfonos"], ["repuestos", "Repuestos"], ["piezas", "Piezas"], ["sirve", "Botones"], ["fallos", "Problemas"], ["manual", "Manual"], ["coche", "Mi coche"]];
+const TABS = [["inicio", "Inicio"], ["fallos", "Problemas"], ["piezas", "Piezas"], ["telefonos", "Teléfonos"], ["coche", "Mi coche"]];
+// Páginas sin pestaña: se abren con un botón y se cierran con «‹ Volver» (o el atrás del móvil).
+const SUB = { gasolina: "Gasolina", repuestos: "Comprar repuestos", sirve: "Luces y botones", manual: "Manual" };
+const volver = id => `<button class="btn volverSec" onclick="history.back()">‹ Volver</button><h2 style="margin-top:4px">${SUB[id]}</h2>`;
 $("#tabs").innerHTML = TABS.map(([id, t]) => `<button data-t="${id}">${t}</button>`).join("");
 function abrir(id, sinHistorial) {
   const antes = document.querySelector("section.on")?.id;
@@ -358,8 +362,8 @@ function pintarGasolina() {
   const gasto = pref => L.filter(r => r.f.startsWith(pref)).reduce((s, r) => s + r.eur, 0);
   const kmAno = (() => { const a = L.filter(r => r.f.startsWith(hoy.slice(0, 4))); return a.length > 1 ? a.at(-1).km - a[0].km : 0; })();
   const ult = L.at(-1);
-  $("#gasolina").innerHTML = `
-    <h2 style="margin-top:0">Apuntar repostaje</h2>
+  $("#gasolina").innerHTML = `${volver("gasolina")}
+    <h3 class="tel-g">Apuntar repostaje</h3>
     <div class="card">
       <label class="campo">Kilómetros del cuentakilómetros
         <input id="gKm" inputmode="numeric" placeholder="${ult ? "Último: " + ult.km.toLocaleString("es-ES") : "Ej.: " + kmHoy()}" autocomplete="off"></label>
@@ -441,14 +445,12 @@ function avisos() {
   const ua = D.estado.ultimoAceite, faltaAceite = ua.proximoKm - kmHoy();
   if (faltaAceite <= 0) a.push(["bad", "Toca cambiar el aceite", `El último cambio fue el ${fmtF(ua.fecha)} a ${km(ua.km)}. Ya pasa de ${km(ua.proximoKm)}.`]);
   else a.push([faltaAceite <= 1000 ? "warn" : "ok", `Aceite cambiado el ${fmtF(ua.fecha)}`, `Próximo cambio a ${km(ua.proximoKm)} (faltan ${km(faltaAceite)}).`]);
-  if (!hechos.filtroAire) a.push(["warn", "Filtro de aire comprado: ponerlo al llegar", "Motorcraft FA-1616 original, llega del 1 al 14 de diciembre. El viejo está muy sucio."]);
-  if (!hechos.filtroGasolina) a.push(["warn", "Filtro de gasolina comprado: ponerlo al llegar", "Mecafilter ELE6014 de Oscaro (equivale al FG-872). Montarlo respetando la flecha."]);
-  if (!hechos.liqfrenos) a.push(["warn", "Líquido de frenos sin cambiar", "Los frenos se revisaron el 07/11/2026 y están bien, pero el líquido lleva años sin cambiarse."]);
   const mz = new Date(HOY.getMonth() < 2 ? HOY.getFullYear() : HOY.getFullYear() + 1, 2, 1);
   const dm = Math.ceil((mz - HOY) / 864e5);
   if (dm <= 45) a.push(["warn", `Impuesto de circulación en ${dm} días`, "169,50 € en marzo. Se cobra solo de la cuenta del banco: que haya saldo."]);
   return a;
 }
+const tarea = p => `<label class="todo ${hechos[p.id] ? "done" : ""}"><input type="checkbox" data-id="${p.id}" ${hechos[p.id] ? "checked" : ""}><span>${esc(p.t)}</span></label>`;
 function pintarInicio() {
   const pend = D.pendientes.filter(p => !hechos[p.id]).length;
   $("#inicio").innerHTML = `
@@ -456,19 +458,17 @@ function pintarInicio() {
       <div class="kpi"><span>Kilómetros</span><strong>${kmHoy().toLocaleString("es-ES")}</strong></div>
       <div class="kpi"><span>Próxima ITV</span><strong>${fmtF(D.estado.proximaITV)}</strong></div>
       <div class="kpi"><span>Seguro hasta</span><strong>${fmtF(D.estado.seguroHasta)}</strong></div>
-      <div class="kpi"><span>Tareas pendientes</span><strong>${pend} de ${D.pendientes.length}</strong></div>
+      <div class="kpi"><span>Próximo aceite</span><strong>${km(D.estado.ultimoAceite.proximoKm)}</strong></div>
     </div>
     <div class="fila2" style="margin:10px 0 0">
       <button class="btn prim" id="btnRepostar">⛽ Apuntar gasolina</button>
       <button class="btn" id="btnMecanico">🔧 Datos al mecánico</button>
     </div>
-    <h2>Avisos</h2>
-    ${avisos().map(([c, t, d]) => `<div class="alert ${c}"><b>${esc(t)}</b><small>${esc(d)}</small></div>`).join("")}
-    <h2>Tareas</h2>
-    <p class="intro">Márcalas cuando las hagas.</p>
-    <div class="card">${D.pendientes.map(p => `
-      <label class="todo ${hechos[p.id] ? "done" : ""}"><input type="checkbox" data-id="${p.id}" ${hechos[p.id] ? "checked" : ""}><span>${esc(p.t)}</span></label>`).join("")}
-    </div>`;
+    ${(() => { const av = avisos().filter(a => a[0] !== "ok"); return av.length ? `<h2>Avisos</h2>${av.map(([c, t, d]) => `<div class="alert ${c}"><b>${esc(t)}</b><small>${esc(d)}</small></div>`).join("")}` : ""; })()}
+    <h2>Pendiente (${pend})</h2>
+    <p class="intro">Márcalo cuando lo hagas.</p>
+    <div class="card">${D.pendientes.filter(p => !hechos[p.id]).map(tarea).join("") || `<p class="muted" style="margin:0">Todo hecho.</p>`}</div>
+    ${pend < D.pendientes.length ? `<details><summary>Ya hecho (${D.pendientes.length - pend})</summary><div>${D.pendientes.filter(p => hechos[p.id]).map(tarea).join("")}</div></details>` : ""}`;
   $("#btnRepostar").onclick = () => { abrir("gasolina"); setTimeout(() => $("#gKm")?.focus(), 50); };
   $("#btnMecanico").onclick = mandarMecanico;
   $("#inicio").querySelectorAll("input[type=checkbox]").forEach(c => c.onchange = () => {
@@ -498,7 +498,8 @@ function pintarPiezas() {
   const lista = PZ.filter(p => pzZona === "Todo" || p.z === pzZona);
   const est = { ok: ["", "Leída en la pieza"], nueva: ["nueva", "Puesta nueva"], comprobar: ["ojo", "Por confirmar"] };
   $("#piezas").innerHTML = `
-    <p class="muted">Fotos de las piezas que lleva el coche, con su referencia. Toca la foto para verla grande. ${PZ.length} piezas.</p>
+    <button class="btn prim" id="irCompra">🛒 Comprar repuestos</button>
+    <p class="intro">Lo que lleva tu coche, con foto y referencia. Toca la foto para verla grande.</p>
     <div class="chips">${zonas.map(z => `<button class="chip ${z === pzZona ? "on" : ""}" data-z="${esc(z)}">${esc(z)}</button>`).join("")}</div>
     <div class="pzs">${lista.map(p => `<div class="pz">
       <button class="ft" data-f="${esc(p.f)}" data-n="${esc(p.n)}"><img src="${DOCS}${encodeURI(p.f)}" alt="${esc(p.n)}" loading="lazy"></button>
@@ -508,27 +509,28 @@ function pintarPiezas() {
         ${p.rp && R.piezas.some(r => r.n === p.rp) ? `<button class="ir" data-rp="${esc(p.rp)}">Ver ficha de repuesto ›</button>` : ""}</div>
     </div>`).join("")}</div>`;
   $("#piezas").querySelectorAll(".chip").forEach(b => b.onclick = () => { pzZona = b.dataset.z; pintarPiezas(); });
+  $("#irCompra").onclick = () => { rpGrupo = "Todo"; pintarRepuestos(); abrir("repuestos"); };
   $("#piezas").querySelectorAll(".ft").forEach(b => b.onclick = () => verDoc(DOCS + encodeURI(b.dataset.f), b.dataset.n));
   $("#piezas").querySelectorAll(".ir").forEach(b => b.onclick = () => {
     rpGrupo = "Todo"; pintarRepuestos(); abrir("repuestos");
-    const el = [...document.querySelectorAll("#repuestos .rp h3")].find(h => h.textContent === b.dataset.rp);
-    if (el) el.parentElement.scrollIntoView({ block: "start" });
+    const el = [...document.querySelectorAll("#repuestos details.rpd")].find(d => d.dataset.n === b.dataset.rp);
+    if (el) { el.open = true; el.scrollIntoView({ block: "start" }); }
   });
 }
 function pintarRepuestos() {
   const grupos = ["Todo", ...new Set(R.piezas.map(r => r.g))];
   const lista = R.piezas.filter(r => rpGrupo === "Todo" || r.g === rpGrupo);
-  $("#repuestos").innerHTML = `
-    <details><summary>Cómo buscar y comprar bien</summary><div><ul>${R.consejos.map(c => `<li>${esc(c)}</li>`).join("")}</ul></div></details>
+  $("#repuestos").innerHTML = `${volver("repuestos")}
+    <p class="intro">Toca una pieza para ver la referencia y dónde comprarla.</p>
     <div class="chips">${grupos.map(g => `<button class="chip ${g === rpGrupo ? "on" : ""}" data-g="${esc(g)}">${esc(g)}</button>`).join("")}</div>
-    ${lista.map(r => `<div class="rp">
-      <h3>${esc(r.n)}</h3>
+    ${lista.map(r => `<details class="rpd" data-n="${esc(r.n)}"><summary><span>${esc(r.n)}${r.ok ? "" : ` <span class="badge ojo">Comprobar</span>`}</span></summary><div>
       <div class="meta"><span class="badge">${esc(r.cu)}</span><span class="badge ${r.dif === "Taller" ? "taller" : ""}">${({ "Fácil": "Fácil de cambiar", "Media": "Dificultad media", "Taller": "Mejor en el taller" })[r.dif]}</span>${r.ok ? "" : `<span class="badge ojo">Comprobar antes de comprar</span>`}</div>
       ${r.ref.map(([k, v]) => `<div class="dato"><span>${esc(k)}</span>${esc(v)}</div>`).join("")}
       ${r.c ? `<p class="c">${esc(r.c)}</p>` : ""}
       ${PZ.filter(p => p.rp === r.n).map(p => `<p class="c"><a class="doc" href="${DOCS}${encodeURI(p.f)}">Ver foto: ${esc(p.n)}</a></p>`).join("")}
       <div class="links">${enlaces(r)}</div>
-    </div>`).join("")}`;
+    </div></details>`).join("")}
+    <details><summary>Consejos para comprar</summary><div><ul>${R.consejos.map(c => `<li>${esc(c)}</li>`).join("")}</ul></div></details>`;
   $("#repuestos").querySelectorAll(".chip").forEach(b => b.onclick = () => { rpGrupo = b.dataset.g; pintarRepuestos(); });
 }
 
@@ -591,7 +593,7 @@ let grupoB = "todo";
 function pintarSirve() {
   const grupos = [...new Set(B.map(b => b.g))];
   const lista = B.filter(b => grupoB === "todo" || b.g === grupoB);
-  $("#sirve").innerHTML = `
+  $("#sirve").innerHTML = `${volver("sirve")}
     <p class="intro">Toca un botón, reloj o luz para ver para qué sirve.</p>
     <div class="chips"><button class="chip ${grupoB === "todo" ? "on" : ""}" data-g="todo">Todo</button>${grupos.map(g => `<button class="chip ${grupoB === g ? "on" : ""}" data-g="${esc(g)}">${esc(g)}</button>`).join("")}</div>
     <div class="botones">${lista.map(b => `
@@ -655,14 +657,17 @@ function fusiblesHTML() {
 
 function pintarFallos() {
   $("#fallos").innerHTML = `
-    ${fusiblesHTML()}
-    <h2>Problemas y solución</h2>
-    <p class="intro">Toca un problema para ver qué hacer, paso a paso.</p>
+    <div class="fila2"><button class="btn" id="irLuces">💡 Luces y botones</button><button class="btn" id="irManual">📖 Manual</button></div>
+    <h2>¿Qué le pasa?</h2>
+    <p class="intro">Toca el problema para ver qué hacer, paso a paso.</p>
     ${D.fallos.map(f => `<details><summary>${esc(f.s)}</summary><div>
       ${dibujos(f.s)}<ol>${f.c.map(c => `<li>${esc(c)}</li>`).join("")}</ol>
       <div class="muted">Manual, pág. ${esc(f.p)}</div></div></details>`).join("")}
+    ${fusiblesHTML()}
     <h2>Preguntas rápidas</h2>
     ${D.faq.map(([p, r]) => `<details><summary>${esc(p)}</summary><div>${esc(r)}</div></details>`).join("")}`;
+  $("#irLuces").onclick = () => abrir("sirve");
+  $("#irManual").onclick = () => abrir("manual");
   const sel = $("#fusQue");
   if (sel) sel.onchange = () => {
     const r = window.FUSIBLES.rapidos[sel.value];
@@ -676,8 +681,8 @@ let capManual = "";
 function pintarManual() {
   const caps = [...new Set(M.map(m => m.c))];
   if (!capManual) capManual = caps[0];
-  $("#manual").innerHTML = `
-    <p class="intro">Tu manual por temas. Elige un capítulo.</p>
+  $("#manual").innerHTML = `${volver("manual")}
+    <p class="intro">Elige un capítulo.</p>
     <select id="cap" aria-label="Capítulo del manual">${caps.map(c => `<option ${c === capManual ? "selected" : ""}>${esc(c)}</option>`).join("")}</select>
     ${M.filter(m => m.c === capManual).map(m => `<details><summary><span>${esc(m.t)} <span class="pg">· pág. ${esc(m.p)}</span></span></summary><div>${dibujos(m.t)}${esc(m.x)}</div></details>`).join("")}`;
   $("#cap").onchange = e => { capManual = e.target.value; pintarManual(); };
@@ -688,12 +693,10 @@ function pintarCoche() {
   const P = D.planFord, RV = D.revision, CP = D.listaCompra;
   const hecho = D.historial.filter(e => e.tipo === "mant").sort((a, b) => b.f.localeCompare(a.f));
   const hist = D.historial.slice().sort((a, b) => b.f.localeCompare(a.f));
-  const docs = window.ARCHIVOS
-    ? [...new Set(window.ARCHIVOS.map(a => a.includes("/") ? a.slice(0, a.lastIndexOf("/")) : "General"))].map(c => `
-        <details><summary>${esc(c.replace(/^\d+ /, "").replace(/\//g, " › "))}</summary><div>${window.ARCHIVOS.filter(a => (a.includes("/") ? a.slice(0, a.lastIndexOf("/")) : "General") === c)
-          .map(a => `<a class="doc" href="${DOCS}${encodeURI(a)}" target="_blank" rel="noopener">${esc(a.slice(a.lastIndexOf("/") + 1).replace(/\.[^.]+$/, ""))}</a>`).join("")}</div></details>`).join("")
-    : `<div class="card">${D.documentos.map(([t, p]) => `<a class="doc" href="${DOCS}${encodeURI(p)}" target="_blank" rel="noopener">${esc(t)}</a>`).join("")}</div>`;
+  // Lista corta con nombres claros (no las carpetas del PC). Las fotos de piezas ya están en Piezas.
+  const docs = D.documentos.filter(([, p]) => !PZ.some(z => z.f === p)).map(([t, p]) => `<a class="doc" href="${DOCS}${encodeURI(p)}" target="_blank" rel="noopener">${esc(t)}</a>`).join("");
   $("#coche").innerHTML = `
+    <button class="btn" id="irGasolina">⛽ Gasolina y consumo</button>
     <p class="intro">Toca un apartado para abrirlo.</p>
     <details class="grupo"><summary>Ficha del coche</summary><div>
       ${[...new Set(D.ficha.map(f => f[2]))].map(g => `<h3 class="sub-h">${esc(g)}</h3>
@@ -705,7 +708,7 @@ function pintarCoche() {
         ${D.equipo.filter(f => f[2] === g).map(([k, v]) => `<div class="dato"><span>${esc(k)}</span>${esc(v)}</div>`).join("")}`).join("")}</div></details>
 
     <details class="grupo"><summary>El motor y sus piezas</summary><div>
-      <p class="muted" style="margin:0 0 4px">Sacado de las fotos del 28/10/2026. Lo dudoso lleva (?).</p>
+      <p class="muted" style="margin:0 0 4px">De las fotos del 28/10 y del 08/11/2026. Lo dudoso lleva (?). Las fotos están en la pestaña Piezas.</p>
       ${[...new Set(D.motor.map(f => f[2]))].map(g => `<h3 class="sub-h">${esc(g)}</h3>
         ${D.motor.filter(f => f[2] === g).map(([k, v]) => `<div class="dato"><span>${esc(k)}</span>${esc(v)}</div>`).join("")}`).join("")}</div></details>
 
@@ -743,8 +746,8 @@ function pintarCoche() {
 
     <details class="grupo"><summary>Mi compra</summary><div id="compraBox"></div></details>
 
-    <h2>Papeles y fotos</h2>
-    ${docs}`;
+    <details class="grupo"><summary>Papeles y fotos</summary><div>${docs}</div></details>`;
+  $("#irGasolina").onclick = () => abrir("gasolina");
 }
 
 // ---------- Mi compra ----------
