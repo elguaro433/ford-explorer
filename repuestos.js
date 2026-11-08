@@ -10,7 +10,7 @@ window.REPUESTOS = {
     "Pedidos desde España a Andorra: pagas el IGI (4,5 %) y a veces gastos de aduana. Muchos lo envían a un punto de recogida en La Seu d'Urgell.",
     "RockAuto (EE. UU.) no envía a la UE piezas Motorcraft, Ford, NGK ni Auveco (norma europea del acero ruso); de otras marcas, sí. La lista de compra está en Mi coche › Mantenimiento.",
     "Catálogo de piezas Ford con dibujos (gratis, en inglés): botón «📘 Catálogo de piezas Ford» en la pestaña Piezas. Tu versión es «1996 · 6 Cyl 4.0L · 4AT 4R55E» (fabricado en 1995, vendido como modelo 1996).",
-    "Manual de taller: Haynes 36024 «Ford Explorer 1991-2001» (en inglés, papel, unos 30-40 €): explica paso a paso cómo cambiar cada pieza del motor 4.0 OHV.",
+    "Manual de taller: Haynes 36024 «Ford Explorer 1991-2001» (en inglés): explica paso a paso cómo cambiar cada pieza del motor 4.0 OHV. Se puede leer gratis prestado en archive.org (botón «📗 Manual de taller Haynes» en Piezas, con cuenta gratis) o comprar en papel (unos 39 €).",
     "Desguaces: hay pocas Explorer de esta generación en España. Para pilotos, espejos, llantas o tapicería, sí; para frenos, filtros o motor, mejor nuevo."
   ],
 
