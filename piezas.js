@@ -44,6 +44,11 @@ window.PIEZAS = [
   { z: "Electricidad", n: "Relé suelto (zócalo rojo)", ref: "Ford F0AB-14B192-AA", e: "comprobar", f: "04 Mantenimiento/2026-11-08 Rele suelto F0AB-14B192-AA (zocalo rojo).jpg", rp: "Relés de la caja del motor",
     nota: "No se sabe qué manda. Por el sitio puede ser uno auxiliar (remolque o luces). Es igual que los grandes de la caja." },
 
+  { z: "Electricidad", n: "Luz de la puerta delantera (buena)", ref: "GE 168 = W5W (T10)", e: "ok", f: "04 Mantenimiento/2026-11-08 Bombilla puerta GE 168 (buena).webp", rp: "Luz de las puertas",
+    nota: "Cuña de cristal, unos 5 W." },
+  { z: "Electricidad", n: "Luz de la puerta delantera (fundida)", ref: "GE 168 = W5W (T10)", e: "comprobar", f: "04 Mantenimiento/2026-11-08 Bombilla puerta fundida (negra).webp", rp: "Luz de las puertas",
+    nota: "Cristal negro: está fundida. Se cambia por una W5W LED blanca." },
+
   // ---- Carrocería y etiquetas ----
   { z: "Carrocería", n: "Amortiguadores del capó", ref: "eBay 405990031235", e: "nueva", f: "04 Mantenimiento/2026-11-07 Amortiguadores capo puestos.jpg", rp: "Amortiguadores del capó",
     nota: "Puestos el 07/11/2026." },

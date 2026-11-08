@@ -160,9 +160,9 @@ window.REPUESTOS = {
     { g: "Bombillas", n: "Espejo del parasol", cu: "2", ok: true, dif: "Fácil",
       ref: [["Según el manual", "Tubular 10 W"]],
       c: "", q: "bombilla tubular 10W 12V" },
-    { g: "Bombillas", n: "Luz de las puertas", cu: "Según puertas", ok: true, dif: "Fácil",
-      ref: [["Según el manual", "5 W"], ["Código", "Sin confirmar: saca una y mira"]],
-      c: "", q: "bombilla 5W 12V luz cortesia puerta" },
+    { g: "Bombillas", n: "Luz de las puertas", cu: "1 por puerta", ok: true, dif: "Fácil",
+      ref: [["La que lleva (fotos 08/11/2026)", "GE 168 · cuña de cristal T10, 12 V, unos 5 W"], ["Equivalente europea", "W5W (T10): encaja igual"], ["En LED", "W5W / T10 LED blanca de 12 V. En este coche no hace falta que sea «Canbus»"], ["Estado (08/11/2026)", "Una de las puertas delanteras, fundida (cristal negro): cambiar por LED"]],
+      c: "Si la LED no se enciende al ponerla, sácala, dale la vuelta (tiene polaridad) y vuelve a probar. Compra un paquete: la W5W también sirve para otras luces del coche.", q: "W5W T10 LED 12V blanco" },
 
     // ---- Ruedas ----
     { g: "Ruedas", n: "Neumáticos", cu: "4 (o 2 por eje)", ok: true, dif: "Taller",

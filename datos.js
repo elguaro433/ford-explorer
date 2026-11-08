@@ -361,7 +361,8 @@ window.DATOS = {
     { id: "parado", t: "Revisar batería y edad de los neumáticos" },
     { id: "pilaMando", t: "Comprar pila de repuesto A23 12 V para el mando" },
     { id: "airbag", t: "Preguntar en el taller por el airbag (tiene 31 años)" },
-    { id: "itv2027", t: "Pasar la ITV antes del 31/01/2027" }
+    { id: "itv2027", t: "Pasar la ITV antes del 31/01/2027" },
+    { id: "luzPuerta", t: "Cambiar la luz de la puerta delantera fundida por una W5W (T10) LED blanca" }
   ],
 
   // Problemas y soluciones: todo sacado del manual del propietario (pág. = página de tu libro)
