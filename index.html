@@ -220,13 +220,13 @@
 <div id="visor"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=56"></script>
-<script src="manual.js?v=56"></script>
-<script src="imagenes.js?v=56"></script>
-<script src="botones.js?v=56"></script>
-<script src="fusibles.js?v=56"></script>
-<script src="repuestos.js?v=56"></script>
-<script src="piezas.js?v=56"></script>
+<script src="datos.js?v=57"></script>
+<script src="manual.js?v=57"></script>
+<script src="imagenes.js?v=57"></script>
+<script src="botones.js?v=57"></script>
+<script src="fusibles.js?v=57"></script>
+<script src="repuestos.js?v=57"></script>
+<script src="piezas.js?v=57"></script>
 <script>
 const D = window.DATOS, R = window.REPUESTOS || { consejos: [], piezas: [] }, PZ = window.PIEZAS || [], M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -441,7 +441,7 @@ function avisos() {
   const dias = Math.ceil((new Date(D.estado.proximaITV) - HOY) / 864e5);
   if (dias < 0) a.push(["bad", "ITV caducada", `Vencía el ${fmtF(D.estado.proximaITV)}.`]);
   else a.push([dias <= 90 ? "warn" : "ok", `ITV en ${dias} días`, `Antes del ${fmtF(D.estado.proximaITV)}, con la fuga de la transmisión reparada.`]);
-  if (!hechos.segundaLlave) a.push(["bad", "Solo tienes una llave y un mando", "Sin el mando el coche no arranca. Haz una copia."]);
+  if (!hechos.segundaLlave) a.push(["bad", "Solo tienes un mando", "Ya hay 2 llaves, pero sin el mando el coche no arranca (inmovilizador). Falta un 2.º mando o un interruptor oculto."]);
   const ua = D.estado.ultimoAceite, faltaAceite = ua.proximoKm - kmHoy();
   if (faltaAceite <= 0) a.push(["bad", "Toca cambiar el aceite", `El último cambio fue el ${fmtF(ua.fecha)} a ${km(ua.km)}. Ya pasa de ${km(ua.proximoKm)}.`]);
   else a.push([faltaAceite <= 1000 ? "warn" : "ok", `Aceite cambiado el ${fmtF(ua.fecha)}`, `Próximo cambio a ${km(ua.proximoKm)} (faltan ${km(faltaAceite)}).`]);
