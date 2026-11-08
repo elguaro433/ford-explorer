@@ -349,7 +349,7 @@ window.DATOS = {
   ],
 
   pendientes: [
-    { id: "segundaLlave", t: "2.º mando (Bosch RK112) o interruptor oculto del inmovilizador. La 2.ª llave ya está hecha (08/11/2026)" },
+    { id: "segundaLlave", t: "2.º mando: buscar un Bosch RK112 de Ford de segunda mano y programarlo (Manual › Llave, mando y alarma). Si no, interruptor oculto. La 2.ª llave ya está hecha (08/11/2026)" },
     { id: "filtroAire", t: "Poner el filtro de aire Motorcraft FA-1616 (comprado, llega 1-14 dic)" },
     { id: "filtroGasolina", t: "Poner el filtro de gasolina Mecafilter ELE6014 (comprado en Oscaro), respetando la flecha" },
     { id: "bujias6", t: "Poner las 6 bujías Motorcraft SP-486 a 1,4 mm (compradas, llegan 30 nov-10 dic)" },
