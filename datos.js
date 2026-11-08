@@ -304,6 +304,7 @@ window.DATOS = {
     { f: "2026-11-07", km: 117661, tipo: "mant", t: "Revisión general: frenos bien", d: "Se revisó todo el coche. Quedan por cambiar: filtro de aire (urgente, el viejo está muy sucio), filtro de gasolina (el comprado no era el correcto: el original es Motorcraft FG-872), las 6 bujías (llevan NGK Iridium TR55IX y están feas) y la goma y arandela del tapón del cárter." },
     { f: "2026-11-07", km: null, tipo: "mant", t: "Comprados por eBay: 8 bujías Motorcraft SP-486, filtro de aire FA-1616 y tapón del cárter", d: "Bujías 67,54 USD (santafetruckservice), filtro de aire 49,38 USD (gtex_auto), tapón 10,53 GBP (abaqjj1). IVA ya pagado. Llegan del 23 nov al 14 dic." },
     { f: "2026-11-07", km: null, tipo: "mant", t: "Comprado en Oscaro: filtro de gasolina Mecafilter ELE6014", d: "21,98 € con envío (Paack). Equivale al Motorcraft FG-872, WIX 33296 y Mann WK 78/2." },
+    { f: "2026-11-08", km: null, tipo: "doc", t: "Comprado el manual de taller Haynes 36024 (Ford Explorer 1991-2001)", d: "Wallapop, de segunda mano: 17,50 € + 2,85 € de envío + 2,00 € de protección = 22,35 €. Se recoge en el locker InPost de La Seu d'Urgell. Mientras llega, se puede leer prestado en archive.org." },
     { f: "2026-11-08", km: null, tipo: "doc", t: "Hecha la 2.ª llave", d: "Copia de la llave. Sigue habiendo un solo mando: sin él, el inmovilizador no deja arrancar." },
     { f: "2026-11-08", km: null, tipo: "mant", t: "Motor lavado y calcomanía de la revisión puesta", d: "Lavado con cuidado. Calcomanía del cambio de aceite del 07/11/2026 pegada en el travesaño del radiador (próximo cambio a 127.661 km o 11/2027)." },
     { f: "2026-11-08", km: null, tipo: "doc", t: "Fotos de las piezas del motor con sus referencias", d: "Válvula EGR F37E-9D475-C2A, sensor EGR F48E-9J460-BB, correa Continental 6PK2215, ABS ATE 25.0202-0020.4, servofreno Bendix F57A-2B559-GC, tapón del radiador Motorcraft RS-76, relés y fusibles. Todo en Mi coche › El motor y sus piezas y en Repuestos." }
@@ -364,6 +365,7 @@ window.DATOS = {
     { id: "airbag", t: "Preguntar en el taller por el airbag (tiene 31 años)" },
     { id: "itv2027", t: "Pasar la ITV antes del 31/01/2027" },
     { id: "correaRepuesto", t: "Comprar una correa 6PK2215 de repuesto (unos 20-25 €) y que el taller mire el tensor y la polea" },
+    { id: "libroHaynes", t: "Recoger el libro Haynes 36024 en el locker InPost de La Seu d'Urgell (Bugaderia El Safareig, Av. Joan Garriga i Massó 2). Llega en 3-7 días" },
     { id: "luzPuerta", t: "Cambiar la luz de la puerta delantera fundida por una W5W (T10) LED blanca" }
   ],
 
