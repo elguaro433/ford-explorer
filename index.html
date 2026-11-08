@@ -220,13 +220,13 @@
 <div id="visor"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=60"></script>
-<script src="manual.js?v=60"></script>
-<script src="imagenes.js?v=60"></script>
-<script src="botones.js?v=60"></script>
-<script src="fusibles.js?v=60"></script>
-<script src="repuestos.js?v=60"></script>
-<script src="piezas.js?v=60"></script>
+<script src="datos.js?v=61"></script>
+<script src="manual.js?v=61"></script>
+<script src="imagenes.js?v=61"></script>
+<script src="botones.js?v=61"></script>
+<script src="fusibles.js?v=61"></script>
+<script src="repuestos.js?v=61"></script>
+<script src="piezas.js?v=61"></script>
 <script>
 const D = window.DATOS, R = window.REPUESTOS || { consejos: [], piezas: [] }, PZ = window.PIEZAS || [], M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -499,6 +499,7 @@ function pintarPiezas() {
   const est = { ok: ["", "Leída en la pieza"], nueva: ["nueva", "Puesta nueva"], comprobar: ["ojo", "Por confirmar"] };
   $("#piezas").innerHTML = `
     <button class="btn prim" id="irCompra">🛒 Comprar repuestos</button>
+    <a class="btn" href="https://www.fordpartsgiant.com/1996-ford-explorer--6_cyl_4_0l-4at_4r55e-parts.html" target="_blank" rel="noopener">📘 Catálogo de piezas Ford con dibujos</a>
     <p class="intro">Lo que lleva tu coche, con foto y referencia. Toca la foto para verla grande.</p>
     <div class="chips">${zonas.map(z => `<button class="chip ${z === pzZona ? "on" : ""}" data-z="${esc(z)}">${esc(z)}</button>`).join("")}</div>
     <div class="pzs">${lista.map(p => `<div class="pz">
