@@ -177,6 +177,23 @@ window.REPUESTOS = {
       ref: [["Los que lleva", "Cooper Discoverer AT3 4S 255/70 R16 111T (octubre de 2020)"], ["Medida de fábrica", "P225/70 R16"], ["Precio aproximado", "130-180 € cada uno, más montaje"]],
       c: "Si cambias solo 2, los nuevos van detrás. Con 4x4, mejor los 4 iguales. Cambiarlos como muy tarde en octubre de 2030 (10 años).", q: "Cooper Discoverer AT3 4S 255/70 R16 111T" },
 
+    // ---- Accesorios ----
+    { g: "Accesorios", n: "Kit de carretera (España, Francia y Andorra)", cu: "1", ok: true, dif: "Fácil",
+      ref: [["Lo que hay que llevar", "2 triángulos homologados + 1 chaleco reflectante por persona, dentro del coche (no en el maletero)"], ["Baliza V16", "En España es obligatoria desde 2026 solo para coches con matrícula española. Con matrícula de Andorra valen los triángulos, pero la DGT recomienda llevar también una V16 conectada"], ["Invierno en Francia (Pirineos)", "Del 1 de noviembre al 31 de marzo: neumáticos con el símbolo de la montaña con copo (3PMSF) o cadenas/fundas a bordo. Tus Cooper AT3 4S llevan ese símbolo"], ["Recomendable", "Botiquín, linterna, guantes, cables de batería, fundas textiles de nieve para 255/70 R16 y una bombilla H4 de repuesto"]],
+      c: "Con matrícula andorrana manda la norma de Andorra: triángulos y chaleco. Lleva además la V16 para estar tranquilo en España.", q: "kit emergencia coche triangulos chaleco baliza V16 conectada" },
+    { g: "Accesorios", n: "Alfombras de goma", cu: "1 juego", ok: true, dif: "Fácil",
+      ref: [["Originales de Ford", "Ya no se fabrican"], ["Hechas a medida (EE. UU.)", "Husky Liners Classic Style (Explorer 1995-2002) · WeatherTech All-Weather W11 delanteras (Explorer 1991-2001)"], ["Más barato", "Alfombras de goma universales «recortables» (Norauto, Amazon): se cortan a la medida"]],
+      c: "Las Husky y WeatherTech son las mejores, pero vienen de EE. UU. Tu coche es de volante a la izquierda como los americanos, así que encajan.", q: "Husky Liners Classic Style Ford Explorer 1995" },
+    { g: "Accesorios", n: "Radio", cu: "1", ok: true, dif: "Media",
+      ref: [["La que lleva", "Pioneer DEH-2300UB, tamaño 1 DIN"], ["Qué encaja sin cortar", "Cualquier radio de 1 DIN (el tamaño normal): con Bluetooth, USB y manos libres"], ["Pantalla grande (2 DIN)", "Hace falta un marco adaptador para Explorer 1995-2001 y quitar el hueco de debajo: mejor en un instalador"]],
+      c: "Como ya lleva una de 1 DIN, el cambio es fácil: se quita la Pioneer y se pone la nueva con el mismo conector.", q: "radio coche 1 DIN bluetooth USB" },
+    { g: "Accesorios", n: "Antena corta", cu: "1", ok: false, dif: "Fácil",
+      ref: [["La que lleva", "Mástil largo en la aleta delantera derecha, se desenrosca"], ["Cambio", "Mástil corto de goma de 15-20 cm que se enrosca en la misma base: mira la rosca de la tuya antes de comprar"], ["Ojo", "Con antena corta la radio FM se oye algo peor en montaña"]],
+      c: "No hace falta cortar nada: se desenrosca la larga y se enrosca la corta. Si está muy dura, puede tener fijador de rosca.", q: "antena corta coche rosca universal Ford Explorer" },
+    { g: "Accesorios", n: "Fusibles y relés de repuesto", cu: "1 caja", ok: true, dif: "Fácil",
+      ref: [["Fusibles", "Una caja surtida de fusibles de cuchilla (mini y normales) de 5 a 30 A y algunos maxi de 30-60 A: unos 10 € en Norauto o Amazon"], ["Relés grandes", "Ford F0AB-14B192-AA: relé «mini ISO» de 12 V y 5 patas"], ["Relés pequeños", "Ford F57B-14B192-AA: relé «micro ISO» de 12 V"], ["Para qué es cada uno", "Problemas › Fusibles (cajas de dentro y del motor, con lista)"]],
+      c: "Guarda la caja de fusibles en la guantera. Relés solo hace falta uno de cada tipo de repuesto.", q: "caja fusibles coche surtido mini maxi" },
+
     // ---- Llave ----
     { g: "Llave y mando", n: "Pila del mando", cu: "1", ok: true, dif: "Fácil",
       ref: [["Tipo", "A23 (MN21/23) 12 V"]],
