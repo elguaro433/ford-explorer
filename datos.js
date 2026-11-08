@@ -62,7 +62,7 @@ window.DATOS = {
   ficha: [
     ["Modelo", "Ford Explorer XLT 4x4, 4 puertas", "Origen"],
     ["Color", "Verde", "Origen"],
-    ["Fabricado", "1995 (año modelo 1996) en Louisville, EE. UU.", "Origen"],
+    ["Fabricado", "1995, en Louisville (EE. UU.). Matriculado el 13/12/1995. Ford lo vendió como «modelo 1996» (la T del bastidor): por eso en las tiendas de recambios se busca como 1996", "Origen"],
     ["Vendido nuevo", "Servel Motor S.L., Lleida (España), 13/12/1995", "Origen"],
     ["Matrícula original", "L-2825-Z (España)", "Origen"],
     ["Matrícula actual", "C9389 (Andorra, desde el 12/06/1997)", "Origen"],
