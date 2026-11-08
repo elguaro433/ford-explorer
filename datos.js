@@ -362,6 +362,7 @@ window.DATOS = {
     { id: "pilaMando", t: "Comprar pila de repuesto A23 12 V para el mando" },
     { id: "airbag", t: "Preguntar en el taller por el airbag (tiene 31 años)" },
     { id: "itv2027", t: "Pasar la ITV antes del 31/01/2027" },
+    { id: "correaRepuesto", t: "Comprar una correa 6PK2215 de repuesto (unos 20-25 €) y que el taller mire el tensor y la polea" },
     { id: "luzPuerta", t: "Cambiar la luz de la puerta delantera fundida por una W5W (T10) LED blanca" }
   ],
 
