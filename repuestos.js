@@ -111,8 +111,8 @@ window.REPUESTOS = {
 
     // ---- Suspensión ----
     { g: "Suspensión", n: "Amortiguadores delanteros", cu: "2", ok: true, dif: "Taller",
-      ref: [["Bilstein B6 4600", "24-021333 (4x4, sin suspensión neumática)"]],
-      c: "Siempre por parejas.", q: "amortiguador delantero Ford Explorer 1996 4x4" },
+      ref: [["Los que lleva", "Sin mirar todavía: hacer foto detrás de la rueda delantera (girando el volante) para ver marca y número"], ["Bilstein B6 4600 (el mejor)", "24-021333 · Explorer 4x4 1995-2001 sin suspensión autonivelante"], ["Otras opciones (comprobar que sean 4x4)", "KYB Gas-A-Just KG54309 · Monroe OESpectrum 37122 · KYB MonoMax 561001"], ["Cómo saber si están mal", "Aceite por fuera del amortiguador, el coche rebota más de una vez al empujar la esquina hacia abajo, el morro se hunde mucho al frenar o las ruedas gastadas a manchas"]],
+      c: "Siempre por parejas. Delante, este coche lleva barras de torsión (no muelles): el amortiguador va solo y es fácil de cambiar. Si se cambian los delanteros, mirar también los traseros.", q: "Bilstein 24-021333" },
     { g: "Suspensión", n: "Amortiguadores traseros", cu: "2", ok: true, dif: "Media",
       ref: [["Bilstein B6 4600", "24-021340 (4x4, sin suspensión neumática)"]],
       c: "Siempre por parejas.", q: "amortiguador trasero Ford Explorer 1996 4x4" },
