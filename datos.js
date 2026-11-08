@@ -166,7 +166,7 @@ window.DATOS = {
     ["Sensor de presión de la EGR (DPFE)", "Ford F48E-9J460-BB (foto 08/11/2026). Placa de aluminio con flecha «UP» y toma «REF». Equivalente: NRF 708049. Si sale la luz del motor por la EGR, suele ser este sensor o sus tubitos de goma", "Piezas identificadas"],
     ["Correa del motor", "Continental 6PK2215: 6 canales y 2.215 mm (foto 08/11/2026). Hecha en Alemania: ya se cambió alguna vez", "Piezas identificadas"],
     ["Servofreno", "AlliedSignal Bendix Brakes · Ford F57A-2B559-GC · 7E5270C30308 · 850096 (foto 08/11/2026). Es el tambor negro grande detrás de la bomba de freno", "Piezas identificadas"],
-    ["Cuerpo de mariposa: etiqueta", "Etiqueta casi borrada: se lee «95…», «…D» y «JD 3» (fotos 08/11/2026). Ford lo sirve hoy como F77Z-9E926-AD (probable, comprobar con el viejo al desmontarlo)", "Piezas identificadas"],
+    ["Cuerpo de mariposa: etiqueta", "Etiqueta medio borrada; con la foto realzada se lee «95TF-…-FB · JD · 3» (08/11/2026). Es el de las Explorer 4.0 de 1995-97 («95TF-FB»). Recambio de Ford: F5TZ-9E926-EB (probable)", "Piezas identificadas"],
     ["Colector de admisión", "Negro, de plástico, con «4.0 EFI» en relieve (foto 08/11/2026)", "Piezas identificadas"],
     ["Tapón del radiador", "Motorcraft RS-76 · 16 lbs (1,1 bar) · «DO NOT OPEN WHEN HOT» (foto 08/11/2026). Si se cambia, que sea de la misma presión", "Piezas identificadas"],
     ["Relé de arranque", "En la aleta del lado del conductor, con el cable rojo gordo de la batería. El número no se ve (foto 08/11/2026), pero por forma y por el aviso grabado de Ford es el original: Ford E9TZ-11450-B = Motorcraft SW-1951-C", "Piezas identificadas"],
