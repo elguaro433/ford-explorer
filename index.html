@@ -76,6 +76,16 @@
   .badge.taller { background: var(--bad-soft); color: var(--bad); }
   .rp .dato:last-of-type { border-bottom: 0; }
   .rp .c { font-size: 14px; color: var(--muted); margin: 6px 0 0; }
+  .pzs { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; }
+  .pz { background: var(--card); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: flex; flex-direction: column; min-width: 0; }
+  .pz .ft { display: block; padding: 0; border: 0; background: #111; cursor: zoom-in; }
+  .pz .ft img { display: block; width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .pz .tx { padding: 8px 10px 10px; display: flex; flex-direction: column; gap: 4px; flex: 1; }
+  .pz h3 { margin: 0; font-size: 15px; line-height: 1.25; }
+  .pz .ref { font: 600 13px/1.3 ui-monospace, Consolas, monospace; overflow-wrap: anywhere; }
+  .pz .nota { font-size: 13px; color: var(--muted); margin: 0; }
+  .pz .ir { margin-top: auto; align-self: flex-start; font: inherit; font-size: 13px; font-weight: 600; color: var(--brand); background: none; border: 0; padding: 6px 0 0; cursor: pointer; }
+  .badge.nueva { background: var(--brand); color: var(--bg); }
   .links { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
   .links a { flex: 1 1 auto; text-align: center; font-size: 14px; font-weight: 600; text-decoration: none; padding: 9px 10px; border-radius: 10px; border: 1px solid var(--line); color: var(--brand); background: var(--bg); min-width: 30%; }
   .tel-g { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--brand); margin: 18px 0 6px; }
@@ -198,6 +208,7 @@
   <section id="telefonos"></section>
   <section id="buscar"><div id="res"></div></section>
   <section id="repuestos"></section>
+  <section id="piezas"></section>
   <section id="sirve"></section>
   <section id="fallos"></section>
   <section id="manual"></section>
@@ -207,15 +218,16 @@
 <div id="visor"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=51"></script>
-<script src="manual.js?v=51"></script>
-<script src="imagenes.js?v=51"></script>
-<script src="botones.js?v=51"></script>
-<script src="fusibles.js?v=51"></script>
-<script src="repuestos.js?v=51"></script>
-<script src="archivos.js?v=51" onerror="this.remove()"></script>
+<script src="datos.js?v=52"></script>
+<script src="manual.js?v=52"></script>
+<script src="imagenes.js?v=52"></script>
+<script src="botones.js?v=52"></script>
+<script src="fusibles.js?v=52"></script>
+<script src="repuestos.js?v=52"></script>
+<script src="piezas.js?v=52"></script>
+<script src="archivos.js?v=52" onerror="this.remove()"></script>
 <script>
-const D = window.DATOS, R = window.REPUESTOS || { consejos: [], piezas: [] }, M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
+const D = window.DATOS, R = window.REPUESTOS || { consejos: [], piezas: [] }, PZ = window.PIEZAS || [], M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
 const $ = s => document.querySelector(s);
 const esc = s => String(s ?? "").replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -236,7 +248,7 @@ const dibujos = titulo => (IMG[titulo] || []).length
   ? `<div class="dibujos">${IMG[titulo].map((n, i, a) => `<figure>${a.length > 2 ? `<figcaption>${i + 1}</figcaption>` : ""}<img src="img/${n}.jpg" alt="" loading="lazy"></figure>`).join("")}</div>` : "";
 
 // ---------- Pestañas ----------
-const TABS = [["inicio", "Inicio"], ["gasolina", "Gasolina"], ["telefonos", "Teléfonos"], ["repuestos", "Repuestos"], ["sirve", "Botones"], ["fallos", "Problemas"], ["manual", "Manual"], ["coche", "Mi coche"]];
+const TABS = [["inicio", "Inicio"], ["gasolina", "Gasolina"], ["telefonos", "Teléfonos"], ["repuestos", "Repuestos"], ["piezas", "Piezas"], ["sirve", "Botones"], ["fallos", "Problemas"], ["manual", "Manual"], ["coche", "Mi coche"]];
 $("#tabs").innerHTML = TABS.map(([id, t]) => `<button data-t="${id}">${t}</button>`).join("");
 function abrir(id, sinHistorial) {
   const antes = document.querySelector("section.on")?.id;
@@ -479,7 +491,30 @@ const enlaces = r => {
   }
   return L.map(([t, u]) => `<a href="${u}" target="_blank" rel="noopener">${esc(t)}</a>`).join("");
 };
-let rpGrupo = "Todo";
+let rpGrupo = "Todo", pzZona = "Todo";
+// ---------- Piezas (ventana con foto de cada pieza) ----------
+function pintarPiezas() {
+  const zonas = ["Todo", ...new Set(PZ.map(p => p.z))];
+  const lista = PZ.filter(p => pzZona === "Todo" || p.z === pzZona);
+  const est = { ok: ["", "Leída en la pieza"], nueva: ["nueva", "Puesta nueva"], comprobar: ["ojo", "Por confirmar"] };
+  $("#piezas").innerHTML = `
+    <p class="muted">Fotos de las piezas que lleva el coche, con su referencia. Toca la foto para verla grande. ${PZ.length} piezas.</p>
+    <div class="chips">${zonas.map(z => `<button class="chip ${z === pzZona ? "on" : ""}" data-z="${esc(z)}">${esc(z)}</button>`).join("")}</div>
+    <div class="pzs">${lista.map(p => `<div class="pz">
+      <button class="ft" data-f="${esc(p.f)}" data-n="${esc(p.n)}"><img src="${DOCS}${encodeURI(p.f)}" alt="${esc(p.n)}" loading="lazy"></button>
+      <div class="tx"><h3>${esc(p.n)}</h3><div class="ref">${esc(p.ref)}</div>
+        <div><span class="badge ${est[p.e][0]}">${est[p.e][1]}</span></div>
+        ${p.nota ? `<p class="nota">${esc(p.nota)}</p>` : ""}
+        ${p.rp && R.piezas.some(r => r.n === p.rp) ? `<button class="ir" data-rp="${esc(p.rp)}">Ver ficha de repuesto ›</button>` : ""}</div>
+    </div>`).join("")}</div>`;
+  $("#piezas").querySelectorAll(".chip").forEach(b => b.onclick = () => { pzZona = b.dataset.z; pintarPiezas(); });
+  $("#piezas").querySelectorAll(".ft").forEach(b => b.onclick = () => verDoc(DOCS + encodeURI(b.dataset.f), b.dataset.n));
+  $("#piezas").querySelectorAll(".ir").forEach(b => b.onclick = () => {
+    rpGrupo = "Todo"; pintarRepuestos(); abrir("repuestos");
+    const el = [...document.querySelectorAll("#repuestos .rp h3")].find(h => h.textContent === b.dataset.rp);
+    if (el) el.parentElement.scrollIntoView({ block: "start" });
+  });
+}
 function pintarRepuestos() {
   const grupos = ["Todo", ...new Set(R.piezas.map(r => r.g))];
   const lista = R.piezas.filter(r => rpGrupo === "Todo" || r.g === rpGrupo);
@@ -491,6 +526,7 @@ function pintarRepuestos() {
       <div class="meta"><span class="badge">${esc(r.cu)}</span><span class="badge ${r.dif === "Taller" ? "taller" : ""}">${({ "Fácil": "Fácil de cambiar", "Media": "Dificultad media", "Taller": "Mejor en el taller" })[r.dif]}</span>${r.ok ? "" : `<span class="badge ojo">Comprobar antes de comprar</span>`}</div>
       ${r.ref.map(([k, v]) => `<div class="dato"><span>${esc(k)}</span>${esc(v)}</div>`).join("")}
       ${r.c ? `<p class="c">${esc(r.c)}</p>` : ""}
+      ${PZ.filter(p => p.rp === r.n).map(p => `<p class="c"><a class="doc" href="${DOCS}${encodeURI(p.f)}">Ver foto: ${esc(p.n)}</a></p>`).join("")}
       <div class="links">${enlaces(r)}</div>
     </div>`).join("")}`;
   $("#repuestos").querySelectorAll(".chip").forEach(b => b.onclick = () => { rpGrupo = b.dataset.g; pintarRepuestos(); });
@@ -735,7 +771,7 @@ function pintarCompra() {
     </div>`;
 }
 
-function pintarTodo() { pintarInicio(); pintarGasolina(); pintarTelefonos(); pintarRepuestos(); pintarSirve(); pintarFallos(); pintarManual(); pintarCoche(); pintarCompra(); buscar(); }
+function pintarTodo() { pintarInicio(); pintarGasolina(); pintarTelefonos(); pintarRepuestos(); pintarPiezas(); pintarSirve(); pintarFallos(); pintarManual(); pintarCoche(); pintarCompra(); buscar(); }
 pintarTodo();
 let t0 = "inicio"; try { t0 = localStorage.getItem("fe_tab") || "inicio"; } catch {}
 abrir(TABS.some(t => t[0] === t0) ? t0 : "inicio", true);

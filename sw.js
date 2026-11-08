@@ -1,7 +1,7 @@
 // Ford Explorer: funciona sin cobertura.
 // Primero intenta la red (para tener siempre lo último); si no hay o tarda más de 4 s, usa lo guardado.
 // Al publicar una versión nueva, sube VERSION (y el ?v= de los guiones en index.html).
-const VERSION = "fe-54";
+const VERSION = "fe-55";
 const PRECACHE = [
 "./",
 "index.html",
@@ -15,6 +15,7 @@ const PRECACHE = [
 "botones.js",
 "fusibles.js",
 "repuestos.js",
+"piezas.js",
 "archivos.js",
 "img/aceite_reloj.jpg",
 "img/antiniebla.jpg",
