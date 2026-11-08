@@ -151,7 +151,7 @@ window.DATOS = {
     ["Desempañar", "La última posición (parabrisas): el aire acondicionado se enciende solo para secar el aire", "Interior"]
   ],
 
-  // Lo que se ve en las fotos del motor del 28/10/2026 (las fotos no se guardan). [dato, valor, grupo]
+  // Lo que se ve en las fotos del motor del 28/10/2026 y del 08/11/2026 (estas sí, en 04 Mantenimiento). [dato, valor, grupo]
   motor: [
     ["Motor", "4.0 L V6 OHV (de varillas), gasolina, 3.958 cc. Lleva escrito «4.0 EFI» en el colector de admisión (EFI = inyección electrónica)", "El motor"],
     ["Cambio", "Automático: detrás del motor está la varilla «TRANS FLUID» para mirar su aceite", "El motor"],
@@ -161,7 +161,21 @@ window.DATOS = {
     ["Batería", "Varta Dynamic SLI E11 · 12 V 74 Ah 680 A · código 574 012 068. Unos 278 × 175 × 190 mm, borne + a la derecha. Se ve bastante nueva", "Piezas identificadas"],
     ["Caja del filtro de aire", "Redonda, con pegatina amarilla «EXPORT» y cierre de pinza: confirma que el filtro es el de cono (Motorcraft FA-1616 / Mahle LX 1937)", "Piezas identificadas"],
     ["Caja de fusibles del motor", "«Power Distribution Box», en el lado del conductor, detrás de la bomba de freno", "Piezas identificadas"],
-    ["Grupo del ABS", "Bloque hidráulico Ford/ATE debajo de la caja de fusibles. Etiquetas: Ford F57A-…-AE · ATE 25.0202-0020 (?) y, en el motor de la bomba, ATE 10.0457-1009.3 · 5265 (?). No se cambia salvo avería: estas referencias sirven para buscarlo de segunda mano", "Piezas identificadas"],
+    ["Grupo del ABS", "Bloque hidráulico Ford/ATE debajo de la caja de fusibles. Etiqueta (foto 08/11/2026): Ford F57A-AE · 5268 · ATE 25.0202-0020.4 · código de barras 52005002001151 93. En el motor de la bomba, ATE 10.0457-1009.3 · 5265 (?). No se cambia salvo avería: con estas referencias se busca de segunda mano", "Piezas identificadas"],
+    ["Válvula EGR", "Ford F37E-9D475-C2A (foto 08/11/2026). La de recambio de Ford es la F37Z-9D475-C. Redonda, metálica, detrás del colector de admisión", "Piezas identificadas"],
+    ["Sensor de presión de la EGR (DPFE)", "Ford F48E-9J460-BB (foto 08/11/2026). Placa de aluminio con flecha «UP» y toma «REF». Equivalente: NRF 708049. Si sale la luz del motor por la EGR, suele ser este sensor o sus tubitos de goma", "Piezas identificadas"],
+    ["Correa del motor", "Continental 6PK2215: 6 canales y 2.215 mm (foto 08/11/2026). Hecha en Alemania: ya se cambió alguna vez", "Piezas identificadas"],
+    ["Servofreno", "AlliedSignal Bendix Brakes · Ford F57A-2B559-GC · 7E5270C30308 · 850096 (foto 08/11/2026). Es el tambor negro grande detrás de la bomba de freno", "Piezas identificadas"],
+    ["Cuerpo de mariposa: etiqueta", "Etiqueta casi borrada: se lee «95…», «…D» y «JD 3» (fotos 08/11/2026). Si un día hay que cambiarlo, buscar la referencia grabada en el aluminio al desmontarlo", "Piezas identificadas"],
+    ["Colector de admisión", "Negro, de plástico, con «4.0 EFI» en relieve (foto 08/11/2026)", "Piezas identificadas"],
+    ["Tapón del radiador", "Motorcraft RS-76 · 16 lbs (1,1 bar) · «DO NOT OPEN WHEN HOT» (foto 08/11/2026). Si se cambia, que sea de la misma presión", "Piezas identificadas"],
+    ["Relé de arranque", "En la aleta del lado del conductor, con el cable rojo gordo de la batería. Lleva el aviso «Replace with specified Ford part only»: no poner uno genérico. El número no se ve en la foto (08/11/2026)", "Piezas identificadas"],
+    ["Relés de la caja del motor", "6 relés Ford: 3 grandes F0AB-14B192-AA (5239-1 14 1) y 3 pequeños F57B-14B192-AA, más los 2 diodos (D1 y D2). Si uno falla, se puede probar cambiándolo por otro igual de la misma caja (foto 08/11/2026)", "Piezas identificadas"],
+    ["Relé suelto", "Otro Ford F0AB-14B192-AA en un zócalo rojo, fuera de la caja de fusibles, junto a la aleta. No consta para qué es (foto 08/11/2026)", "Piezas identificadas"],
+    ["Fusibles grandes de la caja del motor", "Foto 08/11/2026: izquierda 60-50-30-30-30-30-30; derecha 60-20-50-20-30-20-30. Hay un 30 A más y un 20 A menos que en la lista del manual: cuando se cambie alguno, comprobar con el dibujo de la tapa", "Piezas identificadas"],
+    ["Fusibles pequeños de la caja del motor", "Foto 08/11/2026: 20-20-15-15 y 10-30-15, con un hueco libre. Son 7 y el manual dice 8: seguramente falta el de la suspensión autonivelante (M5), que este coche no lleva (?)", "Piezas identificadas"],
+    ["Etiqueta de homologaciones", "Ford F57D-7803050-AA, en el vano del motor: E9 (España) 21R 010027 y 11R 02008; E13 (Luxemburgo) 14R 032464, 26R 012465 y 17RA 042420. Son las homologaciones europeas de interior, cerraduras, anclajes de cinturones, salientes y asientos: confirman que es la versión europea", "Piezas identificadas"],
+    ["Bastidor en el salpicadero", "Grabado bajo el parabrisas, junto a «AIR BAG»: empieza por 1FMDU34X… (se ve borroso en la foto del 08/11/2026). Coincide con la placa", "Piezas identificadas"],
     ["Bomba de freno y servofreno", "Depósito del líquido de frenos con tapón negro y pegatina amarilla, con sensor de nivel. Detrás, el servofreno (el tambor grande)", "Piezas identificadas"],
     ["Dirección asistida", "Bomba con el depósito redondo encima (tapón «POWER STEERING – DO NOT OVERFILL»), junto a la correa. Lleva ATF tipo F (manual, pág. 115)", "Piezas identificadas"],
     ["Cuerpo de mariposa", "Al final del tubo de admisión, con el sensor de la mariposa (TPS) y la válvula de ralentí (IAC) encima", "Piezas identificadas"],
@@ -176,7 +190,7 @@ window.DATOS = {
     ["Depósito de la dirección", "Está manchado de aceite por fuera: que miren si pierde", "Que lo mire el taller"],
     ["Aceite junto al colector", "Se ven manchas de aceite cerca de la bobina: que miren las juntas de las tapas de balancines (?)", "Que lo mire el taller"],
     ["Ventilador de la calefacción", "Hay suciedad y restos sueltos alrededor de su caja (bajo el parabrisas, lado del acompañante): conviene limpiarlo", "Que lo mire el taller"],
-    ["Polvo en todo el motor", "Un lavado del motor ayudaría a ver si hay fugas", "Que lo mire el taller"]
+    ["Motor lavado", "Lavado con cuidado el 08/11/2026. Ahora es fácil ver si aparece una fuga nueva: mirar de vez en cuando bajo el capó y bajo el coche", "Que lo mire el taller"]
   ],
 
   // Valores que usan las alertas
@@ -289,7 +303,9 @@ window.DATOS = {
     { f: "2026-11-07", km: 117661, tipo: "mant", t: "Amortiguadores del capó puestos", d: "Los 2 de eBay que llegaron el 2/11." },
     { f: "2026-11-07", km: 117661, tipo: "mant", t: "Revisión general: frenos bien", d: "Se revisó todo el coche. Quedan por cambiar: filtro de aire (urgente, el viejo está muy sucio), filtro de gasolina (el comprado no era el correcto: el original es Motorcraft FG-872), las 6 bujías (llevan NGK Iridium TR55IX y están feas) y la goma y arandela del tapón del cárter." },
     { f: "2026-11-07", km: null, tipo: "mant", t: "Comprados por eBay: 8 bujías Motorcraft SP-486, filtro de aire FA-1616 y tapón del cárter", d: "Bujías 67,54 USD (santafetruckservice), filtro de aire 49,38 USD (gtex_auto), tapón 10,53 GBP (abaqjj1). IVA ya pagado. Llegan del 23 nov al 14 dic." },
-    { f: "2026-11-07", km: null, tipo: "mant", t: "Comprado en Oscaro: filtro de gasolina Mecafilter ELE6014", d: "21,98 € con envío (Paack). Equivale al Motorcraft FG-872, WIX 33296 y Mann WK 78/2." }
+    { f: "2026-11-07", km: null, tipo: "mant", t: "Comprado en Oscaro: filtro de gasolina Mecafilter ELE6014", d: "21,98 € con envío (Paack). Equivale al Motorcraft FG-872, WIX 33296 y Mann WK 78/2." },
+    { f: "2026-11-08", km: null, tipo: "mant", t: "Motor lavado y calcomanía de la revisión puesta", d: "Lavado con cuidado. Calcomanía del cambio de aceite del 07/11/2026 pegada en el travesaño del radiador (próximo cambio a 127.661 km o 11/2027)." },
+    { f: "2026-11-08", km: null, tipo: "doc", t: "Fotos de las piezas del motor con sus referencias", d: "Válvula EGR F37E-9D475-C2A, sensor EGR F48E-9J460-BB, correa Continental 6PK2215, ABS ATE 25.0202-0020.4, servofreno Bendix F57A-2B559-GC, tapón del radiador Motorcraft RS-76, relés y fusibles. Todo en Mi coche › El motor y sus piezas y en Repuestos." }
   ],
 
   documentos: [
@@ -312,7 +328,23 @@ window.DATOS = {
     ["07/11/2026 — Bujía vieja (NGK TR55IX)", "04 Mantenimiento/2026-11-07 Bujia vieja NGK TR55IX.jpg"],
     ["07/11/2026 — Tapón del cárter con goma y arandela", "04 Mantenimiento/2026-11-07 Tapon carter con goma y arandela.jpg"],
     ["07/11/2026 — Refrigerante puesto (AD Plus)", "04 Mantenimiento/2026-11-07 Refrigerante AD Plus organico.jpg"],
-    ["07/11/2026 — Amortiguadores del capó puestos", "04 Mantenimiento/2026-11-07 Amortiguadores capo puestos.jpg"]
+    ["07/11/2026 — Amortiguadores del capó puestos", "04 Mantenimiento/2026-11-07 Amortiguadores capo puestos.jpg"],
+    ["08/11/2026 — Motor lavado", "04 Mantenimiento/2026-11-08 Motor lavado.jpg"],
+    ["08/11/2026 — Calcomanía de la revisión puesta", "04 Mantenimiento/2026-11-08 Calcomania revision puesta.jpg"],
+    ["08/11/2026 — Válvula EGR (F37E-9D475-C2A)", "04 Mantenimiento/2026-11-08 Valvula EGR Ford F37E-9D475-C2A.jpg"],
+    ["08/11/2026 — Sensor de presión EGR (F48E-9J460-BB)", "04 Mantenimiento/2026-11-08 Sensor presion EGR Ford F48E-9J460-BB.jpg"],
+    ["08/11/2026 — Correa del motor (Continental 6PK2215)", "04 Mantenimiento/2026-11-08 Correa motor Continental 6PK2215.jpg"],
+    ["08/11/2026 — Grupo ABS (ATE 25.0202-0020.4)", "04 Mantenimiento/2026-11-08 Grupo ABS Ford F57A-AE ATE 25.0202-0020.4.jpg"],
+    ["08/11/2026 — Servofreno (Bendix F57A-2B559-GC)", "04 Mantenimiento/2026-11-08 Servofreno Bendix F57A-2B559-GC.jpg"],
+    ["08/11/2026 — Tapón del radiador (Motorcraft RS-76)", "04 Mantenimiento/2026-11-08 Tapon radiador Motorcraft RS-76 16 lbs.jpg"],
+    ["08/11/2026 — Caja de fusibles del motor", "04 Mantenimiento/2026-11-08 Caja fusibles motor completa.jpg"],
+    ["08/11/2026 — Relés de la caja del motor", "04 Mantenimiento/2026-11-08 Caja fusibles motor - reles (detalle).jpg"],
+    ["08/11/2026 — Relé suelto (zócalo rojo)", "04 Mantenimiento/2026-11-08 Rele suelto F0AB-14B192-AA (zocalo rojo).jpg"],
+    ["08/11/2026 — Relé de arranque", "04 Mantenimiento/2026-11-08 Rele de arranque (solenoide aleta).jpg"],
+    ["08/11/2026 — Cuerpo de mariposa", "04 Mantenimiento/2026-11-08 Cuerpo de mariposa (etiqueta 95 JD 3).jpg"],
+    ["08/11/2026 — Cuerpo de mariposa, etiqueta de cerca", "04 Mantenimiento/2026-11-08 Cuerpo de mariposa (etiqueta de cerca).jpg"],
+    ["08/11/2026 — Colector «4.0 EFI»", "04 Mantenimiento/2026-11-08 Colector admision 4.0 EFI.jpg"],
+    ["08/11/2026 — Etiqueta de homologaciones (F57D-7803050-AA)", "04 Mantenimiento/2026-11-08 Etiqueta homologaciones Ford F57D-7803050-AA.jpg"]
   ],
 
   pendientes: [
