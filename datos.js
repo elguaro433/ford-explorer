@@ -55,7 +55,7 @@ window.DATOS = {
     ["Mi taller", "La Cúpula Cars · WhatsApp (mensajes y fotos)", "+376 614 700", "Para escribir: toca y se abre WhatsApp", "wa"],
     ["Mi taller", "La Cúpula Cars · para llamar", "+376 824 209", "Av. Tarragona 73, Andorra la Vella (mismo sitio que el Taller San Martín) · lacupulaandorra.com"],
     ["Talleres Ford", "Ford Andorra · Auto Selecció", "+376 803 811", "C/ Dr. Vilanova 5, Andorra la Vella"],
-    ["Talleres Ford", "Ford La Seu d'Urgell · Tallers Valira", "+34 973 351 258", "Ctra. de Lleida a Puigcerdà s/n · L-V 9-13 y 15-19, sáb 9-12"]
+    ["Talleres Ford", "Ford La Seu d'Urgell · Tallers Valira", "+34 973 351 258", "Ctra. de Lleida a Puigcerdà s/n · L-V 9-13 y 15-19, sáb 9-12 · valira@tallersvalira.com (servicio oficial Ford)"]
   ],
 
   // [dato, valor, grupo]
@@ -309,7 +309,7 @@ window.DATOS = {
     { f: "2026-11-08", km: null, tipo: "mant", t: "Motor lavado y calcomanía de la revisión puesta", d: "Lavado con cuidado. Calcomanía del cambio de aceite del 07/11/2026 pegada en el travesaño del radiador (próximo cambio a 127.661 km o 11/2027)." },
     { f: "2026-11-08", km: null, tipo: "doc", t: "Fotos de las piezas del motor con sus referencias", d: "Válvula EGR F37E-9D475-C2A, sensor EGR F48E-9J460-BB, correa Continental 6PK2215, ABS ATE 25.0202-0020.4, servofreno Bendix F57A-2B559-GC, tapón del radiador Motorcraft RS-76, relés y fusibles. Todo en Mi coche › El motor y sus piezas y en Repuestos." },
     { f: "2026-11-08", km: null, tipo: "mant", t: "Bombillas nuevas en las dos puertas delanteras", d: "Cambiadas las bombillas de las dos puertas de delante. Comprobar que se encienden al abrir y se apagan al cerrar." },
-    { f: "2026-11-08", km: null, tipo: "doc", t: "Datos del inmovilizador (el módulo del mando)", d: "Está detrás del panel izquierdo del maletero. Etiqueta: Vehicle Immobiliser modelo VIM150, tipo VIM 179, Bosch nº 9 330 065 180 (el primer dígito puede ser un 0), Ford F67F-14B207-AA, 12 V, Robert Bosch GmbH, hecho en Australia, código 906, S/N 5691400930 (borroso), homologación alemana G108 / T 511D. Con estos números se busca o se programa un 2.º mando." }
+    { f: "2026-11-08", km: null, tipo: "doc", t: "Datos del inmovilizador (el módulo del mando)", d: "Está detrás del panel izquierdo del maletero. Etiqueta: Vehicle Immobiliser modelo VIM150, tipo VIM 179, Bosch nº 9 330 065 180 (el primer dígito puede ser un 0), Ford F67F-14B207-AA, 12 V, Robert Bosch GmbH, hecho en Australia, código 906, S/N 5691400930 (borroso: las 3 últimas cifras pueden ser 830; comprobar en el coche), homologación alemana G108 / T 511D. Con estos números se busca o se programa un 2.º mando." }
   ],
 
   documentos: [
