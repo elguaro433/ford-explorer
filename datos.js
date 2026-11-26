@@ -309,7 +309,7 @@ window.DATOS = {
     { f: "2026-11-08", km: null, tipo: "mant", t: "Motor lavado y calcomanía de la revisión puesta", d: "Lavado con cuidado. Calcomanía del cambio de aceite del 07/11/2026 pegada en el travesaño del radiador (próximo cambio a 127.661 km o 11/2027)." },
     { f: "2026-11-08", km: null, tipo: "doc", t: "Fotos de las piezas del motor con sus referencias", d: "Válvula EGR F37E-9D475-C2A, sensor EGR F48E-9J460-BB, correa Continental 6PK2215, ABS ATE 25.0202-0020.4, servofreno Bendix F57A-2B559-GC, tapón del radiador Motorcraft RS-76, relés y fusibles. Todo en Mi coche › El motor y sus piezas y en Repuestos." },
     { f: "2026-11-26", km: null, tipo: "mant", t: "Fuga de la transmisión: apretada y limpiada", d: "El mecánico apretó la transmisión y la limpió. Vigilar que no vuelva a gotear antes de la ITV (enero de 2027)." },
-    { f: "2026-11-26", km: null, tipo: "mant", t: "Revisado por el mecánico: todo bien", d: "Líquido de frenos en buen estado (no hace falta cambiarlo). Tapón del radiador bueno. Aceite del cambio automático revisado: bien. Aceite de la caja transfer cambiado en el último cambio de aceite. Batería nueva. Neumáticos: tienen 6 años." },
+    { f: "2026-11-26", km: null, tipo: "mant", t: "Revisado por el mecánico: todo bien", d: "Líquido de frenos en buen estado (no hace falta cambiarlo). Tapón del radiador bueno. Aceite del cambio automático revisado: bien. Líquido de la dirección hidráulica cambiado (viejo fuera, nuevo dentro). Batería nueva. Ya tengo la pila de repuesto del mando. Neumáticos: tienen 6 años." },
     { f: "2026-11-26", km: null, tipo: "doc", t: "Libro Haynes 36024 recogido", d: "Ya está en casa el manual de taller (Ford Explorer 1991-2001)." },
     { f: "2026-11-26", km: null, tipo: "mant", t: "Filtro de aire nuevo puesto (Motorcraft FA-1616)", d: "El original de Ford: Motorcraft FA-1616 = Ford F57Z-9601-A (caja de enero de 2020). Lo puse yo. El viejo estaba muy sucio." },
     { f: "2026-11-26", km: null, tipo: "doc", t: "Llegadas las bujías Motorcraft SP-486 (AGSF42FM)", d: "Las originales, de platino: 2 cajas de 4 (8 bujías). Se ponen 6 y sobran 2 de repuesto. Falta montarlas: separación 1,4 mm, con el motor frío y una a una." },
@@ -372,9 +372,8 @@ window.DATOS = {
     { id: "taponCarter", t: "Poner el tapón del cárter nuevo F6TZ-6730-BA (comprado, aún no ha llegado: debía llegar del 23 nov al 7 dic)" },
     { id: "pcv", t: "Comprar y cambiar la válvula PCV (aún no la tengo; sin registro desde 1995)" },
     { id: "fuga", t: "Vigilar que la transmisión no vuelva a gotear (el mecánico la apretó y limpió): que esté seca para la ITV" },
-    { id: "niveles4x4", t: "Revisar el aceite de los diferenciales delantero y trasero (el del cambio y el de la transfer ya están)" },
+    { id: "niveles4x4", t: "Revisar el aceite de la caja transfer y de los diferenciales delantero y trasero (sin registro desde 1998; el del cambio ya está bien)" },
     { id: "parado", t: "Neumáticos: tienen 6 años. Vigilar grietas en los lados y pensar en cambiarlos en uno o dos años" },
-    { id: "pilaMando", t: "Comprar pila de repuesto A23 12 V para el mando" },
     { id: "airbag", t: "Preguntar en el taller por el airbag (tiene 31 años)" },
     { id: "itv2027", t: "Pasar la ITV antes del 31/01/2027" },
     { id: "correaRepuesto", t: "Comprar una correa 6PK2215 de repuesto (unos 20-25 €) y que el taller mire el tensor y la polea" }
@@ -470,6 +469,6 @@ window.DATOS = {
       ["Cada 12 meses", "Examinar los bajos y los paneles inferiores con PVC (protección anticorrosión)"]
     ],
     // Lo que te tocaría a ti ahora
-    tuEstado: "Revisión hecha el 07/11/2026 a 117.661 km: aceite, filtro de aceite, refrigerante y líquido de dirección. Filtro de aire puesto el 26/11/2026. Sábado 5/12/2026: bujías, filtro de gasolina y brazos superiores (luego alinear). Faltan además el tapón del cárter (no ha llegado) y la válvula PCV (sin comprar). Líquido de frenos, tapón del radiador, aceite del cambio y batería: bien según el mecánico."
+    tuEstado: "Revisión hecha el 07/11/2026 a 117.661 km: aceite, filtro de aceite, refrigerante y líquido de dirección. Filtro de aire puesto el 26/11/2026. Sábado 5/12/2026: bujías, filtro de gasolina y brazos superiores (luego alinear). Faltan además el tapón del cárter (no ha llegado) y la válvula PCV (sin comprar). Líquido de frenos, tapón del radiador, aceite del cambio y batería: bien según el mecánico. Sin revisar: transfer y diferenciales."
   }
 };
