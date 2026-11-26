@@ -215,7 +215,7 @@ window.DATOS = {
       ["Revisión general", "Frenos bien"]
     ],
     proximo: "127.661 km o noviembre de 2027",
-    falta: "Todo comprado (llega del 12 nov al 14 dic): bujías, filtro de aire, filtro de gasolina y tapón del cárter. Cuando llegue todo, al taller a montarlo.",
+    falta: "Filtro de aire puesto el 26/11/2026. Falta montar: las 6 bujías (ya en casa), el filtro de gasolina y el tapón del cárter.",
     calcomania: "04 Mantenimiento/2026-11-07 Calcomania revision.png",
     calcomaniaA4: "04 Mantenimiento/2026-11-07 Calcomania revision - hoja A4 x12.pdf"
   },
@@ -224,8 +224,8 @@ window.DATOS = {
   listaCompra: {
     nota: "Pedidos hechos el 07/11/2026 (eBay y Oscaro), con envío a la taquilla STASH de La Seu d'Urgell. El IVA ya está pagado: no hay que pagar nada al recibirlos. Total: unos 145 €.",
     pedidos: [
-      ["8 bujías Motorcraft SP-486 / AGSF42FM (las originales)", "eBay · santafetruckservice", "67,54 USD (≈ 63,84 €)", "30 nov - 10 dic"],
-      ["Filtro de aire Motorcraft FA-1616 (el original)", "eBay · gtex_auto", "49,38 USD (≈ 46,67 €)", "1 - 14 dic"],
+      ["8 bujías Motorcraft SP-486 / AGSF42FM (las originales)", "eBay · santafetruckservice", "67,54 USD (≈ 63,84 €)", "llegadas el 26/11 ✓"],
+      ["Filtro de aire Motorcraft FA-1616 (el original)", "eBay · gtex_auto", "49,38 USD (≈ 46,67 €)", "llegado y puesto el 26/11 ✓"],
       ["Tapón del cárter F6TZ6730BA con su goma", "eBay · abaqjj1 (China)", "10,53 GBP (≈ 12,40 €)", "23 nov - 7 dic"],
       ["Filtro de gasolina Mecafilter ELE6014 (equivale al Motorcraft FG-872)", "Oscaro · Paack a domicilio", "21,98 €", "unos días"]
     ],
@@ -308,6 +308,9 @@ window.DATOS = {
     { f: "2026-11-08", km: null, tipo: "doc", t: "Hecha la 2.ª llave", d: "Copia de la llave. Sigue habiendo un solo mando: sin él, el inmovilizador no deja arrancar." },
     { f: "2026-11-08", km: null, tipo: "mant", t: "Motor lavado y calcomanía de la revisión puesta", d: "Lavado con cuidado. Calcomanía del cambio de aceite del 07/11/2026 pegada en el travesaño del radiador (próximo cambio a 127.661 km o 11/2027)." },
     { f: "2026-11-08", km: null, tipo: "doc", t: "Fotos de las piezas del motor con sus referencias", d: "Válvula EGR F37E-9D475-C2A, sensor EGR F48E-9J460-BB, correa Continental 6PK2215, ABS ATE 25.0202-0020.4, servofreno Bendix F57A-2B559-GC, tapón del radiador Motorcraft RS-76, relés y fusibles. Todo en Mi coche › El motor y sus piezas y en Repuestos." },
+    { f: "2026-11-26", km: null, tipo: "mant", t: "Filtro de aire nuevo puesto (Motorcraft FA-1616)", d: "El original de Ford: Motorcraft FA-1616 = Ford F57Z-9601-A (caja de enero de 2020). Lo puse yo. El viejo estaba muy sucio." },
+    { f: "2026-11-26", km: null, tipo: "doc", t: "Llegadas las bujías Motorcraft SP-486 (AGSF42FM)", d: "Las originales, de platino: 2 cajas de 4 (8 bujías). Se ponen 6 y sobran 2 de repuesto. Falta montarlas: separación 1,4 mm, con el motor frío y una a una." },
+    { f: "2026-11-26", km: null, tipo: "doc", t: "Llegado un brazo superior delantero nuevo (rótula incluida)", d: "Brazo de una pieza con la rótula ya puesta, marca grabada ZWG-CH-033 (no es Moog). Es para quitar el cloc-cloc de las rótulas superiores rotas. Falta montarlo y después alinear la dirección." },
     { f: "2026-11-08", km: null, tipo: "mant", t: "Bombillas nuevas en las dos puertas delanteras", d: "Cambiadas las bombillas de las dos puertas de delante. Comprobar que se encienden al abrir y se apagan al cerrar." },
     { f: "2026-11-08", km: null, tipo: "doc", t: "Datos del inmovilizador (el módulo del mando)", d: "Está detrás del panel izquierdo del maletero. Etiqueta: Vehicle Immobiliser modelo VIM150, tipo VIM 179, Bosch nº 8 330 065 180 (comprobado en el coche), Ford F67F-14B207-AA, 12 V, Robert Bosch GmbH, hecho en Australia, código 906, S/N 5691400900 (comprobado en el coche), homologación alemana G108 / T 511D. Con estos números se busca o se programa un 2.º mando." }
   ],
@@ -348,14 +351,21 @@ window.DATOS = {
     ["08/11/2026 — Cuerpo de mariposa", "04 Mantenimiento/2026-11-08 Cuerpo de mariposa (etiqueta 95 JD 3).jpg"],
     ["08/11/2026 — Cuerpo de mariposa, etiqueta de cerca", "04 Mantenimiento/2026-11-08 Cuerpo de mariposa (etiqueta de cerca).jpg"],
     ["08/11/2026 — Colector «4.0 EFI»", "04 Mantenimiento/2026-11-08 Colector admision 4.0 EFI.jpg"],
-    ["08/11/2026 — Etiqueta de homologaciones (F57D-7803050-AA)", "04 Mantenimiento/2026-11-08 Etiqueta homologaciones Ford F57D-7803050-AA.jpg"]
+    ["08/11/2026 — Etiqueta de homologaciones (F57D-7803050-AA)", "04 Mantenimiento/2026-11-08 Etiqueta homologaciones Ford F57D-7803050-AA.jpg"],
+    ["26/11/2026 — Filtro de aire nuevo y el viejo", "04 Mantenimiento/2026-11-26 Filtro aire nuevo y viejo FA-1616.jpg"],
+    ["26/11/2026 — Caja del filtro de aire (FA-1616 = F57Z-9601-A)", "04 Mantenimiento/2026-11-26 Caja filtro aire FA-1616 F57Z-9601-A.jpg"],
+    ["26/11/2026 — Bujías Motorcraft SP-486 (caja)", "04 Mantenimiento/2026-11-26 Bujias Motorcraft SP-486 AGSF42FM caja.jpg"],
+    ["26/11/2026 — Bujía nueva AGSF42FM", "04 Mantenimiento/2026-11-26 Bujia nueva SP-486 AGSF42FM.jpg"],
+    ["26/11/2026 — Bujía nueva (Motorcraft Platinum)", "04 Mantenimiento/2026-11-26 Bujia nueva Motorcraft Platinum.jpg"],
+    ["26/11/2026 — Brazo superior nuevo (ZWG-CH-033)", "04 Mantenimiento/2026-11-26 Brazo superior nuevo ZWG-CH-033 (arriba).jpg"],
+    ["26/11/2026 — Brazo superior nuevo, la rótula", "04 Mantenimiento/2026-11-26 Brazo superior nuevo (abajo, rotula).jpg"]
   ],
 
   pendientes: [
     { id: "segundaLlave", t: "2.º mando: buscar un Bosch RK112 de Ford de segunda mano y programarlo (Manual › Llave, mando y alarma). Si no, interruptor oculto. La 2.ª llave ya está hecha (08/11/2026)" },
-    { id: "filtroAire", t: "Poner el filtro de aire Motorcraft FA-1616 (comprado, llega 1-14 dic)" },
     { id: "filtroGasolina", t: "Poner el filtro de gasolina Mecafilter ELE6014 (comprado en Oscaro), respetando la flecha" },
-    { id: "bujias6", t: "Poner las 6 bujías Motorcraft SP-486 a 1,4 mm (compradas, llegan 30 nov-10 dic)" },
+    { id: "bujias6", t: "Poner las 6 bujías Motorcraft SP-486 a 1,4 mm (ya en casa desde el 26/11)" },
+    { id: "brazosSup", t: "Montar los brazos superiores delanteros nuevos (rótulas rotas: el cloc-cloc) y después alinear la dirección" },
     { id: "taponCarter", t: "Poner el tapón del cárter nuevo F6TZ-6730-BA (comprado, llega 23 nov-7 dic)" },
     { id: "pcv", t: "Cambiar la válvula PCV (sin registro desde 1995)" },
     { id: "fuga", t: "Reparar la fuga de la transmisión (defecto de la ITV)" },
@@ -461,6 +471,6 @@ window.DATOS = {
       ["Cada 12 meses", "Examinar los bajos y los paneles inferiores con PVC (protección anticorrosión)"]
     ],
     // Lo que te tocaría a ti ahora
-    tuEstado: "Revisión hecha el 07/11/2026 a 117.661 km: aceite, filtro de aceite, refrigerante y líquido de dirección. Faltan: filtro de aire (urgente), filtro de gasolina, las 6 bujías, el tapón del cárter, la válvula PCV, el líquido de frenos y el tapón del radiador."
+    tuEstado: "Revisión hecha el 07/11/2026 a 117.661 km: aceite, filtro de aceite, refrigerante y líquido de dirección. Filtro de aire puesto el 26/11/2026. Faltan: filtro de gasolina, las 6 bujías (ya en casa), el tapón del cárter, la válvula PCV, el líquido de frenos y el tapón del radiador."
   }
 };

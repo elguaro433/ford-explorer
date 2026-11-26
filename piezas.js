@@ -16,13 +16,13 @@ window.PIEZAS = [
   { z: "Motor", n: "Tapón del radiador", ref: "Motorcraft RS-76 · 16 lbs", e: "ok", f: "04 Mantenimiento/2026-11-08 Tapon radiador Motorcraft RS-76 16 lbs.jpg", rp: "Tapón del radiador",
     nota: "1,1 bar. No abrir en caliente." },
   { z: "Motor", n: "Bujía (la vieja)", ref: "NGK Iridium TR55IX", e: "ok", f: "04 Mantenimiento/2026-11-07 Bujia vieja NGK TR55IX.jpg", rp: "Bujías",
-    nota: "Compradas las Motorcraft SP-486 originales para cambiar las 6." },
+    nota: "Las Motorcraft SP-486 originales ya están en casa (26/11): falta ponerlas." },
   { z: "Motor", n: "Tapón del cárter", ref: "Con goma y arandela de cobre", e: "ok", f: "04 Mantenimiento/2026-11-07 Tapon carter con goma y arandela.jpg", rp: "Tapón del cárter",
     nota: "Comprado el nuevo F6TZ-6730-BA." },
 
   // ---- Filtros y líquidos ----
-  { z: "Filtros y líquidos", n: "Filtro de aire", ref: "Motorcraft FA-1616", e: "ok", f: "04 Mantenimiento/2026-11-07 Filtro aire viejo Motorcraft FA-1616.jpg", rp: "Filtro de aire",
-    nota: "Muy sucio. Comprado uno nuevo igual." },
+  { z: "Filtros y líquidos", n: "Filtro de aire", ref: "Motorcraft FA-1616", e: "nueva", f: "04 Mantenimiento/2026-11-26 Filtro aire nuevo y viejo FA-1616.jpg", rp: "Filtro de aire",
+    nota: "Puesto nuevo el 26/11/2026 (a la izquierda en la foto; el viejo, a la derecha). Ford F57Z-9601-A." },
   { z: "Filtros y líquidos", n: "Filtro de gasolina", ref: "Motorcraft FG-872", e: "ok", f: "04 Mantenimiento/2026-11-07 Filtro gasolina original Motorcraft FG-872.jpg", rp: "Filtro de gasolina",
     nota: "Comprado el Mecafilter ELE6014, que es equivalente." },
   { z: "Filtros y líquidos", n: "Refrigerante", ref: "AD Plus orgánico 50 % · ref. 15505", e: "nueva", f: "04 Mantenimiento/2026-11-07 Refrigerante AD Plus organico.jpg", rp: "Refrigerante (anticongelante)",
