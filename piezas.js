@@ -46,8 +46,8 @@ window.PIEZAS = [
 
   { z: "Electricidad", n: "Luz de la puerta delantera (buena)", ref: "GE 168 = W5W (T10)", e: "ok", f: "04 Mantenimiento/2026-11-08 Bombilla puerta GE 168 (buena).webp", rp: "Luz de las puertas",
     nota: "Cuña de cristal, unos 5 W." },
-  { z: "Electricidad", n: "Luz de la puerta delantera (fundida)", ref: "GE 168 = W5W (T10)", e: "comprobar", f: "04 Mantenimiento/2026-11-08 Bombilla puerta fundida (negra).webp", rp: "Luz de las puertas",
-    nota: "Cristal negro: está fundida. Se cambia por una W5W LED blanca." },
+  { z: "Electricidad", n: "Luz de la puerta delantera", ref: "GE 168 = W5W (T10)", e: "nueva", f: "04 Mantenimiento/2026-11-08 Bombilla puerta GE 168 (buena).webp", rp: "Luz de las puertas",
+    nota: "Cambiadas las de las dos puertas delanteras el 08/11/2026: funcionan." },
 
   // ---- Carrocería y etiquetas ----
   { z: "Carrocería", n: "Amortiguadores del capó", ref: "eBay 405990031235", e: "nueva", f: "04 Mantenimiento/2026-11-07 Amortiguadores capo puestos.jpg", rp: "Amortiguadores del capó",

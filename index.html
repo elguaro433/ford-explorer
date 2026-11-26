@@ -220,13 +220,13 @@
 <div id="visor"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=73"></script>
-<script src="manual.js?v=73"></script>
-<script src="imagenes.js?v=73"></script>
-<script src="botones.js?v=73"></script>
-<script src="fusibles.js?v=73"></script>
-<script src="repuestos.js?v=73"></script>
-<script src="piezas.js?v=73"></script>
+<script src="datos.js?v=74"></script>
+<script src="manual.js?v=74"></script>
+<script src="imagenes.js?v=74"></script>
+<script src="botones.js?v=74"></script>
+<script src="fusibles.js?v=74"></script>
+<script src="repuestos.js?v=74"></script>
+<script src="piezas.js?v=74"></script>
 <script>
 const D = window.DATOS, R = window.REPUESTOS || { consejos: [], piezas: [] }, PZ = window.PIEZAS || [], M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -769,7 +769,7 @@ function pintarCompra() {
 
     <h2>El anuncio</h2>
     <div class="card">
-      <img class="foto-anuncio" src="${DOCS}${encodeURI(A.foto)}" alt="Anuncio del Ford Explorer en Wallapop" loading="lazy">
+      ${LOCAL && A.foto ? `<img class="foto-anuncio" src="${DOCS}${encodeURI(A.foto)}" alt="Anuncio del Ford Explorer en Wallapop" loading="lazy">` : ""}
       <b>${esc(A.titulo)}</b>
       <p class="muted" style="margin:4px 0 8px">${esc(A.texto)}</p>
       <a href="${A.url}" target="_blank" rel="noopener">Ver el anuncio en Wallapop</a>
