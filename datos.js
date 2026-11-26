@@ -222,12 +222,9 @@ window.DATOS = {
 
   // Lista de compra de lo que falta (precios vistos el 08/11/2026, con envío a España)
   listaCompra: {
-    nota: "Pedidos hechos el 07/11/2026 (eBay y Oscaro), con envío a la taquilla STASH de La Seu d'Urgell. El IVA ya está pagado: no hay que pagar nada al recibirlos. Total: unos 145 €.",
+    nota: "Lo demás que se pidió el 07/11/2026 ya llegó (bujías, filtro de aire y filtro de gasolina). Solo falta el tapón del cárter.",
     pedidos: [
-      ["8 bujías Motorcraft SP-486 / AGSF42FM (las originales)", "eBay · santafetruckservice", "67,54 USD (≈ 63,84 €)", "llegadas el 26/11 ✓"],
-      ["Filtro de aire Motorcraft FA-1616 (el original)", "eBay · gtex_auto", "49,38 USD (≈ 46,67 €)", "llegado y puesto el 26/11 ✓"],
-      ["Tapón del cárter F6TZ6730BA con su goma", "eBay · abaqjj1 (China)", "10,53 GBP (≈ 12,40 €)", "aún no ha llegado (debía, del 23 nov al 7 dic)"],
-      ["Filtro de gasolina Mecafilter ELE6014 (equivale al Motorcraft FG-872)", "Oscaro · Paack a domicilio", "21,98 €", "llegado ✓"]
+      ["Tapón del cárter F6TZ6730BA con su goma", "eBay · abaqjj1 (China)", "10,53 GBP (≈ 12,40 €)", "del 23 nov al 7 dic (aún no)"]
     ],
     opciones: [],
     ojo: [
@@ -292,8 +289,6 @@ window.DATOS = {
     { f: "2026-10-25", km: null,   tipo: "doc",  t: "Fotos de ruedas, radio y pegatina de fábrica", d: "Neumáticos Cooper Discoverer AT3 4S 255/70 R16 de octubre de 2020, llantas cromadas Ford de 16 pulgadas, radio Pioneer DEH-2300UB. Todo en Mi coche › Ruedas, radio y fábrica." },
     { f: "2026-10-26", km: null,   tipo: "doc",  t: "Carta groga nueva a mi nombre", d: "Permiso de circulación del Registre de Vehicles: titular y propietario Emmanuel. El original está solo en el PC." },
     { f: "2026-10-27", km: null,   tipo: "mant", t: "Presupuesto de piezas en AD Tecnomòbil (Andorra la Vella)", d: "Tienen, con un 20 % de descuento: filtro de aceite Mann W940/1 (7,96 €), junta del tapón del cárter (0,47 €), filtro de gasolina Mann WK614/46 (12,74 €), bujías Bosch 0242229737 (2,40 € cada una) y aceite Castrol 5W-30 LL 5 L (116,37 €, caro). No tienen filtro de aire ni válvula PCV. Precios PVP antes del descuento." },
-    { f: "2026-10-27", km: null,   tipo: "mant", t: "Pedida cita al Taller San Martín", d: "Por correo: cambio de aceite y filtros, bujías, PCV y revisión general (fuga de la transmisión, freno delantero derecho, niveles 4x4). Al final se hizo en La Cúpula Cars." },
-    { f: "2026-10-28", km: null,   tipo: "mant", t: "Cita en el taller La Cúpula Cars para el 10/11/2026 (anulada: la revisión se hizo el 07/11)", d: "Av. Tarragona 73, Andorra la Vella (mismo sitio que el Taller San Martín). Cambio de aceite y filtros, bujías, PCV y revisión general (fuga de la transmisión, freno delantero derecho, niveles 4x4)." },
     { f: "2026-10-28", km: null,   tipo: "doc",  t: "Fotos del motor: piezas identificadas", d: "Bobina Ford 90TF-12029-A1A, batería Varta E11 74 Ah, caja del filtro de aire redonda y más. Todo en Mi coche › El motor y sus piezas." },
     { f: "2026-10-12", km: 117496, tipo: "itv",  t: "ITV Favorable con defecto LEVE", d: "8.1.7.1 Fuga en cárteres de la transmisión. Tarifa fuera de plazo 49,10 €. Con placas de prueba 435. Freno delantero 10 % descompensado." },
     { f: "2026-11-07", km: 117661, tipo: "mant", t: "Cambio de aceite y filtro de aceite", d: "Aceite Sparco Mapetrol Competition C3 5W-30. Próximo cambio a 127.661 km (o en un año). El tapón del cárter se volvió a poner con su goma y su arandela de cobre viejas: hay que cambiarlas (o el tapón entero) en el próximo cambio." },
