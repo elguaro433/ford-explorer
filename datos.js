@@ -52,8 +52,9 @@ window.DATOS = {
     ["Si el coche se para", "Asistencia Multisegur en Andorra", "+376 860 366", "Grúa, avería, pinchazo, batería. Si no contesta: +376 321 432"],
     ["Si el coche se para", "Asistencia Multisegur fuera de Andorra", "+34 933 001 050", "España, Francia y resto de Europa"],
     ["Seguro", "Multisegur (oficina y partes)", "+376 808 808", "Póliza 10043515 · WhatsApp +376 626 808"],
-    ["Mi taller", "La Cúpula Cars · WhatsApp (mensajes y fotos)", "+376 614 700", "Para escribir: toca y se abre WhatsApp", "wa"],
-    ["Mi taller", "La Cúpula Cars · para llamar", "+376 824 209", "Av. Tarragona 73, Andorra la Vella (mismo sitio que el Taller San Martín) · lacupulaandorra.com"],
+    ["Mi mecánico", "Hotman Mts · WhatsApp", "+376 660 088", "El que le ha hecho todo al coche (revisión, fuga, filtros). Servicio automotor en Andorra, abierto 24 h. Toca y se abre WhatsApp", "wa"],
+    ["Otros talleres", "La Cúpula Cars · WhatsApp (mensajes y fotos)", "+376 614 700", "Para escribir: toca y se abre WhatsApp", "wa"],
+    ["Otros talleres", "La Cúpula Cars · para llamar", "+376 824 209", "Av. Tarragona 73, Andorra la Vella (mismo sitio que el Taller San Martín) · lacupulaandorra.com"],
     ["Talleres Ford", "Ford Andorra · Auto Selecció", "+376 803 811", "C/ Dr. Vilanova 5, Andorra la Vella"],
     ["Talleres Ford", "Ford La Seu d'Urgell · Tallers Valira", "+34 973 351 258", "Ctra. de Lleida a Puigcerdà s/n · L-V 9-13 y 15-19, sáb 9-12 · valira@tallersvalira.com (servicio oficial Ford)"]
   ],
@@ -212,7 +213,8 @@ window.DATOS = {
       ["Líquido de dirección", "Cambiado"],
       ["Líquido refrigerante", "AD Plus orgánico rosa, 50 %, protege hasta −40 °C"],
       ["Amortiguadores del capó", "Puestos"],
-      ["Revisión general", "Frenos bien"]
+      ["Revisión general", "Frenos bien"],
+      ["Hecha por", "Hotman Mts, mi mecánico (Teléfonos › Mi mecánico)"]
     ],
     proximo: "127.661 km o noviembre de 2027",
     falta: "Filtro de aire puesto el 26/11/2026. Falta montar: las 6 bujías (ya en casa), el filtro de gasolina y el tapón del cárter.",
@@ -303,8 +305,8 @@ window.DATOS = {
     { f: "2026-11-08", km: null, tipo: "mant", t: "Motor lavado y calcomanía de la revisión puesta", d: "Lavado con cuidado. Calcomanía del cambio de aceite del 07/11/2026 pegada en el travesaño del radiador (próximo cambio a 127.661 km o 11/2027)." },
     { f: "2026-11-08", km: null, tipo: "doc", t: "Fotos de las piezas del motor con sus referencias", d: "Válvula EGR F37E-9D475-C2A, sensor EGR F48E-9J460-BB, correa Continental 6PK2215, ABS ATE 25.0202-0020.4, servofreno Bendix F57A-2B559-GC, tapón del radiador Motorcraft RS-76, relés y fusibles. Todo en Mi coche › El motor y sus piezas y en Repuestos." },
     { f: "2026-11-25", km: null, tipo: "seguro", t: "Seguro: 2.ª cuota cobrada (113,42 €)", d: "Multisegur, póliza 10043515, cargo por el banco del periodo 23/11 al 23/12/2026. Queda la 3.ª cuota (113,42 €) a finales de diciembre." },
-    { f: "2026-11-26", km: null, tipo: "mant", t: "Fuga de la transmisión: apretada y limpiada", d: "El mecánico apretó la transmisión y la limpió. Vigilar que no vuelva a gotear antes de la ITV (enero de 2027)." },
-    { f: "2026-11-26", km: null, tipo: "mant", t: "Revisado por el mecánico: todo bien", d: "Líquido de frenos en buen estado (no hace falta cambiarlo). Tapón del radiador bueno. Aceite del cambio automático revisado: bien. Líquido de la dirección hidráulica cambiado (viejo fuera, nuevo dentro). Batería nueva. Ya tengo la pila de repuesto del mando. Neumáticos: tienen 6 años." },
+    { f: "2026-11-26", km: null, tipo: "mant", t: "Fuga de la transmisión: apretada y limpiada", d: "El mecánico (Hotman Mts) apretó la transmisión y la limpió. Vigilar que no vuelva a gotear antes de la ITV (enero de 2027)." },
+    { f: "2026-11-26", km: null, tipo: "mant", t: "Revisado por el mecánico (Hotman Mts): todo bien", d: "Líquido de frenos en buen estado (no hace falta cambiarlo). Tapón del radiador bueno. Aceite del cambio automático revisado: bien. Líquido de la dirección hidráulica cambiado (viejo fuera, nuevo dentro). Batería nueva. Ya tengo la pila de repuesto del mando. Neumáticos: tienen 6 años." },
     { f: "2026-11-26", km: null, tipo: "doc", t: "Libro Haynes 36024 recogido", d: "Ya está en casa el manual de taller (Ford Explorer 1991-2001)." },
     { f: "2026-11-26", km: null, tipo: "mant", t: "Filtro de aire nuevo puesto (Motorcraft FA-1616)", d: "El original de Ford: Motorcraft FA-1616 = Ford F57Z-9601-A (caja de enero de 2020). Lo puse yo. El viejo estaba muy sucio." },
     { f: "2026-11-26", km: null, tipo: "doc", t: "Llegadas las bujías Motorcraft SP-486 (AGSF42FM)", d: "Las originales, de platino: 2 cajas de 4 (8 bujías). Se ponen 6 y sobran 2 de repuesto. Falta montarlas: separación 1,4 mm, con el motor frío y una a una." },
