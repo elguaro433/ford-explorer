@@ -193,6 +193,57 @@
   .hit:last-child { border-bottom: 0; }
   .hit .tag { font-size: 12px; color: var(--muted); }
   mark { background: #ffe58a; color: #000; border-radius: 3px; }
+
+  /* ---------- Mantenimiento realizado ---------- */
+  .mr-dia { background: var(--card); border: 1px solid var(--line); border-radius: 12px; padding: 12px 14px; margin-bottom: 10px; }
+  .mr-dia h3 { margin: 0 0 4px; font-size: 17px; font-variant-numeric: tabular-nums; }
+  .mr-dia h3 small { font-weight: 400; color: var(--muted); font-size: 14px; }
+  .mr-it { display: flex; gap: 10px; padding: 8px 0; border-top: 1px solid var(--line); }
+  .mr-it::before { content: "✔"; color: var(--ok); font-weight: 700; flex: none; }
+  .mr-it div { flex: 1; min-width: 0; }
+  .mr-it small { display: block; color: var(--muted); font-size: 14px; }
+  .mr-it .movil { display: inline-block; margin-top: 4px; font-size: 12px; font-weight: 600; color: var(--warn); }
+  .mr-it button { border: 0; background: none; color: var(--muted); font: inherit; font-size: 13px; text-decoration: underline; cursor: pointer; padding: 4px 0 0; }
+
+  /* ---------- Etiqueta (5 × 6,5 cm, colores fijos para que salga igual impresa) ---------- */
+  .etq { width: 50mm; height: 65mm; display: flex; flex-direction: column; background: #fff; color: #111; border: 1.2mm solid #1a5241; border-radius: 3.5mm; overflow: hidden;
+    font-family: Arial, Helvetica, sans-serif; -webkit-print-color-adjust: exact; print-color-adjust: exact; break-inside: avoid; }
+  .etq .eh { background: #1a5241; color: #fff; text-align: center; padding: 1.4mm 1mm 1.2mm; }
+  .etq .eh b { display: block; font-size: 10pt; line-height: 1.1; letter-spacing: .02em; text-transform: uppercase; }
+  .etq .eh small { display: block; font-size: 5.6pt; margin-top: .4mm; }
+  .etq .eb { flex: 1; min-height: 0; display: flex; flex-direction: column; padding: 1.2mm 2.4mm 0; }
+  .etq .ef { border-bottom: .3mm solid #c3d1cc; padding: .5mm 0 .7mm; }
+  .etq .ef span, .etq .ec > span { display: block; font-size: 5.4pt; color: #555; line-height: 1.2; }
+  .etq .ef b { display: block; font-size: 11pt; line-height: 1.1; font-variant-numeric: tabular-nums; }
+  .etq .ef b.m { font-size: 7pt; line-height: 1.2; }
+  .etq .fila { display: flex; gap: 2.5mm; } .etq .fila .ef { flex: 1; min-width: 0; }
+  .etq .ec { flex: 1; min-height: 0; overflow: hidden; padding-top: .6mm; }
+  .etq .ec ul { list-style: none; margin: .3mm 0 0; padding: 0; }
+  .etq .ec li { font-size: 7pt; font-weight: 700; line-height: 1.25; padding-left: 3.4mm; position: relative; }
+  .etq .ec li::before { content: "✓"; position: absolute; left: 0; color: #1a5241; }
+  .etq.muchos .ec li { font-size: 5.8pt; line-height: 1.18; }
+  .etq.muchisimos .ec ul { columns: 2; column-gap: 1.5mm; } .etq.muchisimos .ec li { font-size: 5.2pt; }
+  .etq .ep { background: #fde9b0; margin: 1mm 1.4mm 1.4mm; border-radius: 2mm; text-align: center; padding: .8mm 1mm; }
+  .etq .ep span { display: block; font-size: 5.6pt; font-weight: 700; letter-spacing: .03em; }
+  .etq .ep b { display: block; font-size: 9pt; font-variant-numeric: tabular-nums; }
+  .prev { display: flex; justify-content: center; margin: 6px 0 14px; }
+  .prev .etq { zoom: 1.6; }
+  @media (max-width: 360px) { .prev .etq { zoom: 1.35; } }
+  .lista-it { margin: 0 0 8px; }
+  .lista-it div { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid var(--line); }
+  .lista-it div span { flex: 1; }
+  .lista-it button { flex: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 50%; background: var(--bg); color: var(--text); font: inherit; cursor: pointer; }
+  .anadir { display: flex; gap: 8px; margin-bottom: 8px; }
+  .anadir input { flex: 1; min-width: 0; font: inherit; font-size: 16px; padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: var(--card); color: var(--text); }
+  .anadir .btn { width: auto; margin: 0; }
+  #hoja { display: none; }
+  @media print {
+    @page { size: A4; margin: 10mm; }
+    body { background: #fff; }
+    body > *:not(#hoja) { display: none !important; }
+    #hoja { display: grid !important; grid-template-columns: repeat(3, 50mm); gap: 4mm; justify-content: center; }
+    #hoja.una { grid-template-columns: 50mm; justify-content: start; }
+  }
 </style>
 </head>
 <body>
@@ -214,19 +265,22 @@
   <section id="sirve"></section>
   <section id="fallos"></section>
   <section id="manual"></section>
+  <section id="hecho"></section>
+  <section id="etiqueta"></section>
   <section id="coche"></section>
 </main>
 <div id="detalleBoton"></div>
 <div id="visor"></div>
+<div id="hoja" aria-hidden="true"></div>
 
 <!-- Cambiar el número de v= en cada publicación para que el móvil no use la versión guardada -->
-<script src="datos.js?v=77"></script>
-<script src="manual.js?v=77"></script>
-<script src="imagenes.js?v=77"></script>
-<script src="botones.js?v=77"></script>
-<script src="fusibles.js?v=77"></script>
-<script src="repuestos.js?v=77"></script>
-<script src="piezas.js?v=77"></script>
+<script src="datos.js?v=78"></script>
+<script src="manual.js?v=78"></script>
+<script src="imagenes.js?v=78"></script>
+<script src="botones.js?v=78"></script>
+<script src="fusibles.js?v=78"></script>
+<script src="repuestos.js?v=78"></script>
+<script src="piezas.js?v=78"></script>
 <script>
 const D = window.DATOS, R = window.REPUESTOS || { consejos: [], piezas: [] }, PZ = window.PIEZAS || [], M = window.MANUAL || [], IMG = window.IMAGENES || {}, B = window.BOTONES || [];
 const HOY = new Date();
@@ -251,7 +305,7 @@ const dibujos = titulo => (IMG[titulo] || []).length
 // ---------- Pestañas ----------
 const TABS = [["inicio", "Inicio"], ["fallos", "Problemas"], ["piezas", "Piezas"], ["telefonos", "Teléfonos"], ["coche", "Mi coche"]];
 // Páginas sin pestaña: se abren con un botón y se cierran con «‹ Volver» (o el atrás del móvil).
-const SUB = { gasolina: "Gasolina", repuestos: "Comprar repuestos", sirve: "Luces y botones", manual: "Manual" };
+const SUB = { gasolina: "Gasolina", repuestos: "Comprar repuestos", sirve: "Luces y botones", manual: "Manual", hecho: "Mantenimiento realizado", etiqueta: "Etiqueta para imprimir" };
 const volver = id => `<button class="btn volverSec" onclick="history.back()">‹ Volver</button><h2 style="margin-top:4px">${SUB[id]}</h2>`;
 $("#tabs").innerHTML = TABS.map(([id, t]) => `<button data-t="${id}">${t}</button>`).join("");
 function abrir(id, sinHistorial) {
@@ -335,7 +389,7 @@ const guardarLlenos = () => store.set("gasolina", llenos);
 const num = v => { const n = parseFloat(String(v).replace(/\s/g, "").replace(",", ".")); return isFinite(n) ? n : null; };
 const n1 = (n, d = 1) => n.toLocaleString("es-ES", { minimumFractionDigits: d, maximumFractionDigits: d });
 const eur = n => n1(n, 2) + " €";
-function kmHoy() { return Math.max(D.estado.kmActual, ...llenos.map(r => r.km)); }
+function kmHoy() { return Math.max(D.estado.kmActual, ...llenos.map(r => r.km), ...store.get("hechoMovil", []).map(r => r.km || 0)); }
 function calcLlenos() {
   const L = llenos.slice().sort((a, b) => a.km - b.km || a.f.localeCompare(b.f));
   let prev = null, ultLleno = null, litrosDesde = 0;
@@ -464,6 +518,10 @@ function pintarInicio() {
       <button class="btn prim" id="btnRepostar">⛽ Apuntar gasolina</button>
       <button class="btn" id="btnMecanico">🔧 Datos al mecánico</button>
     </div>
+    <div class="fila2" style="margin:8px 0 0">
+      <button class="btn" data-ir="hecho">✅ Mantenimiento realizado</button>
+      <button class="btn" data-ir="etiqueta">🏷️ Etiqueta para imprimir</button>
+    </div>
     ${(() => { const av = avisos().filter(a => a[0] !== "ok"); return av.length ? `<h2>Avisos</h2>${av.map(([c, t, d]) => `<div class="alert ${c}"><b>${esc(t)}</b><small>${esc(d)}</small></div>`).join("")}` : ""; })()}
     <h2>Pendiente (${pend})</h2>
     <p class="intro">Márcalo cuando lo hagas.</p>
@@ -471,6 +529,7 @@ function pintarInicio() {
     ${pend < D.pendientes.length ? `<details><summary>Ya hecho (${D.pendientes.length - pend})</summary><div>${D.pendientes.filter(p => hechos[p.id]).map(tarea).join("")}</div></details>` : ""}`;
   $("#btnRepostar").onclick = () => { abrir("gasolina"); setTimeout(() => $("#gKm")?.focus(), 50); };
   $("#btnMecanico").onclick = mandarMecanico;
+  $("#inicio").querySelectorAll("[data-ir]").forEach(b => b.onclick = () => abrir(b.dataset.ir));
   $("#inicio").querySelectorAll("input[type=checkbox]").forEach(c => c.onchange = () => {
     if (c.checked) hechos[c.dataset.id] = HOY.toISOString().slice(0, 10); else delete hechos[c.dataset.id];
     store.set("hechos", hechos); pintarInicio();
@@ -715,6 +774,7 @@ function pintarCoche() {
         ${D.motor.filter(f => f[2] === g).map(([k, v]) => `<div class="dato"><span>${esc(k)}</span>${esc(v)}</div>`).join("")}`).join("")}</div></details>
 
     <details class="grupo"><summary>Mantenimiento</summary><div>
+      <div class="fila2" style="margin-bottom:6px"><button class="btn" data-ir="hecho">✅ Mantenimiento realizado</button><button class="btn" data-ir="etiqueta">🏷️ Etiqueta para imprimir</button></div>
       ${RV ? `<h2>Última revisión</h2>
       <div class="rp">
         <div class="f muted">${fmtF(RV.f)} · ${km(RV.km)}</div>
@@ -750,6 +810,7 @@ function pintarCoche() {
 
     <details class="grupo"><summary>Papeles y fotos</summary><div>${docs}</div></details>`;
   $("#irGasolina").onclick = () => abrir("gasolina");
+  $("#coche").querySelectorAll("[data-ir]").forEach(b => b.onclick = () => abrir(b.dataset.ir));
 }
 
 // ---------- Mi compra ----------
@@ -776,7 +837,116 @@ function pintarCompra() {
     </div>`;
 }
 
-function pintarTodo() { pintarInicio(); pintarGasolina(); pintarTelefonos(); pintarRepuestos(); pintarPiezas(); pintarSirve(); pintarFallos(); pintarManual(); pintarCoche(); pintarCompra(); buscar(); }
+
+// ---------- Mantenimiento realizado ----------
+// Todo lo hecho al coche, por días. Sale de datos.js (lo que se le cuenta a Claude) más lo que apuntes tú
+// desde la etiqueta (eso se guarda solo en este móvil hasta que Claude lo pase a datos.js).
+const noEsTrabajo = t => /^(Pedid|Comprad|Presupuesto)/i.test(t);
+function pintarHecho() {
+  const movil = store.get("hechoMovil", []);
+  const todo = D.historial.filter(e => e.tipo === "mant" && !noEsTrabajo(e.t)).map(e => ({ ...e }))
+    .concat(movil.map(e => ({ ...e, movil: true })));
+  const dias = lista => {
+    const g = {};
+    lista.forEach(e => (g[e.f] = g[e.f] || []).push(e));
+    return Object.keys(g).sort((a, b) => b.localeCompare(a)).map(f => {
+      const kmDia = Math.max(0, ...g[f].map(e => e.km || 0));
+      return `<div class="mr-dia"><h3>${fmtF(f)}${kmDia ? ` <small>· ${km(kmDia)}</small>` : ""}</h3>
+        ${g[f].map(e => `<div class="mr-it"><div><b>${esc(e.t)}</b>${e.d ? `<small>${esc(e.d)}</small>` : ""}${e.movil ? `<span class="movil">Apuntado en este móvil</span> <button data-borra="${e.id}">Borrar</button>` : ""}</div></div>`).join("")}</div>`;
+    }).join("");
+  };
+  const mio = todo.filter(e => e.f >= "2026-10-23"), antes = todo.filter(e => e.f < "2026-10-23");
+  $("#hecho").innerHTML = `${volver("hecho")}
+    <p class="intro">Todo lo que se le ha hecho al coche desde que es tuyo, lo más nuevo arriba.</p>
+    <button class="btn prim" data-ir="etiqueta">🏷️ Hacer la etiqueta para imprimir</button>
+    ${dias(mio) || `<p class="muted">Aún no hay nada.</p>`}
+    ${antes.length ? `<details><summary>Antes de que fuera tuyo (1996–2021)</summary><div>${dias(antes)}</div></details>` : ""}`;
+  $("#hecho").querySelector("[data-ir]").onclick = () => abrir("etiqueta");
+  $("#hecho").querySelectorAll("[data-borra]").forEach(b => b.onclick = () => {
+    if (!confirm("¿Borrar esto de la lista de este móvil?")) return;
+    store.set("hechoMovil", store.get("hechoMovil", []).filter(e => e.id !== b.dataset.borra)); pintarHecho(); pintarInicio();
+  });
+}
+
+// ---------- Etiqueta para imprimir ----------
+const COMUNES = ["Aceite de motor", "Filtro de aceite", "Filtro de aire", "Filtro de gasolina", "Bujías", "Líquido de dirección", "Refrigerante", "Líquido de frenos", "Tapón del cárter", "Aire acondicionado", "Brazos superiores", "Alineación"];
+const proxFecha = f => { const [a, m] = f.split("-"); return m + "/" + (+a + 1); };
+function etqPorDefecto() {
+  const RV = D.revision, k = RV.km || kmHoy(), f = RV.f || new Date().toISOString().slice(0, 10);
+  const aceite = (RV.hecho.find(h => /aceite de motor/i.test(h[0])) || [])[1] || "";
+  return { titulo: "Cambio de aceite", f, km: k, aceite, items: ["Filtro de aceite", "Líquido de dirección", "Refrigerante AD Plus 50 %"], proxKm: k + 10000, proxF: proxFecha(f) };
+}
+let etq = store.get("etiqueta", null) || etqPorDefecto();
+const guardarEtq = () => store.set("etiqueta", etq);
+function htmlEtiqueta(e) {
+  const n = e.items.length, cls = n > 9 ? "muchisimos" : n > 5 ? "muchos" : "";
+  return `<div class="etq ${cls}"><div class="eh"><b>${esc(e.titulo || "Mantenimiento")}</b><small>Ford Explorer 4.0 V6 · C9389</small></div>
+    <div class="eb"><div class="fila"><div class="ef"><span>Fecha</span><b>${esc(e.f ? fmtF(e.f) : "")}</b></div><div class="ef"><span>Km</span><b>${e.km ? (+e.km).toLocaleString("es-ES") : ""}</b></div></div>
+    ${e.aceite ? `<div class="ef"><span>Aceite de motor</span><b class="m">${esc(e.aceite)}</b></div>` : ""}
+    ${n ? `<div class="ec"><span>Cambiado / hecho</span><ul>${e.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul></div>` : `<div class="ec"></div>`}</div>
+    ${e.proxKm || e.proxF ? `<div class="ep"><span>PRÓXIMO CAMBIO</span><b>${[e.proxKm ? (+e.proxKm).toLocaleString("es-ES") + " km" : "", e.proxF || ""].filter(Boolean).join(" · ")}</b></div>` : ""}</div>`;
+}
+function pintarEtiqueta() {
+  const e = etq;
+  $("#etiqueta").innerHTML = `${volver("etiqueta")}
+    <p class="intro">Cambia lo que quieras: la etiqueta de abajo se actualiza sola. Mide 5 × 6,5 cm.</p>
+    <div class="prev" id="etqPrev">${htmlEtiqueta(e)}</div>
+    <div class="fila2"><button class="btn prim" id="etqImp1">🖨️ Imprimir 1</button><button class="btn" id="etqImp12">🖨️ Hoja A4 (12)</button></div>
+    <h2>Datos</h2>
+    <div class="card">
+      <label class="campo">Título<input id="eTit" value="${esc(e.titulo)}" maxlength="22" autocomplete="off"></label>
+      <div class="chips">${["Cambio de aceite", "Mantenimiento", "Revisión"].map(t => `<button class="chip ${t === e.titulo ? "on" : ""}" data-tit="${t}">${t}</button>`).join("")}</div>
+      <div class="fila2">
+        <label class="campo">Fecha<input id="eF" type="date" value="${esc(e.f)}"></label>
+        <label class="campo">Kilómetros<input id="eKm" inputmode="numeric" value="${esc(e.km)}" autocomplete="off" placeholder="Ej.: ${kmHoy()}"></label>
+      </div>
+      <label class="campo">Aceite de motor (déjalo vacío si no se cambió)<input id="eAc" value="${esc(e.aceite)}" maxlength="60" autocomplete="off"></label>
+    </div>
+    <h2>Lo que se le ha hecho</h2>
+    <div class="card">
+      <div class="lista-it">${e.items.map((it, i) => `<div><span>✓ ${esc(it)}</span><button data-q="${i}" aria-label="Quitar ${esc(it)}">✕</button></div>`).join("") || `<p class="muted" style="margin:0">Nada todavía: toca abajo o escríbelo.</p>`}</div>
+      <p class="muted" style="margin:0 0 6px">Toca para añadir:</p>
+      <div class="chips">${COMUNES.filter(c => !e.items.includes(c)).map(c => `<button class="chip" data-add="${esc(c)}">+ ${esc(c)}</button>`).join("")}</div>
+      <div class="anadir"><input id="eNuevo" placeholder="Otra cosa…" maxlength="40" autocomplete="off"><button class="btn" id="eAdd">Añadir</button></div>
+    </div>
+    <h2>Próximo cambio</h2>
+    <div class="card">
+      <div class="fila2">
+        <label class="campo">A los km<input id="ePk" inputmode="numeric" value="${esc(e.proxKm)}" autocomplete="off"></label>
+        <label class="campo">Mes/año<input id="ePf" value="${esc(e.proxF)}" placeholder="11/2027" maxlength="7" autocomplete="off"></label>
+      </div>
+      <p class="muted" style="margin:0">Se calcula solo: +10.000 km y +1 año. Puedes cambiarlo.</p>
+    </div>
+    <button class="btn prim" id="eApuntar">✅ Apuntarlo en Mantenimiento realizado</button>
+    <button class="btn" id="eReset">↺ Volver a la de la última revisión</button>
+    <p class="muted">Lo que apuntes aquí se guarda en este móvil. Díselo a Claude para que quede guardado para siempre en la app.</p>`;
+  const prev = () => { $("#etqPrev").innerHTML = htmlEtiqueta(etq); guardarEtq(); };
+  const soloNum = v => String(v).replace(/\D/g, "");
+  $("#eTit").oninput = ev => { etq.titulo = ev.target.value; prev(); };
+  $("#etiqueta").querySelectorAll("[data-tit]").forEach(b => b.onclick = () => { etq.titulo = b.dataset.tit; guardarEtq(); pintarEtiqueta(); });
+  $("#eF").onchange = ev => { etq.f = ev.target.value; if (etq.f) { etq.proxF = proxFecha(etq.f); $("#ePf").value = etq.proxF; } prev(); };
+  $("#eKm").oninput = ev => { etq.km = soloNum(ev.target.value); etq.proxKm = etq.km ? +etq.km + 10000 : ""; $("#ePk").value = etq.proxKm; prev(); };
+  $("#eAc").oninput = ev => { etq.aceite = ev.target.value; prev(); };
+  $("#ePk").oninput = ev => { etq.proxKm = soloNum(ev.target.value); prev(); };
+  $("#ePf").oninput = ev => { etq.proxF = ev.target.value; prev(); };
+  $("#etiqueta").querySelectorAll("[data-q]").forEach(b => b.onclick = () => { etq.items.splice(+b.dataset.q, 1); guardarEtq(); pintarEtiqueta(); });
+  $("#etiqueta").querySelectorAll("[data-add]").forEach(b => b.onclick = () => { etq.items.push(b.dataset.add); guardarEtq(); pintarEtiqueta(); });
+  const anadir = () => { const v = $("#eNuevo").value.trim(); if (!v) return; etq.items.push(v); guardarEtq(); pintarEtiqueta(); $("#eNuevo").focus(); };
+  $("#eAdd").onclick = anadir; $("#eNuevo").onkeydown = ev => { if (ev.key === "Enter") anadir(); };
+  const imprimir = n => { const h = $("#hoja"); h.className = n === 1 ? "una" : ""; h.innerHTML = Array(n).fill(htmlEtiqueta(etq)).join(""); setTimeout(() => window.print(), 50); };
+  $("#etqImp1").onclick = () => imprimir(1);
+  $("#etqImp12").onclick = () => imprimir(12);
+  $("#eReset").onclick = () => { if (confirm("¿Volver a la etiqueta de la última revisión? Se pierden los cambios.")) { etq = etqPorDefecto(); guardarEtq(); pintarEtiqueta(); } };
+  $("#eApuntar").onclick = () => {
+    if (!etq.f || (!etq.items.length && !etq.aceite)) { alert("Pon la fecha y al menos una cosa hecha."); return; }
+    const hecho = (etq.aceite ? ["Aceite de motor: " + etq.aceite] : []).concat(etq.items);
+    const L = store.get("hechoMovil", []);
+    L.push({ id: Date.now().toString(36), f: etq.f, km: etq.km ? +etq.km : null, t: etq.titulo || "Mantenimiento", d: hecho.join(" · ") });
+    store.set("hechoMovil", L); pintarHecho(); pintarInicio(); abrir("hecho");
+  };
+}
+
+function pintarTodo() { pintarInicio(); pintarGasolina(); pintarTelefonos(); pintarRepuestos(); pintarPiezas(); pintarSirve(); pintarFallos(); pintarManual(); pintarCoche(); pintarCompra(); pintarHecho(); pintarEtiqueta(); buscar(); }
 pintarTodo();
 let t0 = "inicio"; try { t0 = localStorage.getItem("fe_tab") || "inicio"; } catch {}
 abrir(TABS.some(t => t[0] === t0) ? t0 : "inicio", true);
